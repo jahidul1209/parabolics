@@ -1,0 +1,85 @@
+.screen-btn2 {
+    padding: 10px 10px;
+    background: #0f121f;
+    border-radius: 5px;
+    color: #efefef;
+    margin-left: 0px;
+    font-size: 14px;
+    width: 200px;
+}
+.rre {
+    display: grid;
+}
+
+.trtr {
+    text-align: right;
+}
+.ws-card {
+    background: #0b4a32;
+    width: 18%;
+    margin: 5px;
+    padding: 15px;
+    border-radius: 5px;
+}
+.stockws {
+    display: flex;
+    justify-content: space-between;
+}
+.watchlist.mt-3 {
+    display: flex;
+    flex-wrap: wrap;
+}
+.ws-card h4 {
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 15px;
+}
+button.btn.btn-sm.btn-outline-light {
+    padding: 0px 5px;
+}
+
+.modal-backdrop {
+    position: unset;
+    background-color: none;
+}
+h5#watchlistsModalLabel {
+    color: black;
+}
+.modal-body input {
+    background: white;
+    border: 1px solid #8a8d9352;
+}
+.lcose {
+    display: flex;
+    justify-content: space-between;
+}
+.btnClass {
+    background: transparent;
+    border: none;
+    padding: 10px;
+    margin-top: -15px;
+    color: #ffffff59;
+    font-size: 20px;
+}
+.btnClass:hover {
+    background: transparent;
+    border: none;
+    padding: 10px;
+    margin-top: -15px;
+    color: #ffffff;
+    font-size: 20px;
+    transition: .25s;
+}
+@media only screen and (max-width: 768px) {
+.ws-card {
+    background: #0b4a32;
+    width: 31%;
+    margin: 5px;
+    padding: 15px;
+    border-radius: 5px;
+}
+.trtr {
+    text-align: right;
+    display: flex;
+}
+}

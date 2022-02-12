@@ -1,0 +1,97 @@
+.monitor-page {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 3px solid #006e0c;
+    border-radius: 20px;
+    background-image: url('https://videohive.img.customer.envatousercontent.com/files/4f06a537-ffd9-43fa-bdb5-efb43105b4fc/inline_image_preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=fd627d364563e675ec950cf437f75d7f');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.monitor-main-row-wrapper,
+.monitor-row-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.monitor-summary-row-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 840px;
+}
+
+.monitor-main-row,
+.monitor-row,
+.monitor-summary-row {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.monitor-main-row, .monitor-row {
+    border-bottom: 1px solid #006e0c;
+    color: #e1e1e1;
+}
+
+.monitor-news-icon {
+    width: 30px;
+    height: 30px;
+    background: white;
+}
+
+.monitor-news-icon:hover {
+    width: 32px;
+    height: 32px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.profit-row {
+    color: #17ff30;
+}
+
+.loss-row {
+    color: red;
+}
+
+.monitor-fetch-prices {
+    background: black;
+    color: white;
+}
+
+.monitor-fetch-prices:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+.monitor-page {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 3px solid #006e0c;
+    border-radius: 20px;
+    background-image: url(https://videohive.img.customer.envatousercontent.com/files/4f06a537-ffd9-43fa-bdb5-efb43105b4fc/inline_image_preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=fd627d3…);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+}
+@media only screen and (max-width: 420px) {
+.monitor-page {
+    width: 140%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 3px solid #006e0c;
+    border-radius: 20px;
+    background-image: url(https://videohive.img.customer.envatousercontent.com/files/4f06a537-ffd9-43fa-bdb5-efb43105b4fc/inline_image_preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=fd627d3…);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+}

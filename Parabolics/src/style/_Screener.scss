@@ -1,0 +1,142 @@
+.nav-tabs {
+    border-bottom: 1px solid #40444b;
+    background: #060916;
+    border-top: 1px solid #40444b;
+    padding: 0px 35%!important;
+}
+.sectioncls .nav-tabs {
+    border-bottom: 1px solid #40444b;
+    background: #060916;
+    border-top: 1px solid #40444b;
+    padding:0px 12% !important;
+}
+.nav-link:hover, .nav-link:focus {
+    color: #18d260;
+}
+.nav-link {
+    color: #ffffff;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #83f3a9;
+    background-color: #22252a;
+    border-color: #40444b;
+}
+
+.screen-btn {
+    padding: 3px 10px;
+    background: #0f121f;
+    border-radius: 5px;
+    color: #efefef;
+    margin-left: 15px;
+    font-size: 12px;
+    width: 150px;
+}
+.form-label {
+    margin-bottom: 0.5rem;
+    font-size: .9rem;
+    color: #c5c5c5;
+    display: flex;
+    align-items: center;
+}
+.positn form {
+    float: right;
+}
+.stockChart {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cchart {
+    width: 30%;
+    margin: 10px;
+}
+
+
+@media only screen and (min-width: 768px ) and (max-width: 1024px ) {
+    .screen-btn {
+        padding: 3px 15px;
+        background: #0f121f;
+        border-radius: 5px;
+        color: #efefef;
+        margin-left: 10px;
+        font-size: 10px;
+    }
+
+.nav-tabs {
+    border-bottom: 1px solid #40444b;
+    background: #060916;
+    border-top: 1px solid #40444b;
+    padding: 0px 25% !important;
+}
+.table > :not(:last-child) > :last-child > * {
+    border-bottom-color: #343a40;
+    color: #e9e9e9 !important;
+    font-size: 12px !important;
+}
+
+
+.cchart {
+    width: 50%;
+    margin: 0px;
+}
+
+.ws-card {
+    background: #0b4a32;
+    width: 24%;
+    margin: 4px;
+    padding: 15px;
+    border-radius: 5px;
+}
+.trtr {
+    text-align: right;
+    display: flex;
+}
+.card-header {
+    padding: 0.25rem 0.5rem;
+    margin-bottom: 0;
+    background-color: #2d3035;
+    border-bottom: 0 solid rgba(0, 0, 0, 0.125);
+}
+}
+
+@media only screen and (min-width: 1080px ) and (max-width: 1400px ) {
+.nav-tabs {
+    border-bottom: 1px solid #40444b;
+    background: #060916;
+    border-top: 1px solid #40444b;
+    padding: 0px 25% !important;
+}
+.screen-btn {
+    padding: 3px 5px;
+    background: #0f121f;
+    border-radius: 5px;
+    color: #efefef;
+    margin-left: 5px;
+    font-size: 12px;
+    width: 100px;
+}
+.form-label {
+    margin-bottom: 0.5rem;
+    font-size: .7rem;
+    color: #c5c5c5;
+    display: flex;
+    align-items: center;
+}
+
+.cchart {
+    width: 50%;
+    margin: 0px;
+}
+
+.ws-card {
+    background: #0b4a32;
+    width: 24%;
+    margin: 4px;
+    padding: 15px;
+    border-radius: 5px;
+}
+.trtr {
+    text-align: right;
+    display: flex;
+}
+}

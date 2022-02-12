@@ -1,0 +1,40 @@
+.company-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.table th {
+    color: #ffffff!important;
+    text-align: left;
+}
+@media only screen and (min-width: 768px ) and (max-width: 1368px ) {
+    .tv-lightweight-charts {
+      width: 345px!important;
+    }
+    .tv-lightweight-charts canvas {
+      width: 100%!important;
+    }
+    .tv-lightweight-charts table {
+      width: 330px!important;
+    }
+    }
+@media only screen and (min-width:768px ) {
+    iframe {
+        width: 100%!important;
+    }
+}
+@media only screen and (min-width:768px ) and (max-width: 1024px ) {
+    iframe {
+        width: 40%!important;
+    }
+}
+@media only screen and (min-width:1024px ) and (max-width: 1280px ) {
+    iframe {
+        width: 65%!important;
+    }
+    }
+@media only screen and (min-width:1280px ) and (max-width: 1400px ) {
+iframe {
+    width: 70%!important;
+}
+}
