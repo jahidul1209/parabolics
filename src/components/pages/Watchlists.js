@@ -9,7 +9,6 @@ function Watchlists(props) {
     const [watchlist, setWatchlist] = useState('0')
     const [storeData, setStoreData] = useState([])
     const [count, setCount] = useState('0')
-    const [high, setHigh] = useState('0')
     const [inExits, setinExits] = useState('0')
     const [maxValue, setMaxValue] = useState('0')
     const [minValue, setMinValue] = useState('0')
@@ -26,7 +25,7 @@ function Watchlists(props) {
 
   
                 for(var i = 0 ; i  < storeData.length ; i++){
-                       if(storeData[i].symbol == searchInput){
+                       if(storeData[i].symbol === searchInput){
                                 return  inExits + 1    
                             }
                             setinExits (inExits)
@@ -36,12 +35,12 @@ function Watchlists(props) {
               const maxChange =   Math.max.apply(Math, storeData.map(function(o) { return o.beta; }))
               const minChange =   Math.min.apply(Math, storeData.map(function(o) { return o.beta; }))
 
-                    for(var i = 0 ; i  < storeData.length ; i++){
-                        if(storeData[i].beta == maxChange){
-                                  setMaxValue(storeData[i].symbol);
+                    for(var k = 0 ; k  < storeData.length ; k++){
+                        if(storeData[k].beta === maxChange){
+                                  setMaxValue(storeData[k].symbol);
                         }
-                        if(storeData[i].beta == minChange){
-                              setMinValue(storeData[i].symbol)
+                        if(storeData[k].beta === minChange){
+                              setMinValue(storeData[k].symbol)
                         }
                     }
 

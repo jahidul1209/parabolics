@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import { Container , Tabs , Tab, Form ,Row, Col ,Table} from 'react-bootstrap'
+import { Container,Row, Col ,Table} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import InsiderTrading from '../../InsiderTrading';
 
@@ -114,7 +114,7 @@ class Basic extends Component {
                                         </tr>
                                         <tr>
                                             <th>Website</th>
-                                            <td><a href={d.website} target= '_blank'>{d.website}</a></td>
+                                            <td><a href={d.website} target= '_blank' rel="noreferrer">{d.website}</a></td>
                                         </tr>
                                         </tbody>
                                     </Table>

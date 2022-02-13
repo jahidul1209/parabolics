@@ -16,14 +16,14 @@ function MarketSummary(props) {
           .then(
             (result) => {
                 result.map(item => {
-                  if(item.sector == "Energy"){
+                  if(item.sector === "Energy"){
                     setEnergy(item.changesPercentage.slice(0, -1))
-                }else if(item.sector == "Technology"){
+                }else if(item.sector === "Technology"){
                     setTechnology(item.changesPercentage.slice(0, -1))
-                }else if(item.sector =="Basic Materials"){
+                }else if(item.sector ==="Basic Materials"){
                     setBasicMaterials(item.changesPercentage.slice(0, -1))
                 }
-                else if(item.sector =="Healthcare"){
+                else if(item.sector ==="Healthcare"){
                     setHealthcare(item.changesPercentage.slice(0, -1))
                 }
             })

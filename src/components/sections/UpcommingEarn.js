@@ -10,7 +10,7 @@ function UpcommingEarn(props) {
     const last3days = previus.toISOString().slice(0, 10)
 
     var fdate
-    if(props.calender == today){
+    if(props.calender === today){
          fdate = last3days
     }else{
          fdate = props.calender

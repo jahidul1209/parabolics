@@ -9,7 +9,6 @@ import Performance from './sub-screener/Performance';
 import Technical from './sub-screener/Technical';
 import Custom from './sub-screener/Custom';
 import Chart from './sub-screener/Chart';
-import { Link } from 'react-router-dom';
 import Basic from './sub-screener/Basic';
 import NewsSub from './sub-screener/NewsSub';
 import SnapShort from './sub-screener/SnapShort';
@@ -41,7 +40,7 @@ function AllScreen(props) {
              setCount(response.data.length);
              const gainData =  response.data.map((d, key) => {
                 return  {
-                    sl: key,
+                    sl: key + 1,
                     ticker: d.symbol,
                     company:d.companyName,
                     sector:d.sector,

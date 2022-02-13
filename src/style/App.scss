@@ -16,6 +16,7 @@ $btn-bg-color: #0f121f;
 @import 'Portfolio';
 @import 'LiveTrade';
 @import 'Crypto';
+@import 'Reddit';
 body {
   margin: 0;
   font-size: 1rem;
@@ -70,7 +71,9 @@ td {
   border-bottom-width: 1px;
   box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
 }
-
+.mdb-datatable.dt-bootstrap4 {
+  overflow: auto;
+}
 .form-control-sm {
   background: transparent;
 }

@@ -1,8 +1,7 @@
 import React from "react"
-import { Container, Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import styles from "../Styles/Widget.module.css"
 import {FaFacebookF,FaTwitter,FaInstagram,FaYoutube,FaPinterestP} from "react-icons/fa"
-import { Link } from "react-router-dom";
 import Logo from "../../Assets/Images/logo.png"
 const Footer = () => {
     return(

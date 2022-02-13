@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import { MDBDataTableV5 } from 'mdbreact';
-import { Container , Tabs , Tab, Form ,Row, Col ,Table} from 'react-bootstrap'
+import { Container,Row, Col ,Table} from 'react-bootstrap'
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import { Link } from 'react-router-dom';
 import News from '../../../pages/News';
@@ -121,7 +120,7 @@ class NewsSub extends Component {
                                         </tr>
                                         <tr>
                                             <th>Website</th>
-                                            <td><a href={d.website} target= '_blank'>{d.website}</a></td>
+                                            <td><a href={d.website} target= '_blank' rel="noreferrer">{d.website}</a></td>
                                         </tr>
                                         </tbody>
                                     </Table>

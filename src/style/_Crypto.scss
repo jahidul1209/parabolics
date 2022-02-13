@@ -1,12 +1,6 @@
-.screener {
-    background: $background-color;
-    padding: 3rem;
-}
+
 @media only screen and (max-width: 420px) {
-    .screener {
-        background: #060916;
-        padding: 3rem 2rem;
-    }
+
     .nav-tabs .nav-link {
         margin-bottom: -1px;
         background: none;
@@ -44,10 +38,7 @@
     }
     
     @media only screen and (min-width: 420px) and (max-width: 540px) {
-        .screener {
-            background: #060916;
-            padding: 3rem 5rem;
-        }
+
         .nav-tabs .nav-link {
             margin-bottom: -1px;
             background: none;
@@ -78,10 +69,6 @@
         }
 
         @media only screen and (min-width: 768px ) and (max-width: 980px ) {
-        .screener {
-            background: #060916;
-            padding: 3rem 5rem;
-        }
 
         .positn {
             flex: 0 0 auto;
@@ -102,11 +89,7 @@
 
         }
         @media only screen and (min-width: 980px ) and (max-width: 1024px ) {
-            .screener {
-                background: #060916;
-                padding: 3rem 7rem;
-            }
-    
+
             .positn {
                 flex: 0 0 auto;
                 width: 50%;

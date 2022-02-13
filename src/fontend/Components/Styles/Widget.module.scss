@@ -15,6 +15,20 @@
 }
 
 @media only screen and (max-width: 767px) {
+    span.navbar-brand img {
+        width: 50%;
+    }
+    .lazy__load{
+        position: unset;
+        left: 0;
+        right: 0;
+        transition: all .5s ease-in-out;
+        z-index: 99;
+        background: #07284b;
+    }
+    span.navbar-brand img {
+        width: 50%;
+    }
     .header{
         .nav__wrapper{
             .nav__menu{
@@ -58,7 +72,7 @@
             color: white;
             text-decoration: none;
             position: relative;
-            margin: 0px 15px;
+            margin: 10px 15px;
             padding-bottom: 2px;
             &:before {
                 content: "";

@@ -1,4 +1,4 @@
-// import DefaultLayout from './components/layouts/DefaultLayout';
+import React, { useEffect} from 'react';
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 import './style/App.css';
 import "./fontend/Assets/Styles/styles.css"
@@ -15,9 +15,7 @@ import Insider from "./components/pages/Insider";
 import Watchlists from "./components/pages/Watchlists";
 import Portfolios from "./components/pages/Portfolios";
 import LiveTrade from "./components/pages/LiveTrade";
-import Apewisdom from "./components/pages/Apewisdom";
-
-
+import Reddit from "./components/pages/Reddit";
 //Pages (Presentational Components)
 import Fontpage from "./fontend/Pages/Fontpage";
 import Pricing from "./fontend/Pages/Pricing";
@@ -25,12 +23,24 @@ import Login from "./fontend/Pages/Login";
 import Signup from "./fontend/Pages/Signup";
 import PublicRoute from "./fontend/Layouts/PublicRoute"
 import PublicRouteDash from "./components/layouts/PublicRouteDash";
+import { createBrowserHistory } from "history";
+const history = createBrowserHistory();
+
 function App() {
+    useEffect(() => {
+      const script = document.createElement('script');
+      script.src = "../public/js/front.js";
+      script.async = true;
+      document.body.appendChild(script);
+    return () => {
+        document.body.removeChild(script);
+      }
+    }, []);
   return (
     <div className="App">
-       <BrowserRouter>     
+           <BrowserRouter >     
             
-                       <Routes>
+                       <Routes history={history}>
                           <Route path="/" element={<PublicRoute/>}>
                             <Route index element={<Fontpage/>}/>
                             <Route path="/pricing" element={<Pricing/>}/>
@@ -51,7 +61,7 @@ function App() {
                                 <Route path="/watchlists" element={<Watchlists/>} />  
                                 <Route path="/portfolio" element={<Portfolios/>} />
                                 <Route path="/livetrade" element={<LiveTrade/>} />
-                                <Route path="/apewisdom" element={<Apewisdom/>} />
+                                <Route path="/reddit" element={<Reddit/>} />
                             </Route>
 
                          </Routes>

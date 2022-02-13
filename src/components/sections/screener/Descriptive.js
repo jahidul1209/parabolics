@@ -41,7 +41,7 @@ function Descriptive(props) {
              setCount(response.data.length);
             const gainData =  response.data.map((d, key) => {
                 return  {
-                    sl: key,
+                    sl: key + 1,
                     symbol:d.symbol,
                     ticker: <Link to = {`/chart/${d.symbol}`}>{d.symbol}</Link>,
                     company:d.companyName,
@@ -432,7 +432,10 @@ function Descriptive(props) {
                                     id="noanim-tab"
                                     >
                                     <Tab eventKey="overview" title="Overview">
-                                        <Overview  rowData = {rowData} count = {count} />                        
+                                    {
+                                       rowData  &&   <Overview  rowData = {rowData} count = {count} /> 
+                                    } 
+                                                             
                                     </Tab>
                                         
                                     <Tab eventKey="valuation" title="Valuation">

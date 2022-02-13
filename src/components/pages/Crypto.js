@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useRef  } from 'react';
-import { Container , Tabs , Tab, Form ,Row, Col} from 'react-bootstrap'
-import { createChart,CrosshairMode } from "lightweight-charts";
-import axios from "axios";    
+import React from 'react';
+import {Tabs , Tab} from 'react-bootstrap' 
 import CryptoTable from '../sections/CryptoTable';
 import CryptoCards from '../sections/CryptoCards';
 import CryptoChart from '../sections/CryptoChart';

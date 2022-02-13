@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Container , Tabs , Tab, Form ,Row, Col ,Table} from 'react-bootstrap'
+import { Container, Row, Col ,Table} from 'react-bootstrap'
 import { MDBDataTableV5 } from 'mdbreact';
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 const TradingChart = () => {
   const {id} = useParams()
@@ -72,7 +71,7 @@ const TradingChart = () => {
                   return  {
                       ticker: d.symbol,
                       date:  d.publishedDate,
-                      title: <a href  = {d.url} target="_blank">{ d.title}</a>, 
+                      title: <a href  = {d.url} target="_blank" rel="noreferrer">{ d.title}</a>, 
                     }
             });
                  setRowData(gainData)

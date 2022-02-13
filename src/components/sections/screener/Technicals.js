@@ -40,7 +40,7 @@ function Technicals(props) {
              setCount(response.data.length);
              const gainData =  response.data.map((d, key) => {
                 return {
-                    sl: key,
+                    sl: key + 1,
                     ticker: <Link to = {`/chart/${d.symbol}`}>{d.symbol}</Link>,
                     company:d.companyName,
                     sector:d.sector,

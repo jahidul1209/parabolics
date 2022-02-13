@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { createChart ,CrosshairMode } from 'lightweight-charts';
 
 function IntradayPriceChart(props) {
@@ -6,9 +6,7 @@ function IntradayPriceChart(props) {
     const chartRefSPY = useRef();
     const chartRefQQQ = useRef();
     const chartRefDOW = useRef();
-    const [error, setError] = useState([]);
-    const chartContainerRef = useRef();
-    const chart = useRef();
+
       const chartDesign = {
         width: 450,
         height: 360,

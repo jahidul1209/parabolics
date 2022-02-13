@@ -13,7 +13,7 @@ const BannerContent = () => {
             <h6 className={`${styles.sub__heading}`}>& Optimizing Performance With Artifical Intelligence</h6>
             <button className={`${styles.btn}`}>Learn More</button>
             <Link to = '/stock'>
-                  <button className={`${styles.btn}`}>Explore Tradytics Tools</button>
+                  <button className={`${styles.btn}`}>Explore Parabolics Tools</button>
             </Link>
           
             

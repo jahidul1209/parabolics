@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { MDBDataTableV5 } from 'mdbreact';
 import { Container } from 'react-bootstrap';
 
-function Apewisdom(props) {
+function Reddit(props) {
     const [rowData, setRowData] = useState([])
-
+    const[reddit, setReddit] = useState('all-stocks');
     useEffect(() => {
-        fetch("https://apewisdom.io/api/v1.0/filter/all-stocks")
+        fetch(`https://apewisdom.io/api/v1.0/filter/${reddit}`)
         .then(response => response.json())
         .then(results => { 
             const gainData =  results.results.map(( d, key) => {
@@ -29,7 +29,7 @@ function Apewisdom(props) {
                     console.log(error);
                 });
 
-     }, [])
+     }, [reddit])
      const datatable = {
         columns: [
             {
@@ -83,15 +83,20 @@ function Apewisdom(props) {
     return (
         <div>
            <div className="bg-dash-dark-2 py-4">
-                    <div className="container-fluid">
-                    <h2 className="h5 mb-0">Ape Wisdom </h2>
+                    <div className="container-fluid reddit-head">
+                    <h2 className="h5 mb-0">Reddit </h2>
+                      <select class="screen-btn reddit-select" onChange={(e)=>  setReddit(e.target.value)}>
+                          <option selected value="all-stocks">All Stocks</option>
+                          <option value="stocks">Stocks</option>
+                          <option value="all-crypto">Cryptos</option>
+                        </select>
                 </div>
             </div>
             <Container fluid className='mt-3'>
                 <div className ="col-md-12">
                         <div className ="card py-3 px-3">
                             <div className = 'pt-3 pb-2 py-2 px-2  '>
-                                <h3 style = {{marginBottom:'3px'}}>Ape Wisdom Stocks</h3>
+                                <h3 style = {{marginBottom:'3px'}}>Reddit Stocks</h3>
                                 <p style = {{color:'#666666 '}}>Data includes pre-market & post-market movers as well. Stars are gappers.</p>
                             </div>
                             <MDBDataTableV5 hover entriesOptions={[20, 50, 100]} entries={20} pagesAmount={4} data={datatable} />
@@ -102,4 +107,4 @@ function Apewisdom(props) {
     );
 }
 
-export default Apewisdom;
+export default Reddit;

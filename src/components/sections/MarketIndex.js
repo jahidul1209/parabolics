@@ -12,7 +12,7 @@ function MarketIndex(props) {
           .then(
             (result) => {
               const gainData =  result.map(d => {
-                if(d.symbol.slice(0 ,1) == '^' ){
+                if(d.symbol.slice(0 ,1) === '^' ){
                   const symbol = d.symbol.slice(1)
                   return  {
                     ticker: <Link to = {`/chart/${symbol}`}>{symbol}</Link>,

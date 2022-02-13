@@ -6,7 +6,7 @@ function InsiderTransactions(props) {
   const  today = new Date().toISOString().slice(0, 10);
     const [rowData, setRowData] = useState()
    var fdate
-   if(props.calender == today){
+   if(props.calender === today){
         fdate = '2021-01-31'
    }else{
         fdate = props.calender

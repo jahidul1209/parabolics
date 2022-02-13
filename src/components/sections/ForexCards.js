@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef  } from 'react';
+import React, { useEffect, useState  } from 'react';
 import { Container ,Row, Col} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
@@ -44,7 +44,7 @@ function ForexCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                       {   
-                                     d.symbol == "JPYUSD" ? 
+                                     d.symbol === "JPYUSD" ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>JPY/USD</h4>
@@ -70,7 +70,7 @@ function ForexCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'SGDTHB' ? 
+                                     d.symbol === 'SGDTHB' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>SGD/THB</h4>
@@ -97,7 +97,7 @@ function ForexCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'MDLUSD' ? 
+                                     d.symbol === 'MDLUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>MDL/USD</h4>
@@ -122,7 +122,7 @@ function ForexCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'KRWCAD' ? 
+                                     d.symbol === 'KRWCAD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>KRW/CAD</h4>
@@ -149,7 +149,7 @@ function ForexCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'IDRUSD' ? 
+                                     d.symbol === 'IDRUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>IDR/USD</h4>
@@ -175,7 +175,7 @@ function ForexCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'USDNGN' ? 
+                                     d.symbol === 'USDNGN' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>USD/NGN</h4>
@@ -202,7 +202,7 @@ function ForexCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'AUDPHP' ? 
+                                     d.symbol === 'AUDPHP' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>AUD/PHP</h4>
@@ -227,7 +227,7 @@ function ForexCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'SEKDKK' ? 
+                                     d.symbol === 'SEKDKK' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>SEK/DKK</h4>

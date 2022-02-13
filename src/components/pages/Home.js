@@ -1,6 +1,5 @@
-import React, {Component, useEffect, useState } from 'react';
+import React, {Component } from 'react';
 
-import { MDBDataTableV5 } from 'mdbreact';
 import SectorPreform from '../sections/SectorPreform';
 import IntradayPriceChart from '../sections/IntradayPriceChart';
 import BiggestLosser from '../sections/BiggestLosser';

@@ -1,0 +1,21 @@
+.reddit-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reddit-select {
+    width: 10%;
+    padding: 6px;
+    font-size: 15px;
+}
+.reddit-select:focus{
+    border: 1px solid #18d26e;
+}
+
+@media only screen and (max-width: 768px ){
+    .reddit-select {
+        width: 45%;
+        padding: 6px;
+        font-size: 15px;
+    }
+}

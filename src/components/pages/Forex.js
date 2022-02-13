@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useRef  } from 'react';
-import { Container , Tabs , Tab, Form ,Row, Col} from 'react-bootstrap'
-import { createChart,CrosshairMode } from "lightweight-charts";
-import axios from "axios";    
+import React from 'react';
+import {  Tabs , Tab} from 'react-bootstrap'   
 
 import ForexTable from '../sections/ForexTable';
 import ForexCards from '../sections/ForexCards';
@@ -10,19 +8,6 @@ import ForexChart from '../sections/ForexCharts';
 
 
 function Forex(props) {
-     const [rowData, setRowData] = useState([])
-
-
-        useEffect(() => {
-            fetch("https://financialmodelingprep.com/api/v3/quotes/forex?apikey=9f8bf374d13311bf6527af0ea58ebdb6")
-            .then(response => response.json())
-            .then(results =>  
-                 setRowData(results))
-            .catch(error => {
-                        console.log(error);
-                    });
-   
-         }, [])
 
     return (
         <div>

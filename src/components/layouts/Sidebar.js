@@ -83,11 +83,11 @@ function Sidebar() {
                   </NavLink>
               </li>
               <li className="sidebar-item">
-                 <NavLink  to = '/apewisdom'className="sidebar-link"> 
+                 <NavLink  to = '/Reddit'className="sidebar-link"> 
                       <span className="svg-icon svg-icon-sm svg-icon-heavy">
                             <i class="fab fa-accusoft"></i>
                        </span>
-                      <span> Ape Wisdom </span> 
+                      <span>Reddit </span> 
                   </NavLink>
               </li>
               <li className="sidebar-item">

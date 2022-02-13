@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef  } from 'react';
+import React, { useEffect, useState  } from 'react';
 import { Container ,Row, Col} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
@@ -44,7 +44,7 @@ function CryptoCards(props) {
                                rowData.map( ( d )=> {      
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
-                                      {  d.symbol == 'BTCUSD' ? 
+                                      {  d.symbol === 'BTCUSD' ? 
                                         <Row className='cry-card' style={myStyle}>                             
                                             <Col xs={6} md={6} >
                                                     <h4>BTC/USD</h4>
@@ -70,7 +70,7 @@ function CryptoCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'ETHUSD' ? 
+                                     d.symbol === 'ETHUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>ETH/USD</h4>
@@ -97,7 +97,7 @@ function CryptoCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'LTCUSD' ? 
+                                     d.symbol === 'LTCUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>LTC/USD</h4>
@@ -122,7 +122,7 @@ function CryptoCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'XRPUSD' ? 
+                                     d.symbol === 'XRPUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>XRP/USD</h4>
@@ -149,7 +149,7 @@ function CryptoCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'BCHUSD' ? 
+                                     d.symbol === 'BCHUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>BCH/USD</h4>
@@ -175,7 +175,7 @@ function CryptoCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'XYOUSD' ? 
+                                     d.symbol === 'XYOUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>XYO/USD</h4>
@@ -202,7 +202,7 @@ function CryptoCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'CFGUSD' ? 
+                                     d.symbol === 'CFGUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>CFG/USD</h4>
@@ -227,7 +227,7 @@ function CryptoCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'LTOUSD' ? 
+                                     d.symbol === 'LTOUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>LTO/USD</h4>
@@ -254,7 +254,7 @@ function CryptoCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'TLMUSD' ? 
+                                     d.symbol === 'TLMUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>TLM/USD</h4>
@@ -280,7 +280,7 @@ function CryptoCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'STRKUSD' ? 
+                                     d.symbol === 'STRKUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>STRK/USD</h4>
@@ -307,7 +307,7 @@ function CryptoCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'GTNUSD' ? 
+                                     d.symbol === 'GTNUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>GTN/USD</h4>
@@ -332,7 +332,7 @@ function CryptoCards(props) {
                                    return(
                                     <Link to = {`/chart/${d.symbol}`}>
                                     {
-                                     d.symbol == 'QRKUSD' ? 
+                                     d.symbol === 'QRKUSD' ? 
                                      <Row className='cry-card' style={myStyle}>                             
                                         <Col xs={6} md={6} >
                                                 <h4>QRK/USD</h4>
