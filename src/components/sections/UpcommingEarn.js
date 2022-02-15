@@ -17,7 +17,6 @@ function UpcommingEarn(props) {
     } 
 
 function fetchData(){
-  console.log(props.calender)
         fetch(`https://financialmodelingprep.com/api/v3/earning_calendar?from=${fdate}&to=${today}&apikey=9f8bf374d13311bf6527af0ea58ebdb6`) //https://finnhub.io/ API  https://finnhub.io/api/v1/calendar/earnings?from=${today}&to=${props.calender}&token=c7jrb0iad3i887nsjm60
           .then(res => res.json())
           .then(

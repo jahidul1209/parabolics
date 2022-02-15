@@ -20,7 +20,6 @@ function Header() {
                         // item.symbol.toLowerCase() === searchInput.toLowerCase()
                     );              
                 })   
-                console.log(filteredData)
             }
         const  searchList = ()=> {
             return (
@@ -55,10 +54,10 @@ function Header() {
         <Marquee  pauseOnHover={true} gradient={false} speed={50}> 
         {
                    dataActive &&
-                     dataActive.map(d =>{
+                     dataActive.map((d, key) =>{
                             return(
-                                    <p >
-                                         <Link to = {`/chart/${d.symbol}`}>
+                                    <p key={key}>
+                                         <Link to = {`/chart/${d.symbol}`} >
                                                 <span style={{marginRight:'10px',marginLeft:'10px',color:'#4a4e54',fontSize: '14px'}}>|</span>
                                                     <span style={{marginRight:'5px',color:'white'}}>
                                                     {d.symbol}
@@ -138,9 +137,9 @@ function Header() {
             </li>
             {/* <!-- Languages dropdown    --> */}
             <li className="list-inline-item dropdown">
-                <Link to = '#' className="nav-link  text-sm text-reset px-1 px-lg-0" id="languages" rel="nofollow" data-bs-target="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href= '#' className="nav-link  text-sm text-reset px-1 px-lg-0" id="languages" rel="nofollow" data-bs-target="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i className="fas fa-user-circle" style = {{fontSize:'25px'}}></i>
-                </Link>
+                </a>
                <ul className="dropdown-menu dropdown-menu-end mt-sm-3 dropdown-menu-dark" aria-labelledby="languages">
                    <div className='profile text-center pt-3 pb-3'>
                        <img className="me-2" src={process.env.PUBLIC_URL + '/image/logo.png'} alt="img"/>

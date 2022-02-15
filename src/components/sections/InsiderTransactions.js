@@ -17,7 +17,6 @@ function InsiderTransactions(props) {
           .then(res => res.json())
           .then(
             (result) => {
-              console.log(result.data)
               const gainData =  result.data.map(d => {
                     return  {
                         filedat: d.filingDate,

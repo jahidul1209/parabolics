@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react';
-import {HashRouter, Routes, Route,BrowserRouter } from "react-router-dom";
+import {HashRouter, Routes, Route } from "react-router-dom";
 import './style/App.css';
 import "./fontend/Assets/Styles/styles.css"
  import "react-toastify/dist/ReactToastify.css";
@@ -23,18 +23,16 @@ import Login from "./fontend/Pages/Login";
 import Signup from "./fontend/Pages/Signup";
 import PublicRoute from "./fontend/Layouts/PublicRoute"
 import PublicRouteDash from "./components/layouts/PublicRouteDash";
-import { createBrowserHistory } from "history";
 
-const history = createBrowserHistory();
 
 function App(){
 
   return (
     <div className="App">
-          <BrowserRouter forceRefresh={true} > 
+           <HashRouter basename="/" forceRefresh>   
             
-                       <Routes history={history}>
-                          <Route path="/" element={<PublicRoute/>}>
+                       <Routes >
+                          <Route path="/" element={<PublicRoute/>} >
                             <Route index element={<Fontpage/>}/>
                             <Route path="/pricing" element={<Pricing/>}/>
                           </Route>
@@ -60,7 +58,7 @@ function App(){
                          </Routes>
                    <Footer/>
 
-          </BrowserRouter>
+          </HashRouter>
     </div>
   );
 }

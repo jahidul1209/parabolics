@@ -31,14 +31,14 @@ function Watchlists(props) {
                             setinExits (inExits)
                       }
 
-
-              const maxChange =   Math.max.apply(Math, storeData.map(function(o) { return o.beta; }))
-              const minChange =   Math.min.apply(Math, storeData.map(function(o) { return o.beta; }))
+              const maxChange =  Math.max.apply(Math, storeData.map(function(o) { return o.beta; }))
+              const minChange =  Math.min.apply(Math, storeData.map(function(o) { return o.beta; }))
 
                     for(var k = 0 ; k  < storeData.length ; k++){
                         if(storeData[k].beta === maxChange){
                                   setMaxValue(storeData[k].symbol);
                         }
+
                         if(storeData[k].beta === minChange){
                               setMinValue(storeData[k].symbol)
                         }
@@ -46,15 +46,11 @@ function Watchlists(props) {
 
                  if(inExits || localStorage.getItem('pevSearchValue') == null){
                     let cart = JSON.parse(localStorage.getItem('pevSearchValue'));
-                    console.log(cart)
                     if(cart){
                         const arr =  Object.assign({}, ...filteredData)
                         cart.push(arr);
-                        localStorage.setItem('pevSearchValue', JSON.stringify(cart)); 
-                    
-                        
+                        localStorage.setItem('pevSearchValue', JSON.stringify(cart));    
                     }else{
-                        // window.location.reload()
                         localStorage.setItem('pevSearchValue', JSON.stringify(filteredData));    
                     }
                  }
@@ -198,7 +194,7 @@ function Watchlists(props) {
                         {
                           storeData.map((item , key) => {
                                     return (
-                                         <div className='ws-card'>
+                                         <div className='ws-card'  key={key}>
                                                <div class = 'lcose'>
                                                   <h4>{item.symbol}</h4>
                                                   <button className="btnClass" value = {item.symbol} type="button"  onClick= {(e) => removeSingleItem(e.target.value)} >✖ </button>  
