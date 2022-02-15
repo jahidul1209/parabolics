@@ -138,7 +138,7 @@ function Header() {
             </li>
             {/* <!-- Languages dropdown    --> */}
             <li className="list-inline-item dropdown">
-                <Link to = '#' className="nav-link  text-sm text-reset px-1 px-lg-0" id="languages" rel="nofollow" data-bs-target="#" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <Link to = '#' className="nav-link  text-sm text-reset px-1 px-lg-0" id="languages" rel="nofollow" data-bs-target="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i className="fas fa-user-circle" style = {{fontSize:'25px'}}></i>
                 </Link>
                <ul className="dropdown-menu dropdown-menu-end mt-sm-3 dropdown-menu-dark" aria-labelledby="languages">
