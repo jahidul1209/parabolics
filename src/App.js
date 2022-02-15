@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react';
-import {BrowserRouter, Routes, Route } from "react-router-dom";
+import {HashRouter, Routes, Route } from "react-router-dom";
 import './style/App.css';
 import "./fontend/Assets/Styles/styles.css"
  import "react-toastify/dist/ReactToastify.css";
@@ -38,7 +38,7 @@ function App() {
     }, []);
   return (
     <div className="App">
-           <BrowserRouter >     
+           <HashRouter >     
             
                        <Routes history={history}>
                           <Route path="/" element={<PublicRoute/>}>
@@ -67,7 +67,7 @@ function App() {
                          </Routes>
                    <Footer/>
 
-          </BrowserRouter>
+          </HashRouter>
     </div>
   );
 }
