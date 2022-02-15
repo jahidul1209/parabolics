@@ -66,7 +66,6 @@ const TradingChart = () => {
             .then(res => res.json())
             .then(
               (result) => {
-                console.log(result);
                 const gainData =  result.map(d => {
                   return  {
                       ticker: d.symbol,
@@ -81,7 +80,7 @@ const TradingChart = () => {
                 console.log(error);
               }
             )
-  }, [])
+  }, [id])
   const datatable = {
     columns: [
         {
