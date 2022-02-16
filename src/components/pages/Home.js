@@ -9,6 +9,7 @@ import StockNews from '../sections/StockNews';
 import UpcommingEarn from '../sections/UpcommingEarn';
 import InsiderTransactions from '../sections/InsiderTransactions';
 import MarketSummary from '../sections/MarketSummary';
+import SignalTracking from '../sections/SignalTracking';
 
 const today = new Date().toISOString().slice(0, 10)
 class Home extends Component {
@@ -60,6 +61,14 @@ class Home extends Component {
             <div class="col-md-5">
                   <SectorPreform/>   
             </div>
+          </div>
+        </div>  
+      </section>
+           {/*Tracking Signal*/}
+     <section class="pt-0">
+        <div class="container-fluid">
+          <div class="row gy-4">
+              <SignalTracking/>
           </div>
         </div>  
       </section>
