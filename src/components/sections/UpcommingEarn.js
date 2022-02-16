@@ -86,7 +86,7 @@ function fetchData(){
                             <h3 style = {{marginBottom:'3px'}}> UPCOMING EARNINGS</h3>
                             <p style = {{color:'#666666 '}}>Earnings coming in the next 3 days.</p>
                         </div>
-                      <MDBDataTableV5 hover entriesOptions={[6, 20, 25]} entries={6} pagesAmount={4} data={datatable} />
+                      <MDBDataTableV5 hover entriesOptions={[7, 20, 25]} entries={7} pagesAmount={4} data={datatable} />
                   </div>
               </div>
     );

@@ -7,7 +7,11 @@ function Reddit(props) {
     const [rowData, setRowData] = useState([])
     const[reddit, setReddit] = useState('all-stocks');
     useEffect(() => {
-        fetch(`https://apewisdom.io/api/v1.0/filter/${reddit}`)
+     fetch(`https://apewisdom.io/api/v1.0/filter/${reddit}`, {
+        headers: {
+           'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      })
         .then(response => response.json())
         .then(results => { 
             const gainData =  results.results.map(( d, key) => {

@@ -13,47 +13,43 @@ const Plans = (props) => {
             <div className={styles.plan__description}>
                 <Container>
                     <ul>                    
-                        <Row>
-                            <Col sm={12} xs={12} md={6}>
-                            {props.perks1.map((perks)=>{
-                                return(
-                                    <Fragment key={nanoid()}>
-                                        <li><span><TiTick/></span> {perks}</li>                      
-                                    </Fragment>
-                                )
-                            })}
+                        <Row  className = 'pricess'>
+                            <Col sm={12} xs={12} md={6}  className = 'ppx'>
+                                    {props.perks1.map((perks)=>{
+                                        return(
+                                            <Fragment key={nanoid()}>
+                                                <li><span><TiTick/></span> {perks}</li>                       
+                                            </Fragment>        
+                                        )
+                                    })}
+                                         <div className={styles.plan__membership__wrapper}>
+                                                        <div className={styles.plan__membership}>
+                                                            <h3>${props.monthlyPrice}</h3>
+                                                            <h6>Monthly Membership</h6>
+                                                            <h6>Valid for one month</h6>
+                                                            <button type="button">Select</button>
+                                                        </div> 
+                                         </div> 
                             </Col>
-                            <Col sm={12} xs={12} md={6}>
-                            {props.perks2 && props.perks2.map((perks)=>{
-                                return(
-                                    <Fragment key={nanoid()}>
-                                        <li><span><TiTick/></span> {perks}</li>                      
-                                    </Fragment>
-                                )
-                            })}
+                            <Col sm={12} xs={12} md={6}  className = 'ppx'>
+                                {props.perks2 && props.perks2.map((perks)=>{
+                                    return(
+                                        <Fragment key={nanoid()}>
+                                            <li><span><TiTick/></span> {perks}</li>                      
+                                        </Fragment>
+                                    )
+                                })}
+                                <div className={styles.plan__membership__wrapper}>
+                                        <div className={styles.plan__membership}>
+                                            <h3>${props.yearlyPrice}</h3>
+                                            <h6>Yearly Membership</h6>
+                                            <h6>Valid for one Year</h6>
+                                            <button type="button">Select</button>
+                                        </div>
+                                </div>
                             </Col>
                         </Row>
                     </ul>
-                    <div className={styles.plan__membership__wrapper}>
-                        <Row>
-                            <Col md={6}>
-                                <div className={styles.plan__membership}>
-                                    <h3>${props.monthlyPrice}</h3>
-                                    <h6>Monthly Membership</h6>
-                                    <h6>Valid for one month</h6>
-                                    <button type="button">Select</button>
-                                </div>
-                            </Col>
-                            <Col md={6}>
-                                <div className={styles.plan__membership}>
-                                    <h3>${props.yearlyPrice}</h3>
-                                    <h6>Yearly Membership</h6>
-                                    <h6>Valid for one Year</h6>
-                                    <button type="button">Select</button>
-                                </div>
-                            </Col>
-                        </Row>
-                    </div>
                 </Container>
             </div>
         </div>

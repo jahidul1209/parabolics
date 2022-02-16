@@ -4,8 +4,28 @@ import styles from "../../../fontend/Components/Styles/pricing.module.css"
 // import styles from "../Styles/pricing.module.css"
 import PropTypes from 'prop-types';
 const Pricing = ({isFirst}) => {
-    const perks__list__1 = ["Stocks","Options","Crypto","Forex","Futures","Educational Content","Trade Signals"];
-    const perks__list__2 = ["Premium Indicators","Market Wide Screeners","Advanced AI Scanners","Live Watchlists","Quantitative Data Sets","Discord/Telegram Access","+ More"]
+    const perks__list__1 = [
+        "Live Dashboards",
+        "Stocks",
+        "AI Trade Ideas",
+        "Crypto",
+        "Forex",
+        "Futures",
+        "Premium Scanners",
+        "Trade Signals",
+        'Discord Premium'
+    ];
+
+    const perks__list__2 = [
+        "Premium Indicators",
+        "Market Wide Screeners",
+        "Advanced AI Scanners",
+        "Live Watchlists",
+        "Querying Bots",
+        " Scalping Ideas",
+        "Insider Trading",
+        " Block Trades",
+        " Explore More..."]
     return(
         <>
         <section className={`${styles.pricing__section} ${isFirst ? styles.space : ""}`}>

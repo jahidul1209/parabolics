@@ -15,9 +15,9 @@
 }
 
 @media only screen and (max-width: 767px) {
-    span.navbar-brand img {
-        width: 50%;
-    }
+    // span.navbar-brand img {
+    //     width: 50%!important;
+    // }
     .lazy__load{
         position: unset;
         left: 0;
@@ -26,10 +26,11 @@
         z-index: 99;
         background: #07284b;
     }
-    span.navbar-brand img {
-        width: 50%;
-    }
+
     .header{
+        img {
+            width: 50%!important;
+        }
         .nav__wrapper{
             .nav__menu{
                 font-size: 13px !important;
