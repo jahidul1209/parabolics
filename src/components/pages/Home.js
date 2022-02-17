@@ -9,7 +9,7 @@ import StockNews from '../sections/StockNews';
 import UpcommingEarn from '../sections/UpcommingEarn';
 import InsiderTransactions from '../sections/InsiderTransactions';
 import MarketSummary from '../sections/MarketSummary';
-import SignalTracking from '../sections/SignalTracking';
+import StockTracking from '../sections/StockTracking';
 
 const today = new Date().toISOString().slice(0, 10)
 class Home extends Component {
@@ -68,7 +68,7 @@ class Home extends Component {
      <section class="pt-0">
         <div class="container-fluid">
           <div class="row gy-4">
-              <SignalTracking/>
+              <StockTracking/>
           </div>
         </div>  
       </section>

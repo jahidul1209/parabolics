@@ -13,6 +13,7 @@ const Pricing = ({isFirst}) => {
         "Futures",
         "Premium Scanners",
         "Trade Signals",
+        "Custom Watchlist",
         'Discord Premium'
     ];
 
@@ -25,7 +26,21 @@ const Pricing = ({isFirst}) => {
         " Scalping Ideas",
         "Insider Trading",
         " Block Trades",
+        "Custom Watchlist",
         " Explore More..."]
+
+        const perks__list__3 = [       
+                   "Real-Time Order Flow",
+                    "Equity Prints",
+                    "Crypto & Forex Market Scanner ",
+                    "Robust Technical Analysis",
+                    "Live Trade Ideas ",
+                   " Unusual Options Activity ",
+                    "Unmatched Market Context ",
+                   "  Visualize Flow",
+                    "Industry  Analysis ",
+                    "Discord Access"
+        ]
     return(
         <>
         <section className={`${styles.pricing__section} ${isFirst ? styles.space : ""}`}>
@@ -35,8 +50,10 @@ const Pricing = ({isFirst}) => {
                 planTitle="Parabolics Premium"
                 perks1={perks__list__1}
                 perks2={perks__list__2}
+                perks3={perks__list__3}
                 monthlyPrice={75}
                 yearlyPrice={599}
+                yearlyPrice2={999}
             />
         </section>
         </>

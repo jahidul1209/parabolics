@@ -6,6 +6,15 @@ span.d-none {
   color: #cbcbcb;
   font-weight: 600;
 }
+.card  h3, .h3 {
+  margin-top: 0;
+  font-size: 1.4rem!important;
+  margin-bottom: 0.5rem;
+  font-weight: 700!important;
+  line-height: 1.2;
+  color: $heading-color;
+}
+
 // Table CSS
 .table {
   background-color: #060916!important;

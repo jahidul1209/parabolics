@@ -3,6 +3,7 @@ import {Tabs , Tab} from 'react-bootstrap'
 import CryptoTable from '../sections/CryptoTable';
 import CryptoCards from '../sections/CryptoCards';
 import CryptoChart from '../sections/CryptoChart';
+import CryptoTracking from '../sections/CryptoTracking';
 
 function Crypto(props) {
 
@@ -23,7 +24,9 @@ function Crypto(props) {
                                  <CryptoTable/>
                            
                             </Tab>
-                             
+                            <Tab eventKey="recent" title="Recent Top">
+                                <CryptoTracking/>
+                            </Tab>
                             <Tab eventKey="chart" title="Chart">
                                 <CryptoChart/>
                             </Tab>

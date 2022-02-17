@@ -10,10 +10,11 @@
   }
   .plan__wrapper .plan__description ul li {
     font-size: 13px;
-    padding: 0px 5px;
+    padding: 0px 10px !important;
   }
   .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership {
     margin-bottom: 10px;
+    margin-left: 0px;
   }
   .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership h3 {
     font-size: 40px !important;
@@ -28,8 +29,8 @@
 
 .plan__wrapper {
   margin: 50px auto;
-  padding: 50px;
-  width: 60%;
+  padding: 50px 10px;
+  width: 70%;
   border: 1px solid #18d26e;
   border-radius: 20px;
 }
@@ -58,7 +59,7 @@
   list-style: none;
   margin-bottom: 30px;
   color: white;
-  padding: 0px 115px;
+  padding: 0px 55px;
 }
 
 .plan__wrapper .plan__description ul li span {
@@ -80,6 +81,7 @@
 
 .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership {
   text-align: center;
+  margin-left: -75px;
 }
 
 .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership h3 {

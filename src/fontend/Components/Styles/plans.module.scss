@@ -16,12 +16,13 @@
             ul{
                 li{
                     font-size: 13px;
-                    padding: 0px 5px;
+                   padding: 0px 10px!important;
                 }
             }
             .plan__membership__wrapper{
                 .plan__membership{
                     margin-bottom: 10px;
+                    margin-left: 0px;
                     h3{
                         font-size: 40px !important;
                     }
@@ -39,8 +40,8 @@
 
 .plan__wrapper{
     margin: 50px auto;
-    padding: 50px;
-    width: 60%;
+    padding: 50px 10px;
+    width: 70%;
     border: 1px solid $primary__color;
     border-radius: 20px;
     h2{
@@ -62,7 +63,7 @@
                 list-style: none;
                 margin-bottom: 30px;
                 color: white;
-                padding: 0px 115px;
+                padding: 0px 55px;
                 span{
                     margin-right: 5px;
                     background-color: $secondary__color;
@@ -84,6 +85,7 @@
         .plan__membership__wrapper{
             .plan__membership{
                  text-align: center;
+                 margin-left: -75px;
                 h3{
                     color: #fff;
                     font-size: 52px;

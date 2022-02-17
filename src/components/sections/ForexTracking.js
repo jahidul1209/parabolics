@@ -3,25 +3,24 @@ import { MDBDataTableV5 } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import SvgChart from './SvgChart';
 
-function SignalTracking(props) {
+function ForexTracking(props) {
 
-    const [rowData, setRowData] = useState()
+    const [rowData, setRowData] = useState([])
 
 
     function fetchData(){
 
-        fetch("https://financialmodelingprep.com/api/v3/stock_market/actives?apikey=9f8bf374d13311bf6527af0ea58ebdb6")
+        fetch("https://financialmodelingprep.com/api/v3/forex/crypto?apikey=9f8bf374d13311bf6527af0ea58ebdb6")
           .then(res => res.json())
           .then(
             (result) => {
               const gainData =  result.map(d => {
-              
-                return  {   
-                
+      
+                return  {             
                     ticker: <Link to = {`/chart/${d.symbol}`}>{d.symbol}</Link>,
                     price:  d.price,
                     name:  d.name,
-                    change: <span style = {{color:'#51ef98 '}}>{ d.change.toFixed(3)}%</span>,
+                    change:<div>{ (d.change  > 0 ) ? <span style={{color:'#51ef98'}}>{d.change.toFixed(3)}</span> : <span style={{color:'#EE4758'}}>{d.change.toFixed(3)}</span>}</div>,
                     changesPercentage:d.changesPercentage.toFixed(3),
                     chart: <SvgChart svg = {d.symbol}/>
                   }
@@ -39,6 +38,10 @@ function SignalTracking(props) {
           fetchData()
       }, []);
 
+      rowData.sort(function (a, b) {
+        return b.price - a.price;
+      });
+      
     const datatable = {
         columns: [
             {
@@ -59,6 +62,7 @@ function SignalTracking(props) {
               label: 'Price',
               field: 'price',
               width: 270,
+              class:'red'
             },
             {
               label: 'Change',
@@ -89,10 +93,10 @@ function SignalTracking(props) {
                             <h3 style = {{marginBottom:'3px'}}>RECENT TOP ALERTS</h3>
                             <p style = {{color:'#666666 '}}>Data includes pre-market & post-market movers as well. Stars are gappers.</p>
                         </div>
-                      <MDBDataTableV5 hover entriesOptions={[10, 20, 25]} entries={10} pagesAmount={4} data={datatable} />
+                      <MDBDataTableV5  hover  entriesOptions={[10, 20, 25]} entries={10} pagesAmount={4} data={datatable} />
                   </div>
               </div>
     );
 }
 
-export default SignalTracking;
+export default ForexTracking;

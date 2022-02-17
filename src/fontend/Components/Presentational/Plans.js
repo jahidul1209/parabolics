@@ -13,8 +13,8 @@ const Plans = (props) => {
             <div className={styles.plan__description}>
                 <Container>
                     <ul>                    
-                        <Row  className = 'pricess'>
-                            <Col sm={12} xs={12} md={6}  className = 'ppx'>
+                        <Row >
+                            <Col sm={12} xs={12} md={4} >
                                     {props.perks1.map((perks)=>{
                                         return(
                                             <Fragment key={nanoid()}>
@@ -31,7 +31,7 @@ const Plans = (props) => {
                                                         </div> 
                                          </div> 
                             </Col>
-                            <Col sm={12} xs={12} md={6}  className = 'ppx'>
+                            <Col sm={12} xs={12} md={4} >
                                 {props.perks2 && props.perks2.map((perks)=>{
                                     return(
                                         <Fragment key={nanoid()}>
@@ -42,6 +42,23 @@ const Plans = (props) => {
                                 <div className={styles.plan__membership__wrapper}>
                                         <div className={styles.plan__membership}>
                                             <h3>${props.yearlyPrice}</h3>
+                                            <h6>Yearly Membership</h6>
+                                            <h6>Valid for one Year</h6>
+                                            <button type="button">Select</button>
+                                        </div>
+                                </div>
+                            </Col>
+                            <Col sm={12} xs={12} md={4} >
+                                {props.perks3 && props.perks3.map((perks)=>{
+                                    return(
+                                        <Fragment key={nanoid()}>
+                                            <li><span><TiTick/></span> {perks}</li>                      
+                                        </Fragment>
+                                    )
+                                })}
+                                <div className={styles.plan__membership__wrapper}>
+                                        <div className={styles.plan__membership}>
+                                            <h3>${props.yearlyPrice2}</h3>
                                             <h6>Yearly Membership</h6>
                                             <h6>Valid for one Year</h6>
                                             <button type="button">Select</button>

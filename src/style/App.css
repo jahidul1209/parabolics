@@ -8,6 +8,15 @@ span.d-none {
   font-weight: 600;
 }
 
+.card h3, .h3 {
+  margin-top: 0;
+  font-size: 1.4rem !important;
+  margin-bottom: 0.5rem;
+  font-weight: 700 !important;
+  line-height: 1.2;
+  color: #e1e1e1;
+}
+
 .table {
   background-color: #060916 !important;
   color: #363636;
@@ -938,15 +947,6 @@ hr {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  color: #e1e1e1;
-}
-
-h3, .h3 {
-  margin-top: 0;
-  font-size: 1.4rem !important;
-  margin-bottom: 0.5rem;
-  font-weight: 700 !important;
-  line-height: 1.2 !important;
   color: #e1e1e1;
 }
 

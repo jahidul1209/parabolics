@@ -4,6 +4,7 @@ import {  Tabs , Tab} from 'react-bootstrap'
 import ForexTable from '../sections/ForexTable';
 import ForexCards from '../sections/ForexCards';
 import ForexChart from '../sections/ForexCharts';
+import CryptoTracking from '../sections/CryptoTracking';
 
 
 
@@ -26,7 +27,9 @@ function Forex(props) {
                                  <ForexTable/>
                            
                             </Tab>
-                             
+                            <Tab eventKey="recent" title="Recent Top">
+                                <CryptoTracking/>
+                            </Tab>
                             <Tab eventKey="chart" title="Chart">
                                 <ForexChart/>
                             </Tab>

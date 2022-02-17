@@ -4,14 +4,14 @@ function SvgChart(props) {
     const [chartData, setChartData] = useState([])
     
     useEffect(() => {
-    fetch(`https://financialmodelingprep.com/api/v3/historical-chart/1hour/${props.svg}?apikey=9f8bf374d13311bf6527af0ea58ebdb6`)
+    fetch(`https://financialmodelingprep.com/api/v3/historical-price-full/${props.svg}?apikey=9f8bf374d13311bf6527af0ea58ebdb6`)
             .then(res => res.json())
                   .then(data => {
-                      const spydata = data.map(d => {
-                        var date = new Date(d.date).getTime() / (1000000000)
+                      const spydata = data.historical.map(d => {
+                        var date = new Date(d.date).getTime()/21600000000
                           return {
                               time: date,
-                              high: d.high,
+                              volume: d.volume/1000000,
                           }
                       });
                          setChartData(spydata);   
@@ -20,13 +20,12 @@ function SvgChart(props) {
 
     return (
         <div>
-            <svg viewBox="0 0 500 100" class="chart">
-                     
+            <svg viewBox="0 0 500 100" class="chart">                
                     <polyline
                        fill="none"
                        stroke="#18d26e"
                        stroke-width="2"
-                       points={`${chartData.map((p) => ' ' + p.time + ',' + p.high)}`}
+                      points={`${chartData.map((p,key )=> (' ' + parseInt(key) + ',' +  parseInt(p.volume)))}`}
                      />                   
                   </svg>
         </div>
