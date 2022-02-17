@@ -1,4 +1,15 @@
-
+.cry-card {
+    background: #060916;
+    width: 360px;
+    margin: 8px;
+    padding: 30px 10px;
+    border-radius: 10px;
+}
+.cry-card h2{
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 10px;
+  }
 @media only screen and (max-width: 420px) {
 
     .nav-tabs .nav-link {
@@ -22,7 +33,7 @@
     }
     .cry-card {
         background: #060916;
-        width:400px;
+        width: 330px;
         margin: 10px;
         padding: 20px 10px 20px;
         border-radius: 10px;
@@ -56,9 +67,9 @@
         }
         .cry-card {
             background: #060916;
-            width:400px;
+            width: 490px;
             margin: 10px;
-            padding: 20px 10px 20px;
+            padding: 40px 10px;
             border-radius: 10px;
         }
         .crtps  {
@@ -67,8 +78,35 @@
         }
 
         }
-
-        @media only screen and (min-width: 768px ) and (max-width: 980px ) {
+        @media only screen and (min-width: 600px ) and (max-width: 768px ) {
+            .positn {
+                flex: 0 0 auto;
+                width: 50%;
+            }
+            .crtps  {
+                flex: 0 0 auto;
+                width: 50%!important;
+            }
+    
+            .cry-card {
+                background: #060916;
+                width: 241px;
+                margin: 2px;
+                padding: 30px 3px;
+                border-radius: 10px;
+            }
+            .cry-card h2 {
+                font-size: 20px;
+                font-weight: 700;
+                margin-top: 10px;
+            }
+            .crtpos p {
+                margin-bottom: 0;
+                color: #7d8893;
+                font-size: 15px;
+            }    
+        }
+        @media only screen and (min-width: 769px ) and (max-width: 980px ) {
 
         .positn {
             flex: 0 0 auto;
@@ -81,12 +119,21 @@
 
         .cry-card {
             background: #060916;
-            width: 220px;
-            margin: 10px;
-            padding: 20px 10px 20px;
+            width: 250px;
+            margin: 5px;
+            padding: 30px 5px;
             border-radius: 10px;
         }
-
+        .cry-card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+        .crtpos p {
+            margin-bottom: 0;
+            color: #7d8893;
+            font-size: 15px;
+        }
         }
         @media only screen and (min-width: 980px ) and (max-width: 1024px ) {
 
@@ -101,15 +148,14 @@
     
             .cry-card {
                 background: #060916;
-                width: 220px;
-                margin: 10px;
-                padding: 20px 10px 20px;
+                width: 310px;
+                margin: 5px;
+                padding: 25px 5px;
                 border-radius: 10px;
             }
     
             } 
-        @media only screen and (min-width: 1080px ) and (max-width: 1400px ) {
-
+        @media only screen and (min-width: 1080px ) and (max-width: 1280px ) {
 
         .positn {
             flex: 0 0 auto;
@@ -118,10 +164,35 @@
 
         .cry-card {
             background: #060916;
-            width: 240px!important;
-            margin: 10px;
-            padding: 20px 10px 20px;
-            border-radius: 10px;
+            width: 320px!important;
+            margin: 5px;
+            padding: 20px 5px 20px;
+            border-radius: 5px;
+        }
+        .cry-card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
         }
 
-        }
+        @media only screen and (min-width: 1290px ) and (max-width: 1400px ) {
+
+            .positn {
+                flex: 0 0 auto;
+                width: 23%;
+            }
+    
+            .cry-card {
+                background: #060916;
+                width: 256px !important;
+                margin: 5px;
+                padding: 30px 5px;
+                border-radius: 5px;
+            }
+            .cry-card h2 {
+                font-size: 22px;
+                font-weight: 700;
+                margin-top: 10px;
+            }
+            }

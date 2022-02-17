@@ -30,328 +30,37 @@ function CryptoCards(props) {
         return () => clearInterval(interval);
         }, []);
 
+        rowData.sort(function (a, b) {
+            return b.price - a.price;
+          });
 
     return (
+        
         <div>
-
-         <Container fluid className='mt-3'>
+          <Container fluid className='mt-3'>
             <div className='crypto-market'>
                   <div className='cryto-card'>
-                      <Row>
-                       <Col xs={6} md={3} className='crtps'>
-                           {
-                            
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                      {  d.symbol === 'BTCUSD' ? 
-                                        <Row className='cry-card' style={myStyle}>                             
-                                            <Col xs={6} md={6} >
-                                                    <h4>BTC/USD</h4>
-                                                    <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                            </Col>
-                                            <Col xs={6} md={6} className='crtpos'>
-                                                <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                                <p>H {d.dayHigh.toFixed(4)}</p>
-                                                <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                            </Col>
-                                        </Row>
-                                        : null
-                                     }
-                                    </Link>
-                                   )           
-                               })
-                           }
-                       
-                      </Col>
-                      <Col xs={6} md={3} className='crtps'>
-                           {
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                    {
-                                     d.symbol === 'ETHUSD' ? 
+                     {         
+                          rowData.map( ( d ,key)=> { 
+
+                                return(
+                                    key < 12 &&
+                                 <Link to = {`/chart/${d.symbol}`}>
                                      <Row className='cry-card' style={myStyle}>                             
-                                        <Col xs={6} md={6} >
-                                                <h4>ETH/USD</h4>
-                                                <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                        </Col>
-                                        <Col xs={6} md={6} className='crtpos'>
-                                            <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                            <p>H {d.dayHigh.toFixed(4)}</p>
-                                            <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                        </Col>
-                                      </Row>
-                                    : null
-                                }
-                                </Link>
-                                   )           
-                               })
-                           }
-                       
-                      </Col>
-                     
-                     <Col xs={6} md={3} className='crtps'>
-                         {
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                    {
-                                     d.symbol === 'LTCUSD' ? 
-                                     <Row className='cry-card' style={myStyle}>                             
-                                        <Col xs={6} md={6} >
-                                                <h4>LTC/USD</h4>
-                                                <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                        </Col>
-                                        <Col xs={6} md={6} className='crtpos'>
-                                            <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                            <p>H {d.dayHigh.toFixed(4)}</p>
-                                            <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                        </Col>
-                                      </Row>
-                                    : null
-                                }
-                                </Link>
-                                   )           
-                               })
-                           }
-                     </Col>
-                     <Col xs={6} md={3} className='crtps'>
-                     {
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                    {
-                                     d.symbol === 'XRPUSD' ? 
-                                     <Row className='cry-card' style={myStyle}>                             
-                                        <Col xs={6} md={6} >
-                                                <h4>XRP/USD</h4>
-                                                <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                        </Col>
-                                        <Col xs={6} md={6} className='crtpos'>
-                                            <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                            <p>H {d.dayHigh.toFixed(4)}</p>
-                                            <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                        </Col>
-                                      </Row>
-                                    : null
-                                }
-                                </Link>
-                                   )           
-                               })
-                           }
-                       </Col>
-                      </Row>
-                      <Row>
-                       <Col xs={6} md={3} className='crtps'>
-                           {
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                    {
-                                     d.symbol === 'BCHUSD' ? 
-                                     <Row className='cry-card' style={myStyle}>                             
-                                        <Col xs={6} md={6} >
-                                                <h4>BCH/USD</h4>
-                                                <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                        </Col>
-                                        <Col xs={6} md={6} className='crtpos'>
-                                            <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                            <p>H {d.dayHigh.toFixed(4)}</p>
-                                            <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                        </Col>
-                                      </Row>
-                                    : null
-                                }
-                                </Link>
-                                   )           
-                               })
-                           }
-                       
-                      </Col>
-                      <Col xs={6} md={3} className='crtps'>
-                           {
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                    {
-                                     d.symbol === 'XYOUSD' ? 
-                                     <Row className='cry-card' style={myStyle}>                             
-                                        <Col xs={6} md={6} >
-                                                <h4>XYO/USD</h4>
-                                                <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                        </Col>
-                                        <Col xs={6} md={6} className='crtpos'>
-                                            <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                            <p>H {d.dayHigh.toFixed(4)}</p>
-                                            <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                        </Col>
-                                      </Row>
-                                    : null
-                                }
-                                </Link>
-                                   )           
-                               })
-                           }
-                       
-                      </Col>
-                     
-                     <Col xs={6} md={3} className='crtps'>
-                         {
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                    {
-                                     d.symbol === 'CFGUSD' ? 
-                                     <Row className='cry-card' style={myStyle}>                             
-                                        <Col xs={6} md={6} >
-                                                <h4>CFG/USD</h4>
-                                                <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                        </Col>
-                                        <Col xs={6} md={6} className='crtpos'>
-                                            <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                            <p>H {d.dayHigh.toFixed(4)}</p>
-                                            <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                        </Col>
-                                      </Row>
-                                    : null
-                                }
-                                </Link>
-                                   )           
-                               })
-                           }
-                     </Col>
-                     <Col xs={6} md={3} className='crtps'>
-                     {
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                    {
-                                     d.symbol === 'LTOUSD' ? 
-                                     <Row className='cry-card' style={myStyle}>                             
-                                        <Col xs={6} md={6} >
-                                                <h4>LTO/USD</h4>
-                                                <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                        </Col>
-                                        <Col xs={6} md={6} className='crtpos'>
-                                            <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                            <p>H {d.dayHigh.toFixed(4)}</p>
-                                            <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                        </Col>
-                                      </Row>
-                                    : null
-                                }
-                                </Link>
-                                   )           
-                               })
-                           }
-                       </Col>
-                      </Row>
-                      <Row>
-                       <Col xs={6} md={3} className='crtps'>
-                           {
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                    {
-                                     d.symbol === 'TLMUSD' ? 
-                                     <Row className='cry-card' style={myStyle}>                             
-                                        <Col xs={6} md={6} >
-                                                <h4>TLM/USD</h4>
-                                                <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                        </Col>
-                                        <Col xs={6} md={6} className='crtpos'>
-                                            <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                            <p>H {d.dayHigh.toFixed(4)}</p>
-                                            <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                        </Col>
-                                      </Row>
-                                    : null
-                                }
-                                </Link>
-                                   )           
-                               })
-                           }
-                       
-                      </Col>
-                      <Col xs={6} md={3} className='crtps'>
-                           {
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                    {
-                                     d.symbol === 'STRKUSD' ? 
-                                     <Row className='cry-card' style={myStyle}>                             
-                                        <Col xs={6} md={6} >
-                                                <h4>STRK/USD</h4>
-                                                <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                        </Col>
-                                        <Col xs={6} md={6} className='crtpos'>
-                                            <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                            <p>H {d.dayHigh.toFixed(4)}</p>
-                                            <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                        </Col>
-                                      </Row>
-                                    : null
-                                }
-                                </Link>
-                                   )           
-                               })
-                           }
-                       
-                      </Col>
-                     
-                     <Col xs={6} md={3} className='crtps'>
-                         {
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                    {
-                                     d.symbol === 'GTNUSD' ? 
-                                     <Row className='cry-card' style={myStyle}>                             
-                                        <Col xs={6} md={6} >
-                                                <h4>GTN/USD</h4>
-                                                <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                        </Col>
-                                        <Col xs={6} md={6} className='crtpos'>
-                                            <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                            <p>H {d.dayHigh.toFixed(4)}</p>
-                                            <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                        </Col>
-                                      </Row>
-                                    : null
-                                }
-                                </Link>
-                                   )           
-                               })
-                           }
-                     </Col>
-                     <Col xs={6} md={3} className='crtps'>
-                     {
-                               rowData.map( ( d )=> {      
-                                   return(
-                                    <Link to = {`/chart/${d.symbol}`}>
-                                    {
-                                     d.symbol === 'QRKUSD' ? 
-                                     <Row className='cry-card' style={myStyle}>                             
-                                        <Col xs={6} md={6} >
-                                                <h4>QRK/USD</h4>
-                                                <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
-                                        </Col>
-                                        <Col xs={6} md={6} className='crtpos'>
-                                            <h6>{d.changesPercentage.toFixed(2)}%</h6>
-                                            <p>H {d.dayHigh.toFixed(4)}</p>
-                                            <p>L {d.dayLow.toFixed(4)}</p>                                      
-                                        </Col>
-                                      </Row>
-                                    : null
-                                }
-                                </Link>
-                                   )           
-                               })
-                           }
-                       </Col>
-                      </Row>
+                                         <Col xs={6} md={6} >
+                                                 <h4>{d.symbol}</h4>
+                                                 <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
+                                         </Col>
+                                         <Col xs={6} md={6} className='crtpos'>
+                                             <h6>{d.changesPercentage.toFixed(2)}%</h6>
+                                             <p>H {d.dayHigh.toFixed(4)}</p>
+                                             <p>L {d.dayLow.toFixed(4)}</p>                                      
+                                         </Col>
+                                     </Row>
+                                 </Link>
+                                )           
+                            })
+                        }
                   </div>
             </div>
          </Container>

@@ -54,7 +54,6 @@ function App(){
                                 <Route path="/livetrade" element={<LiveTrade/>} />
                                 <Route path="/reddit" element={<Reddit/>} />
                             </Route>
-
                          </Routes>
                    <Footer/>
 
