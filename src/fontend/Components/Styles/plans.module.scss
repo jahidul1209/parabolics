@@ -99,6 +99,12 @@
         }
         .plan__membership__wrapper{
             .plan__membership{
+                h6 {
+                    padding: 20px;
+                    border: 1px solid #1c9f61;
+                    margin: 5px 60px;
+                    cursor: pointer;
+                }
                  text-align: center;
                 //  margin-left: -75px;
                 h3{
@@ -107,12 +113,12 @@
                     font-weight: 700;
                     margin-bottom: 10px;
                 }
-                h6{
-                    color: white;
-                    font-size: 16px;
-                    font-weight: 500;
-                    margin-bottom: 5px;
-                }
+                // h6{
+                //     color: white;
+                //     font-size: 16px;
+                //     font-weight: 500;
+                //     margin-bottom: 5px;
+                // }
                 button{
                     width: 150px;
                     margin-top: 15px;

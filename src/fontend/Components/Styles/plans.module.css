@@ -93,18 +93,18 @@
   text-align: center;
 }
 
+.plan__wrapper .plan__description .plan__membership__wrapper .plan__membership h6 {
+  padding: 20px;
+  border: 1px solid #1c9f61;
+  margin: 5px 60px;
+  cursor: pointer;
+}
+
 .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership h3 {
   color: #fff;
   font-size: 52px;
   font-weight: 700;
   margin-bottom: 10px;
-}
-
-.plan__wrapper .plan__description .plan__membership__wrapper .plan__membership h6 {
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 5px;
 }
 
 .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership button {

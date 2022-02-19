@@ -15,6 +15,7 @@ const Plans = (props) => {
                     <ul>                    
                         <Row >
                             <Col sm={12} xs={12} md={6} >
+                            <h2 style = {{marginBottom:'35px',fontWeight: '400',fontSize: '28px'}}> Monthly Membership</h2>
                                     {props.perks1.map((perks)=>{
                                         return(
                                             <Fragment key={nanoid()}>
@@ -25,14 +26,15 @@ const Plans = (props) => {
                                          <div className={styles.plan__membership__wrapper}>
                                                         <div className={styles.plan__membership}>
                                                             <h3>${props.monthlyPrice}</h3>
-                                                            <p>Per Month, <span style={{ textDecoration: 'line-through'}}>$99</span> $75 Billed Monthly</p>
-                                                            <h6>Monthly Membership</h6>
-                                                            <h6>Valid for one month</h6>
+                                                            <p>Per Month, <span style={{ textDecoration: 'line-through'}}>$99</span> $75 Billed Monthly</p>                                                         
+                                                            <h6 >Try with Confidence: $24 Discount $75 monthly, never expires</h6>
+                                                            <h4 style={{marginTop:'15px'}}>Valid for one month</h4>
                                                             <button type="button">Select</button>
                                                         </div> 
                                          </div> 
                             </Col>
                             <Col sm={12} xs={12} md={6} >
+                            <h2 style = {{marginBottom:'35px',fontWeight: '400',fontSize: '28px'}}> Yearly Membership</h2>
                                 {props.perks2 && props.perks2.map((perks)=>{
                                     return(
                                         <Fragment key={nanoid()}>
@@ -40,12 +42,13 @@ const Plans = (props) => {
                                         </Fragment>
                                     )
                                 })}
+                                
                                 <div className={styles.plan__membership__wrapper}>
                                         <div className={styles.plan__membership}>
                                             <h3>${props.yearlyPrice}</h3>
                                             <p>Per Year, <span style={{ textDecoration: 'line-through'}}>$659</span> $599 Billed Yearly</p>
-                                            <h6>Yearly Membership</h6>
-                                            <h6>Valid for one Year</h6>
+                                            <h6 >Try with Confidence: $60 Discount $599 Yearly, never expires</h6>
+                                            <h4 style={{marginTop:'15px'}}>Valid for one Year</h4>
                                             <button type="button">Select</button>
                                         </div>
                                 </div>
