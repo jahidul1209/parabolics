@@ -39,8 +39,8 @@
 
 .plan__wrapper {
   margin: 50px auto;
-  padding: 50px 10px;
-  width: 70%;
+  padding: 50px;
+  width: 60%;
   border: 1px solid #18d26e;
   border-radius: 20px;
 }
@@ -69,7 +69,7 @@
   list-style: none;
   margin-bottom: 30px;
   color: white;
-  padding: 0px 55px;
+  padding: 0px 100px;
 }
 
 .plan__wrapper .plan__description ul li span {
@@ -91,7 +91,6 @@
 
 .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership {
   text-align: center;
-  margin-left: -75px;
 }
 
 .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership h3 {

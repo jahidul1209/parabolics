@@ -142,7 +142,7 @@ function ForexTable(props) {
                     <h3 style = {{marginBottom:'3px', textTransform:'uppercase'}}>Digital and Forex</h3>
                     <p style = {{color:'#666666 '}}>Data includes pre-market & post-market movers as well. Stars are gappers.</p>
                 </div>
-                <MDBDataTableV5 hover entriesOptions={[10, 20, 25, 50, 100]} entries={10} pagesAmount={4} data={datatable} />
+                <MDBDataTableV5 hover entriesOptions={[20, 25, 50, 100]} entries={20} pagesAmount={4} data={datatable} />
             </div>
         </Container>     
     );

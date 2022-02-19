@@ -49,7 +49,7 @@ function ForexCards(props) {
                                  <Link to = {`/chart/${d.symbol}`}>
                                      <Row className='cry-card' style={myStyle}>                             
                                          <Col xs={6} md={6} >
-                                                 <h4>{d.symbol}</h4>
+                                                 <h4 style={{fontSize: '20px'}}>{d.symbol}</h4>
                                                  <h2 style= {{color:'#18d26e'}} >{d.price.toFixed(3)}</h2>
                                          </Col>
                                          <Col xs={6} md={6} className='crtpos'>
