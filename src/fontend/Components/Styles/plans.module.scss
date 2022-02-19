@@ -2,28 +2,9 @@
 @import "../../Assets/Styles/partials";
 
 
-@media only screen and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 800px) {
     .plan__wrapper{
-        width: 90% !important;
-    }
-}
-@media only screen and (min-width: 767px) and (max-width: 1366px) {
-    .plan__wrapper{
-        h2{
-            font-size: 25px !important;
-        }
-        .plan__description{
-            ul{
-                li{
-                    font-size: 13px;
-                   padding: 0px 5px!important;
-                }
-            }
-        }
-    }
-}
-@media only screen and (max-width: 767px) {
-    .plan__wrapper{
+        width: 100% !important;
         h2{
             font-size: 25px !important;
         }
@@ -41,7 +22,80 @@
                     h3{
                         font-size: 40px !important;
                     }
-                    h6{
+                    
+                    h6 {
+                        padding: 20px;
+                        border: 1px solid #1c9f61;
+                        margin: 5px!important;;
+                        cursor: pointer;
+                        font-size: 13px !important;
+                    }
+                    button{
+                        width: 120px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 820px) and (max-width: 1366px) {
+    .plan__wrapper{
+        width: 90% !important;
+        h2{
+            font-size: 25px !important;
+        }
+        .plan__description{
+            ul{
+                li{
+                    display: flex;
+                    align-items: center;
+                    list-style: none;
+                    margin-bottom: 30px;
+                    color: white;
+                    padding: 0px 35px!important;
+                }
+            }
+        }
+        .plan__membership__wrapper{
+            .plan__membership{
+
+                h6 {
+                    padding: 20px;
+                    border: 1px solid #1c9f61;
+                    margin: 5px!important;
+                    cursor: pointer;
+                }    
+            }
+        }
+    }
+}
+@media only screen and (max-width: 767px) {
+    .plan__wrapper{
+        width: 100% !important;
+        h2{
+            font-size: 25px !important;
+        }
+        .plan__description{
+            ul{
+                li{
+                    font-size: 13px;
+                   padding: 0px 10px!important;
+                }
+            }
+            .plan__membership__wrapper{
+                .plan__membership{
+                    margin-bottom: 10px;
+                    margin-left: 0px;
+                    h3{
+                        font-size: 40px !important;
+                    }
+                    
+                    h6 {
+                        padding: 20px;
+                        border: 1px solid #1c9f61;
+                        margin: 5px!important;;
+                        cursor: pointer;
                         font-size: 13px !important;
                     }
                     button{
@@ -113,12 +167,7 @@
                     font-weight: 700;
                     margin-bottom: 10px;
                 }
-                // h6{
-                //     color: white;
-                //     font-size: 16px;
-                //     font-weight: 500;
-                //     margin-bottom: 5px;
-                // }
+             
                 button{
                     width: 150px;
                     margin-top: 15px;

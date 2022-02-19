@@ -1,20 +1,7 @@
-@media only screen and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 800px) {
   .plan__wrapper {
-    width: 90% !important;
+    width: 100% !important;
   }
-}
-
-@media only screen and (min-width: 767px) and (max-width: 1366px) {
-  .plan__wrapper h2 {
-    font-size: 25px !important;
-  }
-  .plan__wrapper .plan__description ul li {
-    font-size: 13px;
-    padding: 0px 5px !important;
-  }
-}
-
-@media only screen and (max-width: 767px) {
   .plan__wrapper h2 {
     font-size: 25px !important;
   }
@@ -30,6 +17,67 @@
     font-size: 40px !important;
   }
   .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership h6 {
+    padding: 20px;
+    border: 1px solid #1c9f61;
+    margin: 5px !important;
+    cursor: pointer;
+    font-size: 13px !important;
+  }
+  .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership button {
+    width: 120px !important;
+  }
+}
+
+@media only screen and (min-width: 820px) and (max-width: 1366px) {
+  .plan__wrapper {
+    width: 90% !important;
+  }
+  .plan__wrapper h2 {
+    font-size: 25px !important;
+  }
+  .plan__wrapper .plan__description ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    list-style: none;
+    margin-bottom: 30px;
+    color: white;
+    padding: 0px 35px !important;
+  }
+  .plan__wrapper .plan__membership__wrapper .plan__membership h6 {
+    padding: 20px;
+    border: 1px solid #1c9f61;
+    margin: 5px !important;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .plan__wrapper {
+    width: 100% !important;
+  }
+  .plan__wrapper h2 {
+    font-size: 25px !important;
+  }
+  .plan__wrapper .plan__description ul li {
+    font-size: 13px;
+    padding: 0px 10px !important;
+  }
+  .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership {
+    margin-bottom: 10px;
+    margin-left: 0px;
+  }
+  .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership h3 {
+    font-size: 40px !important;
+  }
+  .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership h6 {
+    padding: 20px;
+    border: 1px solid #1c9f61;
+    margin: 5px !important;
+    cursor: pointer;
     font-size: 13px !important;
   }
   .plan__wrapper .plan__description .plan__membership__wrapper .plan__membership button {

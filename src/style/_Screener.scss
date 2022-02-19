@@ -69,7 +69,7 @@
     width: 115px;
 }
 }
-@media only screen and (min-width: 362px ) and (max-width: 580px ){
+@media only screen and (min-width: 362px ) and (max-width: 480px ){
     .screener {
         background: #060916;
         padding: 3rem 2rem;
@@ -84,7 +84,21 @@
         width: 132px;
     }
 }
-
+@media only screen and (min-width: 480px ) and (max-width: 600px ){
+    .screener {
+        background: #060916;
+        padding: 3rem 7rem;
+    }
+    .screen-btn {
+        padding: 3px 10px;
+        background: #0f121f;
+        border-radius: 5px;
+        color: #efefef;
+        margin-left: 15px;
+        font-size: 12px;
+        width: 132px;
+    }
+}
 @media only screen and (min-width: 768px ) and (max-width: 900px ) {
     .screener {
         background: #060916;
