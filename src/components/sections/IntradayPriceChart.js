@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { createChart ,CrosshairMode } from 'lightweight-charts';
 
-function IntradayPriceChart(props) {
+function IntradayPriceChart() {
 
     const chartRefSPY = useRef();
     const chartRefQQQ = useRef();

@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef  } from 'react';
-import { Container ,Row, Col} from 'react-bootstrap'
+import React, { useEffect, useState  } from 'react';
+import { Container} from 'react-bootstrap'
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import { Link } from 'react-router-dom';
 

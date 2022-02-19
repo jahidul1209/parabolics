@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
-function MarketSummary(props) {
+function MarketSummary() {
 
     const [Energy, setEnergy] = useState(); 
     const [BasicMaterials, setBasicMaterials] = useState(); 

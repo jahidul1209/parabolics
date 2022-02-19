@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap'
 import { MDBDataTableV5 } from 'mdbreact';
 import { Link } from 'react-router-dom';
 
-function ForexTable(props) {
+function ForexTable() {
     const [rowData, setRowData] = useState()
     function fetchData() {
         fetch("https://financialmodelingprep.com/api/v3/quotes/forex?apikey=9f8bf374d13311bf6527af0ea58ebdb6")
