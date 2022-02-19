@@ -151,7 +151,7 @@ function IntradayPriceChart(props) {
                 <div class="card">
                   <div class="card-body">
                     <div className = 'pb-2'>
-                        <h3 style = {{marginBottom:'0px'}}>DOW INDEX</h3>
+                        <h3 style = {{marginBottom:'0px'}}>DOW JONES INDEX</h3>
                         <p style = {{color:'#666666 '}}>Intraday price chart</p>
                     </div>
                     <div ref={chartRefDOW}></div>
