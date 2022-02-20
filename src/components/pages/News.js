@@ -95,7 +95,7 @@ const url = `http://51.89.176.109:5000/get-news?num_news=10&type=stocks`;
                         <div className ="card py-3 px-3">
                             <div className = 'pt-3 pb-2 py-2 px-2  '>
                                 <h3 style = {{marginBottom:'3px'}}>Stock NEWS</h3>
-                                <p style = {{color:'#666666 '}}>Data includes pre-market & post-market movers as well. Stars are gappers.</p>
+                                {/* <p style = {{color:'#666666 '}}>Data includes pre-market & post-market movers as well. Stars are gappers.</p> */}
                             </div>
                             <MDBDataTableV5 hover entriesOptions={[20, 50, 100]} entries={20} pagesAmount={4} data={datatable} />
                         </div>

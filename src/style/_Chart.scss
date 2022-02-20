@@ -7,7 +7,30 @@
     color: #ffffff!important;
     text-align: left;
 }
-@media only screen and  (max-width: 480px ) {
+
+
+.cchart {
+
+      iframe {
+        border: 0;
+        width: 450px!important;
+        height: 280px!important;
+      }
+      article {
+        height: 280px!important;
+      }
+}
+@media only screen and  (max-width: 380px ) {
+      .cchart {
+        width: 100%;
+        margin: 10px;
+
+         iframe {
+          border: 0;
+          width: 32% !important;
+          height: 280px !important;
+      }
+    }
     .tv-lightweight-charts {
       width: 335px!important;
     }
@@ -17,8 +40,39 @@
     .tv-lightweight-charts table {
       width: 320px!important;
     }
+  }
+@media only screen and  (min-width: 380px ) and (max-width:480px ) {
+  .cchart {
+    width: 100%;
+    margin: 10px;
+
+   iframe {
+      border: 0;
+      width: 36% !important;
+      height: 280px !important;
+  }
+}
+    .tv-lightweight-charts {
+      width: 365px!important;
+    }
+    .tv-lightweight-charts canvas {
+      width: 100%!important;
+    }
+    .tv-lightweight-charts table {
+      width: 365px!important;
+    }
     }
     @media only screen and (min-width: 480px ) and (max-width:600px ) {
+      .cchart {
+        width: 100%;
+        margin: 10px;
+    
+       iframe {
+          border: 0;
+          width: 40% !important;
+          height: 280px !important;
+      }
+    }
       .tv-lightweight-charts {
         width: 480px!important;
       }
@@ -30,6 +84,10 @@
       }
       }
 @media only screen and (min-width: 768px ) and (max-width: 1368px ) {
+    .cchart {
+      width: 48%;
+      margin: 10px;
+  }
     .tv-lightweight-charts {
       width: 345px!important;
     }

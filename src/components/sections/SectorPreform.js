@@ -35,7 +35,7 @@ const  SectorPreform =()=> {
       <div class="card py-3 px-3">
       <div className = 'pt-3 pb-2 py-2 px-2  '>
          <h3 style = {{marginBottom:'3px'}}>SECTOR PERFORMANCE</h3>
-         <p style = {{color:'#666666 '}}>Data includes pre-market & post-market movers as well. Stars are gappers.</p>
+         {/* <p style = {{color:'#666666 '}}>Data includes pre-market & post-market movers as well. Stars are gappers.</p> */}
       </div>
   
           <Chart 
@@ -100,72 +100,3 @@ const  SectorPreform =()=> {
 }
 
  export default SectorPreform
-
-// import React, { PureComponent } from 'react';
-// import {
-//   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine,
-// } from 'recharts';
-
-// const data = [
-//   {
-//     name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
-//   },
-//   {
-//     name: 'Page B', uv: -3000, pv: 1398, amt: 2210,
-//   },
-//   {
-//     name: 'Page C', uv: -2000, pv: -9800, amt: 2290,
-//   },
-//   {
-//     name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
-//   },
-//   {
-//     name: 'Page E', uv: -1890, pv: 4800, amt: 2181,
-//   },
-//   {
-//     name: 'Page F', uv: 2390, pv: -3800, amt: 2500,
-//   },
-//   {
-//     name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
-//   },
-// ];
-
-// export default class SectorPreform extends PureComponent {
-//   static jsfiddleUrl = 'https://jsfiddle.net/alidingling/q68cz43w/';
-
-//   render() {
-//     console.log(data)
-//     return (
-//       <BarChart 
-//       width={500}
-//       height={300}
-//       data={data}
-//       indexAxis = 'y'
-//       margin={{
-//         top: 5, right: 30, left: 20, bottom: 5,
-//       }}
-//     >
-//       <CartesianGrid strokeDasharray=" 5 90 " />
-//       <XAxis dataKey="name" />
-//       <YAxis />
-//       <Tooltip />
-//       <Legend />
-//       <ReferenceLine x={0} stroke="#000" />
-//       <Bar
-//         dataKey='uv'
-//     >
-//         {data.map((datum, entry, index) => (
-//             <Cell
-//                 key={`cell-${index}`}
-//                 fill={
-//                     datum.uv > 0
-//                         ? 'yellow'
-//                         : 'red'
-//                 }
-//             />
-//         ))}
-//     </Bar>
-//     </BarChart>
-//     );
-//   }
-// }

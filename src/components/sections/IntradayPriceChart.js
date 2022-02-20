@@ -1,61 +1,70 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createChart ,CrosshairMode } from 'lightweight-charts';
 
-function IntradayPriceChart() {
+function IntradayPriceChart(props) {
 
+  const previus = new Date();
+  previus.setDate(previus.getDate() - 360);
+  const lastYear = previus.toISOString().slice(0, 10)
+  let today = new Date().toISOString().slice(0, 10)
+
+  var fdate
+  if(props.calender === today){
+       fdate = lastYear
+  }else{
+       fdate = props.calender
+  } 
     const chartRefSPY = useRef();
     const chartRefQQQ = useRef();
     const chartRefDOW = useRef();
 
-      const chartDesign = {
-        width: 450,
-        height: 360,
-        layout: {
-          backgroundColor: '#060916',
-          textColor: 'rgba(255, 255, 255, 0.9)',
+    const chartDesign = {
+      width: 450,
+      height: 360,
+      layout: {
+        backgroundColor: '#060916',
+        textColor: 'rgba(255, 255, 255, 0.9)',
+      },
+      grid: {
+        vertLines: {
+          color: "rgba(42, 46, 57, 0.2)"
         },
-        grid: {
-          vertLines: {
-            color: "rgba(42, 46, 57, 0.2)"
-          },
-          horzLines: {
-            color: "rgba(42, 46, 57, 0.2)"
-          },
+        horzLines: {
+          color: "rgba(42, 46, 57, 0.2)"
         },
-        crosshair: {
-          mode: CrosshairMode.Normal,
-        },
-        priceScale: {
-          borderColor: '#485c7b',
-        },
-        timeScale: {
-          borderColor: '#485c7b',
-        },
-      }
-      const candleDesign = {
-        upColor: '#4bffb5',
-        downColor: '#ff4976',
-        borderDownColor: '#ff4976',
-        borderUpColor: '#4bffb5',
-        wickDownColor: '#838ca1',
-        wickUpColor: '#838ca1',
+      },
+      crosshair: {
+        mode: CrosshairMode.Normal,
+      },
+      priceScale: {
+        borderColor: '#485c7b',
+      },
+      timeScale: {
+        borderColor: '#485c7b',
+      },
     }
-    useEffect(() => {
-      const chartSPY = createChart(chartRefSPY.current, chartDesign);
-      const chartQQQ = createChart(chartRefQQQ.current, chartDesign);
-      const chartDOW = createChart(chartRefDOW.current, chartDesign);
-       const candleSeriesSPY = chartSPY.addCandlestickSeries(candleDesign);
-       const candleSeriesQQQ = chartQQQ.addCandlestickSeries(candleDesign);
-       const candleSeriesDOW = chartDOW.addCandlestickSeries(candleDesign);
+    const candleDesign = {
+      upColor: '#4bffb5',
+      downColor: '#ff4976',
+      borderDownColor: '#ff4976',
+      borderUpColor: '#4bffb5',
+      wickDownColor: '#838ca1',
+      wickUpColor: '#838ca1',
+  }
+
 
      //   https://financialmodelingprep.com/api/v3/quote/SPY,QQQ,DOW?apikey=9f8bf374d13311bf6527af0ea58ebdb6
 
         async function fetchData() {
-           
-            let today = new Date().toISOString().slice(0, 10)
-
+          const chartSPY = createChart(chartRefSPY.current, chartDesign);
+          const chartQQQ = createChart(chartRefQQQ.current, chartDesign);
+          const chartDOW = createChart(chartRefDOW.current, chartDesign);
+           const candleSeriesSPY = chartSPY.addCandlestickSeries(candleDesign);
+           const candleSeriesQQQ = chartQQQ.addCandlestickSeries(candleDesign);
+           const candleSeriesDOW = chartDOW.addCandlestickSeries(candleDesign);
+          
           // SPY INDEX
-            await fetch(`https://api.polygon.io/v2/aggs/ticker/SPY/range/1/day/2021-01-01/${today}?adjusted=true&sort=asc&limit=1500&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
+            await fetch(`https://api.polygon.io/v2/aggs/ticker/SPY/range/1/day/${fdate}/${today}?adjusted=true&sort=asc&limit=1500&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
             .then(res => res.json())
                   .then(data => {
                       const spydata = data.results.map(d => {
@@ -69,13 +78,13 @@ function IntradayPriceChart() {
                           }
                       });
                           candleSeriesSPY.setData(spydata);
-                          // chart.timeScale().fitContent();     
+                           candleSeriesSPY.timeScale().fitContent();     
                   })
                   .catch(err => console.error(err))
          
          // QQQ INDEX
 
-          await fetch(`https://api.polygon.io/v2/aggs/ticker/QQQ/range/1/day/2021-01-01/${today}?adjusted=true&sort=asc&limit=1500&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
+          await fetch(`https://api.polygon.io/v2/aggs/ticker/QQQ/range/1/day/${fdate}/${today}?adjusted=true&sort=asc&limit=1500&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
           .then(res => res.json())
                 .then(data => {
                     const qqqdata = data.results.map(d => {
@@ -94,9 +103,9 @@ function IntradayPriceChart() {
                 .catch(err => console.error(err))
 
 
-     // DOW INDEX
+     //DOW INDEX
 
-          await fetch(`https://api.polygon.io/v2/aggs/ticker/DOW/range/1/day/2021-01-01/${today}?adjusted=true&sort=asc&limit=1500&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
+          await fetch(`https://api.polygon.io/v2/aggs/ticker/DOW/range/1/day/${fdate}/${today}?adjusted=true&sort=asc&limit=1500&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
           .then(res => res.json())
                 .then(data => {
                     const DOWdata = data.results.map(d => {
@@ -114,10 +123,9 @@ function IntradayPriceChart() {
                 })
                 .catch(err => console.error(err))
         }
-            
-     fetchData()
-
-    }, [])
+     useEffect(() => {       
+           fetchData()
+    }, [fdate])
 
     return (
         <div>
@@ -132,7 +140,7 @@ function IntradayPriceChart() {
                         <h3 style = {{marginBottom:'0px'}}> SPY INDEX</h3>
                         <p style = {{color:'#666666 '}}>Intraday price chart</p>
                     </div>
-                 <div ref={chartRefSPY} ></div> 
+                      <div ref={chartRefSPY} ></div> 
                   </div>
                 </div>
               </div>
@@ -166,3 +174,4 @@ function IntradayPriceChart() {
 }
 
 export default IntradayPriceChart;
+

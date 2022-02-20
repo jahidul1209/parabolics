@@ -238,6 +238,20 @@ input.forontrol {
   }
 }
 
+@media (min-width: 420px) {
+  div.mdb-datatable div .mdb-datatable-length, div.mdb-datatable div .mdb-datatable-filter, div.mdb-datatable div .mdb-datatable-info, div.mdb-datatable div .mdb-dataTables_paginate ul.pagination {
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    -webkit-box-pack: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+}
+
 .screener {
   background: #060916;
   padding: 3rem;
@@ -487,7 +501,26 @@ input.forontrol {
   text-align: left;
 }
 
-@media only screen and (max-width: 480px) {
+.cchart iframe {
+  border: 0;
+  width: 450px !important;
+  height: 280px !important;
+}
+
+.cchart article {
+  height: 280px !important;
+}
+
+@media only screen and (max-width: 380px) {
+  .cchart {
+    width: 100%;
+    margin: 10px;
+  }
+  .cchart iframe {
+    border: 0;
+    width: 32% !important;
+    height: 280px !important;
+  }
   .tv-lightweight-charts {
     width: 335px !important;
   }
@@ -499,7 +532,37 @@ input.forontrol {
   }
 }
 
+@media only screen and (min-width: 380px) and (max-width: 480px) {
+  .cchart {
+    width: 100%;
+    margin: 10px;
+  }
+  .cchart iframe {
+    border: 0;
+    width: 36% !important;
+    height: 280px !important;
+  }
+  .tv-lightweight-charts {
+    width: 365px !important;
+  }
+  .tv-lightweight-charts canvas {
+    width: 100% !important;
+  }
+  .tv-lightweight-charts table {
+    width: 365px !important;
+  }
+}
+
 @media only screen and (min-width: 480px) and (max-width: 600px) {
+  .cchart {
+    width: 100%;
+    margin: 10px;
+  }
+  .cchart iframe {
+    border: 0;
+    width: 40% !important;
+    height: 280px !important;
+  }
   .tv-lightweight-charts {
     width: 480px !important;
   }
@@ -512,6 +575,10 @@ input.forontrol {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1368px) {
+  .cchart {
+    width: 48%;
+    margin: 10px;
+  }
   .tv-lightweight-charts {
     width: 345px !important;
   }
@@ -717,7 +784,7 @@ h5#watchlistsModalLabel {
 }
 
 .card-header {
-  background: #4a4a4a;
+  background: #0f121f;
   border-radius: 1px;
 }
 

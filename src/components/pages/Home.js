@@ -39,7 +39,7 @@ class Home extends Component {
        </div>
       <MarketSummary/>
      {/* ---------------Intraday Price Chart-------------- */}
-     <IntradayPriceChart/>
+     <IntradayPriceChart calender = {this.state.calend}/>
       {/* BIGGEST GAINERS  & BIGGEST LOSERS */}
       <section class="pt-0">
         <div class="container-fluid">

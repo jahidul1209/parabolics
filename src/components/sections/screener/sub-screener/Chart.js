@@ -15,14 +15,12 @@ function Chart(props) {
                props.rowData.map((item, index)=> {
               
                    return(
-                    index < 15 &&
+                    index < 4 &&
                         <div className='cchart'>
                       
                             <Link to = {`/chart/${item.symbol}`}> <h6>{item.symbol}</h6>    </Link>
-                            <TradingViewWidget  symbol={`${item.symbol}`} height = '280px' width = '450px' theme={Themes.DARK}  locale="en"  /> 
-                                    {/* <img src = {`https://api.chart-img.com/v1/tradingview/advanced-chart?height=400&studies=EMA:12&studies=EMA:26&symbol=${item}&key=2bbd4ca4-96f7-4779-86e5-3633b4a2bcd0`} alt=''  width='100%'/> */}
-                        
-                            
+                            <TradingViewWidget  symbol={`${item.symbol}`}  theme={Themes.DARK}  locale="en"  className = 'charttrade' /> 
+                                    {/* <img src = {`https://api.chart-img.com/v1/tradingview/advanced-chart?height=400&studies=EMA:12&studies=EMA:26&symbol=${item}&key=2bbd4ca4-96f7-4779-86e5-3633b4a2bcd0`} alt=''  width='100%'/> */}              
                         </div>               
                   )
                 })  

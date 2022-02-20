@@ -207,3 +207,14 @@ button.btn.btn-link.text-gray-400.px-0.text-decoration-none.fw-bold.cursor-point
 }
   }
 
+  @media (min-width: 420px){
+      div.mdb-datatable div .mdb-datatable-length, div.mdb-datatable div .mdb-datatable-filter, div.mdb-datatable div .mdb-datatable-info, div.mdb-datatable div .mdb-dataTables_paginate ul.pagination {
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          text-align: center;
+          -webkit-box-pack: center;
+          display: flex;
+          flex-wrap: nowrap;
+  }
+}
