@@ -11,18 +11,18 @@ const  SectorPreform =()=> {
       const sector = [];
       const percentage = [];
 
-      fetch(`https://financialmodelingprep.com/api/v3/etf-sector-weightings/SPY?apikey=9f8bf374d13311bf6527af0ea58ebdb6`)
+      fetch(`https://financialmodelingprep.com/api/v3/sectors-performance?apikey=9f8bf374d13311bf6527af0ea58ebdb6`)
       .then(response => response.json())
 
       .then(response =>{
         response.map(item => {
-            percentage.push(item.weightPercentage);
+            percentage.push(item.changesPercentage);
             sector.push(item. sector)
-          })
+         })
           setData (percentage)
           setCategory(sector )
       }).catch(e => {
-          alert(e);
+          console.log(e);
       })
   }
 
@@ -92,7 +92,7 @@ const  SectorPreform =()=> {
                   
                   name: 'Changes',
                   data: data,
-                }]} type="bar" height={440}
+                }]} type="bar" height={450}
             />
     </div>
          

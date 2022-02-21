@@ -44,7 +44,7 @@ function MarketIndex(props) {
 
       useEffect(() => {
           fetchData()
-      }, []);
+      }, [props.calender]);
 
 
     const datatable = {

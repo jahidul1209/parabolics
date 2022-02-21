@@ -125,7 +125,7 @@ function IntradayPriceChart(props) {
         }
      useEffect(() => {       
            fetchData()
-    }, [fdate])
+    }, [])
 
     return (
         <div>

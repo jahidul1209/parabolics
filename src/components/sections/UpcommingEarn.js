@@ -6,18 +6,18 @@ function UpcommingEarn(props) {
     const  today = new Date().toISOString().slice(0, 10);
     const [rowData, setRowData] = useState()
     const previus = new Date();
-    previus.setDate(previus.getDate() - 3);
-    const last3days = previus.toISOString().slice(0, 10)
+    previus.setDate(previus.getDate() + 7);
+    const nextWeek = previus.toISOString().slice(0, 10)
 
     var fdate
     if(props.calender === today){
-         fdate = last3days
+         fdate = nextWeek
     }else{
          fdate = props.calender
     } 
 
 function fetchData(){
-        fetch(`https://financialmodelingprep.com/api/v3/earning_calendar?from=${fdate}&to=${today}&apikey=9f8bf374d13311bf6527af0ea58ebdb6`) //https://finnhub.io/ API  https://finnhub.io/api/v1/calendar/earnings?from=${today}&to=${props.calender}&token=c7jrb0iad3i887nsjm60
+        fetch(`https://financialmodelingprep.com/api/v3/earning_calendar?from=${today}&to=${fdate}&apikey=9f8bf374d13311bf6527af0ea58ebdb6`) //https://finnhub.io/ API  https://finnhub.io/api/v1/calendar/earnings?from=${today}&to=${props.calender}&token=c7jrb0iad3i887nsjm60
           .then(res => res.json())
           .then(
             (result) => {
@@ -84,7 +84,7 @@ function fetchData(){
                   <div className="card py-3 px-3">
                         <div className = 'pt-3 pb-2 py-2 px-2  '>
                             <h3 style = {{marginBottom:'3px'}}> UPCOMING EARNINGS</h3>
-                            <p style = {{color:'#666666 '}}>Earnings coming in the next 3 days.</p>
+                            <p style = {{color:'#666666 '}}>Earnings coming in the next 7 days.</p>
                         </div>
                       <MDBDataTableV5 hover entriesOptions={[7, 20, 25]} entries={7} pagesAmount={4} data={datatable} />
                   </div>
