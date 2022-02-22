@@ -9,6 +9,7 @@ function InsiderTransactions(props) {
     const previus = new Date();
     previus.setDate(previus.getDate() - 360);
     const lastYear = previus.toISOString().slice(0, 10)
+    
     var fdate = lastYear
     if(localfdate !== today){
         fdate =  localfdate
