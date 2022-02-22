@@ -5,9 +5,18 @@ import { Link } from 'react-router-dom';
 function MarketIndex(props) {
   const  today = new Date().toISOString().slice(0, 10);
     const [rowData, setRowData] = useState()
+
+    var localfdate = JSON.parse( localStorage.getItem('propsDate'))
+
+    
+    var fdate = today
+    if(localfdate !== today){
+        fdate =  localfdate
+    }
+
  
     function fetchData(){
-        fetch(`https://financialmodelingprep.com/api/v3/quotes/index?from=${props.calender}&to=${today}&apikey=9f8bf374d13311bf6527af0ea58ebdb6`)
+        fetch(`https://financialmodelingprep.com/api/v3/quotes/index?from=${fdate}&to=${today}&apikey=9f8bf374d13311bf6527af0ea58ebdb6`)
           .then(res => res.json())
           .then(
             (result) => {

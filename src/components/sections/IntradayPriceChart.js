@@ -81,7 +81,7 @@ console.log(updateDate)
            const candleSeriesDOW = chartDOW.addCandlestickSeries(candleDesign);
           
           // SPY INDEX
-             fetch(`https://api.polygon.io/v2/aggs/ticker/SPY/range/1/day/${updateDate}/${today}?adjusted=true&sort=asc&limit=1500&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
+             fetch(`https://api.polygon.io/v2/aggs/ticker/SPY/range/1/day/${updateDate}/${today}?adjusted=false&sort=asc&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
               .then(res => res.json())
                   .then(data => {
                       const spydata = data.results.map(d => {
@@ -101,7 +101,7 @@ console.log(updateDate)
          
          // QQQ INDEX
 
-           fetch(`https://api.polygon.io/v2/aggs/ticker/QQQ/range/1/day/${updateDate}/${today}?adjusted=true&sort=asc&limit=1500&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
+           fetch(`https://api.polygon.io/v2/aggs/ticker/QQQ/range/1/day/${updateDate}/${today}?adjusted=true&sort=asc&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
             .then(res => res.json())
                 .then(data => {
                     const qqqdata = data.results.map(d => {
@@ -121,7 +121,7 @@ console.log(updateDate)
 
      //DOW INDEX
 
-           fetch(`https://api.polygon.io/v2/aggs/ticker/DOW/range/1/day/${updateDate}/${today}?adjusted=true&sort=asc&limit=1500&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
+           fetch(`https://api.polygon.io/v2/aggs/ticker/DOW/range/1/day/${updateDate}/${today}?adjusted=true&sort=asc&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
             .then(res => res.json())
                 .then(data => {
                     const DOWdata = data.results.map(d => {
@@ -153,7 +153,7 @@ console.log(updateDate)
           }   
             init()       
        
-    }, [chartRefSPY.current])
+    }, [chartRefSPY.current, chartRefQQQ.current, chartRefDOW.current])
 
     return (
         <div>

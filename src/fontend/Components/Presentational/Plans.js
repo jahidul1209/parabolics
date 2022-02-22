@@ -46,8 +46,8 @@ const Plans = (props) => {
                                 <div className={styles.plan__membership__wrapper}>
                                         <div className={styles.plan__membership}>
                                             <h3>${props.yearlyPrice}</h3>
-                                            <p>Per Year, <span style={{ textDecoration: 'line-through'}}>$659</span> $599 Billed Yearly</p>
-                                            <h6 >Try with Confidence: $60 Discount $599 Yearly, never expires</h6>
+                                            <p>Per Year, <span style={{ textDecoration: 'line-through'}}>$999</span> $599 Billed Yearly</p>
+                                            <h6 >Try with Confidence: $400 Discount $599 Yearly, never expires</h6>
                                             <h4 style={{marginTop:'15px'}}>Valid for one Year</h4>
                                             <button type="button">Select</button>
                                         </div>

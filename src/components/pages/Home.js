@@ -43,7 +43,7 @@ class Home extends Component {
                 {
                   localfdate ?<>
                       <h2 className="h5 mb-0">Stocks<span style={{marginLeft:'20px' , fontSize:'13px' ,color:'#6a6c70'}} >(Selected Date: {localfdate})</span>
-                          <span> <button type='button' style={{marginLeft:'20px' , fontSize:'14px'}}  onClick={this.removeDate}>Clear History</button></span>
+                          <span> <button type='button' style={{marginLeft:'20px' , fontSize:'14px' ,background: '#101526' ,color: '#c5c5c5', padding: '2px'}}  onClick={this.removeDate}>Clear History</button></span>
                       </h2>
                      
                   </>

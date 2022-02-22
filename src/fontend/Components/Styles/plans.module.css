@@ -28,7 +28,7 @@
   }
 }
 
-@media only screen and (min-width: 820px) and (max-width: 1366px) {
+@media only screen and (min-width: 820px) and (max-width: 1024px) {
   .plan__wrapper {
     width: 90% !important;
   }
@@ -45,7 +45,34 @@
     list-style: none;
     margin-bottom: 30px;
     color: white;
-    padding: 0px 35px !important;
+    padding: 0px 15px !important;
+  }
+  .plan__wrapper .plan__membership__wrapper .plan__membership h6 {
+    padding: 20px;
+    border: 1px solid #1c9f61;
+    margin: 5px !important;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1366px) {
+  .plan__wrapper {
+    width: 90% !important;
+  }
+  .plan__wrapper h2 {
+    font-size: 25px !important;
+  }
+  .plan__wrapper .plan__description ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    list-style: none;
+    margin-bottom: 30px;
+    color: white;
+    padding: 0px 140px !important;
   }
   .plan__wrapper .plan__membership__wrapper .plan__membership h6 {
     padding: 20px;
