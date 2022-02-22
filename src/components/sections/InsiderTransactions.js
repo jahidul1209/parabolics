@@ -5,12 +5,15 @@ import Button from 'react-bootstrap/Button'
 function InsiderTransactions(props) {
   const  today = new Date().toISOString().slice(0, 10);
     const [rowData, setRowData] = useState()
-   var fdate
-   if(props.calender === today){
-        fdate = '2021-01-31'
-   }else{
-        fdate = props.calender
-   }
+    var localfdate = JSON.parse( localStorage.getItem('propsDate'))
+    const previus = new Date();
+    previus.setDate(previus.getDate() - 360);
+    const lastYear = previus.toISOString().slice(0, 10)
+    var fdate = lastYear
+    if(localfdate !== today){
+        fdate =  localfdate
+    }
+
     function fetchData() {
  
         fetch(`https://finnhub.io/api/v1/stock/insider-transactions?from=${fdate}&to=${today}&token=c7jrb0iad3i887nsjm60`) //https://finnhub.io/ API 

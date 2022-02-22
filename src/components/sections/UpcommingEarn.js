@@ -8,13 +8,12 @@ function UpcommingEarn(props) {
     const previus = new Date();
     previus.setDate(previus.getDate() + 7);
     const nextWeek = previus.toISOString().slice(0, 10)
+    var localfdate = JSON.parse( localStorage.getItem('propsDate'))
 
-    var fdate
-    if(props.calender === today){
-         fdate = nextWeek
-    }else{
-         fdate = props.calender
-    } 
+    var fdate = nextWeek
+    if(localfdate > today){
+        fdate =  localfdate
+    }
 
 function fetchData(){
         fetch(`https://financialmodelingprep.com/api/v3/earning_calendar?from=${today}&to=${fdate}&apikey=9f8bf374d13311bf6527af0ea58ebdb6`) //https://finnhub.io/ API  https://finnhub.io/api/v1/calendar/earnings?from=${today}&to=${props.calender}&token=c7jrb0iad3i887nsjm60
@@ -44,7 +43,7 @@ function fetchData(){
     useEffect(() => {
         fetchData()
 
-    }, [fdate]);
+    }, [props.calender]);
 
 
     const datatable = {

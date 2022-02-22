@@ -11,7 +11,12 @@ import InsiderTransactions from '../sections/InsiderTransactions';
 import MarketSummary from '../sections/MarketSummary';
 import StockTracking from '../sections/StockTracking';
 
-const today = new Date().toISOString().slice(0, 10)
+
+var localfdate = JSON.parse( localStorage.getItem('propsDate'))
+var today = new Date().toISOString().slice(0, 10)
+// if(localfdate){
+//   today = localfdate
+// }
 class Home extends Component {
 
       constructor(props) {
@@ -21,19 +26,34 @@ class Home extends Component {
 
         };
       }
-       handleChange = (event) =>{
+          handleChange = (event) =>{
              event.preventDefault();
             this.setState({calend: event.target.value});
          } 
+          removeDate() {
+                localStorage.removeItem("propsDate");
+                window.location.reload()
+          }
 
     render() {
       return (   
         <div>
         <div className="bg-dash-dark-2 py-4">
               <div className="container-fluid flox">
-                 <h2 className="h5 mb-0">Stocks</h2>
+                {
+                  localfdate ?<>
+                      <h2 className="h5 mb-0">Stocks<span style={{marginLeft:'20px' , fontSize:'13px' ,color:'#6a6c70'}} >(Selected Date: {localfdate})</span>
+                          <span> <button type='button' style={{marginLeft:'20px' , fontSize:'14px'}}  onClick={this.removeDate}>Clear History</button></span>
+                      </h2>
+                     
+                  </>
+                  :
+                  <h2 className="h5 mb-0">Stocks</h2>
+                }
+               
                     <level ><span style ={{fontWeight:'700' , marginRight:'10px'}}>Form:</span>
                       <input type="date" value={this.state.calend }  onChange={this.handleChange} className='forontrol'/>
+                      
                     </level>
          </div>
        </div>
