@@ -3,6 +3,7 @@ import { Container, Row, Col ,Table} from 'react-bootstrap'
 import { MDBDataTableV5 } from 'mdbreact';
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import { useParams } from 'react-router-dom';
+import ScreenerInfo from "../sections/ScreenerInfo";
 
 const TradingChart = () => {
   const {id} = useParams()
@@ -27,6 +28,7 @@ const TradingChart = () => {
   const [description, setDescription] = useState();
   const [phone, setPhone] = useState();
   const [address, setAddress] = useState();
+  const [beta, setBeta] = useState();
 
 
   useEffect(() => {
@@ -39,7 +41,8 @@ const TradingChart = () => {
         setPrice(result[0].price);
         setVolAvg(result[0].volAvg);
          setMktCap(result[0].mktCap);
-          setChange(result[0].change);
+         setBeta(result[0].beta);
+          setChange(result[0].changes);
          setCompanyName(result[0].companyName);
          setCurrency(result[0].currency);
          setWebsite(result[0].website);
@@ -204,14 +207,13 @@ const TradingChart = () => {
               </Table>
               </Col>
           </Row>
-       </div>
-     
-            
+       </div>    
     </Container>  
-            <Container fluid className='mt-3'>
+    <ScreenerInfo symbol = {symbol} price = {price } change = {change}  mktCap = {mktCap} beta = {beta}/>
+        <Container fluid className='mt-3'>
             <div className ="col-md-12">
                    <div className ="card py-3 px-3">
-                       <div className = 'pt-3 pb-2 py-2 px-2  '>
+                       <div className = 'pt-3 pb-2 py-2 px-2'>
                            <h3 style = {{marginBottom:'3px'}}>NEWS</h3>
                            {/* <p style = {{color:'#666666 '}}>Data includes pre-market & post-market movers as well. Stars are gappers.</p> */}
                        </div>

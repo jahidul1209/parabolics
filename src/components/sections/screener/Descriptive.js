@@ -16,9 +16,8 @@ import SnapShort from './sub-screener/SnapShort';
 
 
 function Descriptive(props) {
-
-    
-    const [rowData, setRowData] = useState()
+ 
+    const [rowData, setRowData] = useState('')
     const [count, setCount] = useState()
     const[exchange, setExchange] = useState('NASDAQ');
     const[marketCapMoreThan, setMarketCapMoreThan] = useState('');
@@ -58,7 +57,7 @@ function Descriptive(props) {
             })
             
             .catch(error => {
-                console.log(error);
+               alert(error);
             });
       }
 
@@ -151,11 +150,23 @@ function Descriptive(props) {
                                 <Form.Label>
                                     Earning Date:
                                     <select className="screen-btn" onChange={(e)=>  setLimit(e.target.value)} defaultValue={selectedOptionId}>
-                                                <option selected value='500'>Any</option>
-                                                <option value="20">Below 20</option>
-                                                <option value="50">Below 50</option>
-                                                <option value="100">Below 100</option>
-                                                <option value="50000">Above 100</option>
+                                        <option selected="selected" value="">Any</option>
+                                        <option value="today">Today</option>
+                                        <option value="todaybefore">Today Before Market Open</option>
+                                        <option value="todayafter">Today After Market Close</option>
+                                        <option value="tomorrow">Tomorrow</option>
+                                        <option value="tomorrowbefore">Tomorrow Before Market Open</option>
+                                        <option value="tomorrowafter">Tomorrow After Market Close</option>
+                                        <option value="yesterday">Yesterday</option>
+                                        <option value="yesterdaybefore">Yesterday Before Market Open</option>
+                                        <option value="yesterdayafter">Yesterday After Market Close</option>
+                                        <option value="nextdays5">Next 5 Days</option>
+                                        <option value="prevdays5">Previous 5 Days</option>
+                                        <option value="thisweek">This Week</option>
+                                        <option value="nextweek">Next Week</option>
+                                        <option value="prevweek">Previous Week</option>
+                                        <option value="thismonth">This Month</option>
+                                        <option value="modal">Custom (Elite only)</option>
                                     </select>
                                 </Form.Label>
                             </Form>
@@ -163,18 +174,22 @@ function Descriptive(props) {
                                 <Form.Label>
                                 Target Price:                
                                 <select className="screen-btn" onChange={(e)=>  setPriceMoreThan(e.target.value)} defaultValue={selectedOptionId}>                                   
-                                        <option selected value="500">Any</option>
-                                        <option value="1">Under $1</option>
-                                        <option value="2">Under $2</option>
-                                        <option value="5">Under $5</option>
-                                        <option value="10">Under $10</option>
-                                        <option value="15">Under $15</option>
-                                        <option value="20">Under $20</option>
-                                        <option value="40">Under $40</option>
-                                        <option value="50">Under $50</option>
-                                        <option value="100">Over $100</option>
-                                        <option value="500">Over $500</option>
-                                    </select>
+                                        <option selected="selected" value="">Any</option>
+                                        <option value="a50">50% Above Price</option>
+                                        <option value="a40">40% Above Price</option>
+                                        <option value="a30">30% Above Price</option>
+                                        <option value="a20">20% Above Price</option>
+                                        <option value="a10">10% Above Price</option>
+                                        <option value="a5">5% Above Price</option>
+                                        <option value="above">Above Price</option>
+                                        <option value="below">Below Price</option>
+                                        <option value="b5">5% Below Price</option>
+                                        <option value="b10">10% Below Price</option>
+                                        <option value="b20">20% Below Price</option>
+                                        <option value="b30">30% Below Price</option>
+                                        <option value="b40">40% Below Price</option>
+                                        <option value="b50">50% Below Price</option>
+                                </select>
                                 </Form.Label>
                             </Form>
                         </Col>
@@ -183,16 +198,9 @@ function Descriptive(props) {
                                 <Form.Label>
                                 Index:
                                     <select className="screen-btn">
-                                                <option selected value='Software'>Any</option>
-                                                <option value="Autos">Autos</option>
-                                                <option value="Banks">Banks</option>
-                                                <option value="Banks Diversified">Banks Diversified</option>
-                                                <option value="Software">Software</option>
-                                                <option value="Banks Regional">Banks Regional</option>
-                                                <option value="Beverages Alcoholic">Beverages Alcoholic</option>
-                                                <option value="Beverages Brewers">Beverages Brewers</option>
-                                                <option value="Beverages Non">Beverages Non</option>
-                                                <option value="Alcoholic">Alcoholic</option>
+                                                <option selected="selected" value="">Any</option>
+                                                <option value="sp500">S&amp;P 500</option>
+                                                <option value="dji">DJIA</option>
                                     </select>
                                 </Form.Label>
                             </Form> 
@@ -299,13 +307,26 @@ function Descriptive(props) {
                                                 Current Volume:
                                                     <select className="screen-btn" onChange={(e)=>  setVolumeMoreThan(e.target.value)} defaultValue={selectedOptionId}>
                                                                 <option selected value='100000000'>Any</option>
-                                                                <option  value="50000">Under 50K</option>
-                                                                <option value="100000">Under 100K</option>
-                                                                <option value="500000">Under 500K</option>
-                                                                <option value="750000">Under 750K</option>
-                                                                <option value="1000000">Under 1M</option>
-                                                                <option value="5000000">Over 50K</option>
-                                                                <option value="100000000">Over 100K</option>
+                                                                <option selected="selected" value="">Any</option>
+                                                                <option value="u50">Under 50K</option>
+                                                                <option value="u100">Under 100K</option>
+                                                                <option value="u500">Under 500K</option>
+                                                                <option value="u750">Under 750K</option>
+                                                                <option value="u1000">Under 1M</option>
+                                                                <option value="o0">Over 0</option>
+                                                                <option value="o50">Over 50K</option>
+                                                                <option value="o100">Over 100K</option>
+                                                                <option value="o200">Over 200K</option>
+                                                                <option value="o300">Over 300K</option>
+                                                                <option value="o400">Over 400K</option>
+                                                                <option value="o500">Over 500K</option>
+                                                                <option value="o750">Over 750K</option>
+                                                                <option value="o1000">Over 1M</option>
+                                                                <option value="o2000">Over 2M</option>
+                                                                <option value="o5000">Over 5M</option>
+                                                                <option value="o10000">Over 10M</option>
+                                                                <option value="o20000">Over 20M</option>
+                                                                <option value="range">Custom (Elite only)</option>
                                                     </select>
                                                 </Form.Label>
                                             </Form>
@@ -315,13 +336,24 @@ function Descriptive(props) {
                                                 Float:
                                                     <select className="screen-btn" onChange={(e)=>  setVolumeMoreThan(e.target.value)} defaultValue={selectedOptionId}>
                                                                 <option selected value='100000000'>Any</option>
-                                                                <option  value="50000">Under 50K</option>
-                                                                <option value="100000">Under 100K</option>
-                                                                <option value="500000">Under 500K</option>
-                                                                <option value="750000">Under 750K</option>
-                                                                <option value="1000000">Under 1M</option>
-                                                                <option value="5000000">Over 50K</option>
-                                                                <option value="100000000">Over 100K</option>
+                                                                <option selected="selected" value="">Any</option>
+                                                                <option value="u1">Under 1M</option>
+                                                                <option value="u5">Under 5M</option>
+                                                                <option value="u10">Under 10M</option>
+                                                                <option value="u20">Under 20M</option>
+                                                                <option value="u50">Under 50M</option>
+                                                                <option value="u100">Under 100M</option>
+                                                                <option value="o1">Over 1M</option>
+                                                                <option value="o2">Over 2M</option>
+                                                                <option value="o5">Over 5M</option>
+                                                                <option value="o10">Over 10M</option>
+                                                                <option value="o20">Over 20M</option>
+                                                                <option value="o50">Over 50M</option>
+                                                                <option value="o100">Over 100M</option>
+                                                                <option value="o200">Over 200M</option>
+                                                                <option value="o500">Over 500M</option>
+                                                                <option value="o1000">Over 1000M</option>
+                                                                <option value="range">Custom (Elite only)</option>
                                                     </select>
                                                 </Form.Label>
                                             </Form>
@@ -360,25 +392,49 @@ function Descriptive(props) {
                                                 <Form.Label>
                                                 Relative Volume:
                                                     <select className="screen-btn" onChange={(e)=>  setBetaMoreThan(e.target.value)} defaultValue={selectedOptionId}>
-                                                                <option selected value='100'>Any</option>
-                                                                <option  value="1">Under One</option>
-                                                                <option value="5">Under Five</option>
-                                                                <option value="10">Under Ten</option>
-                                                                <option value="50">Under Fifty</option>
-                                                                <option value="100">Under Hundred </option>
+                                                    <option selected="selected" value="">Any</option>
+                                                    <option value="o10">Over 10</option>
+                                                    <option value="o5">Over 5</option>
+                                                    <option value="o3">Over 3</option>
+                                                    <option value="o2">Over 2</option>
+                                                    <option value="o1.5">Over 1.5</option>
+                                                    <option value="o1">Over 1</option>
+                                                    <option value="o0.75">Over 0.75</option>
+                                                    <option value="o0.5">Over 0.5</option>
+                                                    <option value="o0.25">Over 0.25</option>
+                                                    <option value="u2">Under 2</option>
+                                                    <option value="u1.5">Under 1.5</option>
+                                                    <option value="u1">Under 1</option>
+                                                    <option value="u0.75">Under 0.75</option>
+                                                    <option value="u0.5">Under 0.5</option>
+                                                    <option value="u0.25">Under 0.25</option>
+                                                    <option value="u0.1">Under 0.1</option>
+                                                    <option value="frange">Custom (Elite only)</option>
                                                     </select>
                                                 </Form.Label>
                                             </Form>
                                             <Form >
                                                 <Form.Label>
                                                 Shares Outstanding:
-                                                    <select className="screen-btn" onChange={(e)=>  setBetaMoreThan(e.target.value)} defaultValue={selectedOptionId}>
-                                                                <option selected value='100'>Any</option>
-                                                                <option  value="1">Under One</option>
-                                                                <option value="5">Under Five</option>
-                                                                <option value="10">Under Ten</option>
-                                                                <option value="50">Under Fifty</option>
-                                                                <option value="100">Under Hundred </option>
+                                                    <select className="screen-btn" onChange={(e)=>  setBetaMoreThan(e.target.value)} defaultValue={selectedOptionId}>                                                         
+                                                                <option selected="selected" value="">Any</option>
+                                                                <option value="u1">Under 1M</option>
+                                                                <option value="u5">Under 5M</option>
+                                                                <option value="u10">Under 10M</option>
+                                                                <option value="u20">Under 20M</option>
+                                                                <option value="u50">Under 50M</option>
+                                                                <option value="u100">Under 100M</option>
+                                                                <option value="o1">Over 1M</option>
+                                                                <option value="o2">Over 2M</option>
+                                                                <option value="o5">Over 5M</option>
+                                                                <option value="o10">Over 10M</option>
+                                                                <option value="o20">Over 20M</option>
+                                                                <option value="o50">Over 50M</option>
+                                                                <option value="o100">Over 100M</option>
+                                                                <option value="o200">Over 200M</option>
+                                                                <option value="o500">Over 500M</option>
+                                                                <option value="o1000">Over 1000M</option>
+                                                                <option value="range">Custom (Elite only)</option>
                                                     </select>
                                                 </Form.Label>
                                             </Form>
@@ -405,16 +461,17 @@ function Descriptive(props) {
                                                 Analyst Recom:
                                                 <select className="screen-btn" onChange={(e)=>  setPriceMoreThan(e.target.value)} defaultValue={selectedOptionId}>                                   
                                                         <option selected value="500">Any</option>
-                                                        <option value="1">Under $1</option>
-                                                        <option value="2">Under $2</option>
-                                                        <option value="5">Under $5</option>
-                                                        <option value="10">Under $10</option>
-                                                        <option value="15">Under $15</option>
-                                                        <option value="20">Under $20</option>
-                                                        <option value="40">Under $40</option>
-                                                        <option value="50">Under $50</option>
-                                                        <option value="100">Over $100</option>
-                                                        <option value="500">Over $500</option>
+                                                        <option selected="selected" value="">Any</option>
+                                                        <option value="strongbuy">Strong Buy (1)</option>
+                                                        <option value="buybetter">Buy or better</option>
+                                                        <option value="buy">Buy</option>
+                                                        <option value="holdbetter">Hold or better</option>
+                                                        <option value="hold">Hold</option>
+                                                        <option value="holdworse">Hold or worse</option>
+                                                        <option value="sell">Sell</option>
+                                                        <option value="sellworse">Sell or worse</option>
+                                                        <option value="strongsell">Strong Sell (5)</option>
+                                                        <option value="modal">Custom (Elite only)</option>
                                                     </select>
                                                 </Form.Label>
                                             </Form>
@@ -436,37 +493,37 @@ function Descriptive(props) {
                                     </Tab>
                                         
                                     <Tab eventKey="valuation" title="Valuation">
-                                            <Valuation rowData = {rowData} count = {count} />         
+                                            {rowData  &&  <Valuation rowData = {rowData} count = {count} /> }        
                                     </Tab>
                                     <Tab eventKey="finanacial" title="Finanacial">
-                                             <Financial rowData = {rowData} count = {count} />       
+                                            { rowData  &&  <Financial rowData = {rowData} count = {count} /> }      
                                     </Tab>
                                     <Tab eventKey="ownership" title="Ownership">
-                                           <Ownership rowData = {rowData} count = {count} />   
+                                              {rowData  && <Ownership rowData = {rowData} count = {count} />}   
                                     </Tab>
                                     <Tab eventKey="performance" title="Performance">
                                       
-                                          <Performance rowData = {rowData} count = {count} />   
+                                            {rowData  &&  <Performance rowData = {rowData} count = {count} /> }  
                                     </Tab>
                                     <Tab eventKey="technical" title="Technical">
-                                            <Technical rowData = {rowData} count = {count} />   
+                                           { rowData  && <Technical rowData = {rowData} count = {count} /> }  
                                     </Tab>
                                     <Tab eventKey="custom" title="Custom">
-                                            <Custom rowData = {rowData} count = {count} />   
+                                         {  rowData  &&<Custom rowData = {rowData} count = {count} />   }
                                     </Tab>
                                     <Tab eventKey="charts" title="Charts">
-                                            <Chart rowData = {rowData} count = {count} />
+                                            { rowData  && <Chart rowData = {rowData} count = {count} />}
                                     </Tab>
                                 
                                     <Tab eventKey="basic" title="Basic">
-                                            <Basic rowData = {rowData}/>
+                                         {  rowData  &&  <Basic rowData = {rowData}/> }
                                     </Tab>
  
                                     <Tab eventKey="news" title="News">
-                                         <NewsSub rowData = {rowData}/>
+                                          {  rowData  &&   <NewsSub rowData = {rowData}/> }
                                     </Tab>
                                     <Tab eventKey="snapshot" title="Snapshot">
-                                      <SnapShort rowData = {rowData} />
+                                          {  rowData  &&   <SnapShort rowData = {rowData} />}
                                     </Tab>
                                 </Tabs>
 

@@ -52,11 +52,6 @@ function Overview(props) {
               },
            
               {
-                label: 'P/E',
-                field: 'beta',
-                width: 200,
-              },
-              {
                 label: 'Price',
                 field: 'price',
                 width: 200,
