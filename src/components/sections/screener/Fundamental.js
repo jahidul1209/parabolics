@@ -739,41 +739,41 @@ function Fundamental(props) {
                                     id="noanim-tab"
                                     >
                                     <Tab eventKey="overview" title="Overview">
-                                        <Overview  rowData = {rowData} count = {count} />                        
+                                    { count > 0  &&  <Overview  rowData = {rowData} count = {count} />  }                      
                                     </Tab>
                                         
                                     <Tab eventKey="valuation" title="Valuation">
-                                            <Valuation rowData = {rowData} count = {count} />         
+                                           { count > 0  &&    <Valuation rowData = {rowData} count = {count} />   }      
                                     </Tab>
                                     <Tab eventKey="finanacial" title="Finanacial">
-                                             <Financial rowData = {rowData} count = {count} />       
+                                            { count > 0  &&    <Financial rowData = {rowData} count = {count} />  }     
                                     </Tab>
                                     <Tab eventKey="ownership" title="Ownership">
-                                           <Ownership rowData = {rowData} count = {count} />   
+                                           { count > 0  &&   <Ownership rowData = {rowData} count = {count} />  } 
                                     </Tab>
                                     <Tab eventKey="performance" title="Performance">
                                       
-                                          <Performance rowData = {rowData} count = {count} />   
+                                      { count > 0  &&  <Performance rowData = {rowData} count = {count} />  } 
                                     </Tab>
                                     <Tab eventKey="technical" title="Technical">
-                                            <Technical rowData = {rowData} count = {count} />   
+                                            { count > 0  &&   <Technical rowData = {rowData} count = {count} />  } 
                                     </Tab>
                                     <Tab eventKey="custom" title="Custom">
-                                            <Custom rowData = {rowData} count = {count} />   
+                                           { count > 0  &&    <Custom rowData = {rowData} count = {count} />   }
                                     </Tab>
                                     <Tab eventKey="charts" title="Charts">
-                                            <Chart rowData = {rowData} count = {count} />
+                                           { count > 0  &&    <Chart rowData = {rowData} count = {count} />}
                                     </Tab>
                                 
                                     <Tab eventKey="basic" title="Basic">
-                                            <Basic rowData = {rowData}/>
+                                           { count > 0  &&    <Basic rowData = {rowData}/> }
                                     </Tab>
  
                                     <Tab eventKey="news" title="News">
-                                         <NewsSub rowData = {rowData}/>
+                                         { count > 0  &&   <NewsSub rowData = {rowData}/> }
                                     </Tab>
                                     <Tab eventKey="snapshot" title="Snapshot">
-                                      <SnapShort rowData = {rowData} />
+                                          { count > 0  &&  <SnapShort rowData = {rowData} /> }
                                     </Tab>
                                 </Tabs>
 

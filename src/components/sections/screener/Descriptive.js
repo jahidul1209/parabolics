@@ -18,6 +18,7 @@ import SnapShort from './sub-screener/SnapShort';
 function Descriptive(props) {
  
     const [rowData, setRowData] = useState('')
+    const [error, setError] = useState('')
     const [count, setCount] = useState()
     const[exchange, setExchange] = useState('NASDAQ');
     const[marketCapMoreThan, setMarketCapMoreThan] = useState('');
@@ -36,10 +37,10 @@ function Descriptive(props) {
   function  fetchData(){
         axios.get(`https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=${marketCapMoreThan}&betaMoreThan=${betaMoreThan}&priceMoreThan=${priceMoreThan}&volumeMoreThan=${volumeMoreThan}&sector=${sector}&industry=${industry}&country=${country}&exchange=${exchange}&dividendMoreThan=${dividendMoreThan}&isActivelyTrading=${isActivelyTrading}&limit=${limit}&apikey=9f8bf374d13311bf6527af0ea58ebdb6`
            )
-           .then((response) => {
+            .then((response) => {
              setCount(response.data.length);
-            const gainData =  response.data.map((d, key) => {
-                return  {
+             const gainData =  response.data.map((d, key) => {
+                return  {   
                     sl: key + 1,
                     symbol:d.symbol,
                     ticker: <Link to = {`/chart/${d.symbol}`}>{d.symbol}</Link>,
@@ -57,10 +58,10 @@ function Descriptive(props) {
             })
             
             .catch(error => {
-               alert(error);
+               setError(error);
             });
       }
-
+      
     useEffect(() => {
           fetchData()
       }, [
@@ -487,43 +488,43 @@ function Descriptive(props) {
                                     >
                                     <Tab eventKey="overview" title="Overview">
                                     {
-                                       rowData  &&   <Overview  rowData = {rowData} count = {count} /> 
+                                       count > 0  &&   <Overview  rowData = {rowData} count = {count} /> 
                                     } 
                                                              
                                     </Tab>
                                         
                                     <Tab eventKey="valuation" title="Valuation">
-                                            {rowData  &&  <Valuation rowData = {rowData} count = {count} /> }        
+                                            { count > 0  &&  <Valuation rowData = {rowData} count = {count} /> }        
                                     </Tab>
                                     <Tab eventKey="finanacial" title="Finanacial">
-                                            { rowData  &&  <Financial rowData = {rowData} count = {count} /> }      
+                                            {  count > 0  &&  <Financial rowData = {rowData} count = {count} /> }      
                                     </Tab>
                                     <Tab eventKey="ownership" title="Ownership">
-                                              {rowData  && <Ownership rowData = {rowData} count = {count} />}   
+                                              { count > 0  && <Ownership rowData = {rowData} count = {count} />}   
                                     </Tab>
                                     <Tab eventKey="performance" title="Performance">
                                       
-                                            {rowData  &&  <Performance rowData = {rowData} count = {count} /> }  
+                                            { count > 0  &&  <Performance rowData = {rowData} count = {count} /> }  
                                     </Tab>
                                     <Tab eventKey="technical" title="Technical">
-                                           { rowData  && <Technical rowData = {rowData} count = {count} /> }  
+                                           {  count > 0  && <Technical rowData = {rowData} count = {count} /> }  
                                     </Tab>
                                     <Tab eventKey="custom" title="Custom">
-                                         {  rowData  &&<Custom rowData = {rowData} count = {count} />   }
+                                         {   count > 0  && <Custom rowData = {rowData} count = {count} />   }
                                     </Tab>
                                     <Tab eventKey="charts" title="Charts">
-                                            { rowData  && <Chart rowData = {rowData} count = {count} />}
+                                            {  count > 0  && <Chart rowData = {rowData} count = {count} />}
                                     </Tab>
                                 
                                     <Tab eventKey="basic" title="Basic">
-                                         {  rowData  &&  <Basic rowData = {rowData}/> }
+                                         {   count > 0  &&  <Basic rowData = {rowData}/> }
                                     </Tab>
  
                                     <Tab eventKey="news" title="News">
-                                          {  rowData  &&   <NewsSub rowData = {rowData}/> }
+                                          {   count > 0  &&   <NewsSub rowData = {rowData}/> }
                                     </Tab>
                                     <Tab eventKey="snapshot" title="Snapshot">
-                                          {  rowData  &&   <SnapShort rowData = {rowData} />}
+                                          {   count > 0  &&   <SnapShort rowData = {rowData} />}
                                     </Tab>
                                 </Tabs>
 
