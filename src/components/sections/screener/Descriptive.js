@@ -18,7 +18,7 @@ import SnapShort from './sub-screener/SnapShort';
 function Descriptive(props) {
  
     const [rowData, setRowData] = useState('')
-    const [error, setError] = useState('')
+    const [datta, setDatta] = useState('')
     const [count, setCount] = useState()
     const[exchange, setExchange] = useState('NASDAQ');
     const[marketCapMoreThan, setMarketCapMoreThan] = useState('');
@@ -33,13 +33,34 @@ function Descriptive(props) {
     const[isActivelyTrading, setIsActivelyTrading] = useState('');
  
     let selectedOptionId = 0;
-    
-  function  fetchData(){
+
+    // function financialRatio(){
+    //     axios.get(`https://financialmodelingprep.com/api/v3/ratios/AAPL?limit=40&apikey=9f8bf374d13311bf6527af0ea58ebdb6`
+    //     )
+    //      .then((response) => {
+    //       console.log(response.data)
+    //      }
+    //      )
+    // }
+   var  currentRatio     
+    async  function ddta(){
+                   const response  =  await fetch(`https://financialmodelingprep.com/api/v3/ratios/AAPL?limit=1&apikey=9f8bf374d13311bf6527af0ea58ebdb6`)
+                   const respon = await response.json();
+                   const currentRat = respon[0].currentRatio
+ 
+             return(currentRat)
+    }
+      ddta().then(currentRat=>{ setDatta(currentRat) })
+     console.log(datta)
+     function  fetchData(){
+       
         axios.get(`https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=${marketCapMoreThan}&betaMoreThan=${betaMoreThan}&priceMoreThan=${priceMoreThan}&volumeMoreThan=${volumeMoreThan}&sector=${sector}&industry=${industry}&country=${country}&exchange=${exchange}&dividendMoreThan=${dividendMoreThan}&isActivelyTrading=${isActivelyTrading}&limit=${limit}&apikey=9f8bf374d13311bf6527af0ea58ebdb6`
            )
             .then((response) => {
              setCount(response.data.length);
+             
              const gainData =  response.data.map((d, key) => {
+               
                 return  {   
                     sl: key + 1,
                     symbol:d.symbol,
@@ -52,17 +73,20 @@ function Descriptive(props) {
                     price:  d.price,
                     beta: d.beta.toFixed(3),
                     volume:numberWithCommas(d.volume),
+                    currentRatio : datta
                   }
                 });
                setRowData(gainData)
+               console.log(gainData)
             })
             
             .catch(error => {
-               setError(error);
+               console.log(error);
             });
       }
       
     useEffect(() => {
+        // financialRatio()
           fetchData()
       }, [
         marketCapMoreThan,

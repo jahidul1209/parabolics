@@ -58,7 +58,7 @@ function Overview(props) {
               },
               {
                 label: 'P/E',
-                field: 'pe',
+                field: 'currentRatio',
                 width: 200,
               },
               {
