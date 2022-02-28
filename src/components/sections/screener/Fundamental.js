@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import Basic from './sub-screener/Basic';
 import NewsSub from './sub-screener/NewsSub';
 import SnapShort from './sub-screener/SnapShort';
+import FetchTableData from '../FetchTableData';
 
 
 
@@ -51,6 +52,8 @@ function Fundamental(props) {
                     price:  d.price,
                     beta: d.beta.toFixed(3),
                     volume:numberWithCommas(d.volume),
+                    priceEarnRatio :  <FetchTableData symbol = {d.symbol} field = 'priceEarnRatio'/>,
+                    priceEarnGrothRatio:   <FetchTableData symbol = {d.symbol} field = 'priceEarnGrothRatio'/>
                   }
                 });
                setRowData(gainData)
@@ -739,7 +742,7 @@ function Fundamental(props) {
                                     id="noanim-tab"
                                     >
                                     <Tab eventKey="overview" title="Overview">
-                                    { count > 0  &&  <Overview  rowData = {rowData} count = {count} />  }                      
+                                    {/* { count > 0  &&  <Overview  rowData = {rowData} count = {count} />  }                       */}
                                     </Tab>
                                         
                                     <Tab eventKey="valuation" title="Valuation">

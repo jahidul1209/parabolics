@@ -56,11 +56,7 @@ function Overview(props) {
                 field: 'price',
                 width: 200,
               },
-              {
-                label: 'P/E',
-                field: 'currentRatio',
-                width: 200,
-              },
+             
               {
                 label: 'Volume',
                 field: 'volume',

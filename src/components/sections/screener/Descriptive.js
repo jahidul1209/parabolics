@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";    
 import { Container , Tabs , Tab, Form ,Row, Col} from 'react-bootstrap'
+import finviz from 'finviz-screener'
 import Overview from './sub-screener/Overview';
 import Valuation from './sub-screener/Valuation';
 import Financial from './sub-screener/Financial';
@@ -13,93 +14,130 @@ import { Link } from 'react-router-dom';
 import Basic from './sub-screener/Basic';
 import NewsSub from './sub-screener/NewsSub';
 import SnapShort from './sub-screener/SnapShort';
+import FetchTableData from '../FetchTableData';
+const finvizData = require('@stonksjs/finviz');
 
 
 function Descriptive(props) {
  
-    const [rowData, setRowData] = useState('')
-    const [datta, setDatta] = useState('')
+    const [rowData, setRowData] = useState()
+
     const [count, setCount] = useState()
-    const[exchange, setExchange] = useState('NASDAQ');
-    const[marketCapMoreThan, setMarketCapMoreThan] = useState('');
-    const[priceMoreThan, setPriceMoreThan] = useState('');
-    const[betaMoreThan, setBetaMoreThan] = useState('');
-    const[volumeMoreThan, setVolumeMoreThan] = useState('');
-    const[dividendMoreThan, setDividendMoreThan] = useState('');
-    const[country, setCountry] = useState('');
-    const[industry, setIndustry] = useState('');
-    const[sector, setSector] = useState('');
-    const[limit, setLimit] = useState('');
-    const[isActivelyTrading, setIsActivelyTrading] = useState('');
+    // const[exchange, setExchange] = useState('');
+    // const[country, setCountry] = useState('');
+    // const[industry, setIndustry] = useState('');
+    // const[sector, setSector] = useState('');
+    // const[companyName, setCompanyName] = useState('');
+
  
     let selectedOptionId = 0;
-
-    // function financialRatio(){
-    //     axios.get(`https://financialmodelingprep.com/api/v3/ratios/AAPL?limit=40&apikey=9f8bf374d13311bf6527af0ea58ebdb6`
-    //     )
-    //      .then((response) => {
-    //       console.log(response.data)
-    //      }
-    //      )
-    // }
-   var  currentRatio     
-    async  function ddta(){
-                   const response  =  await fetch(`https://financialmodelingprep.com/api/v3/ratios/AAPL?limit=1&apikey=9f8bf374d13311bf6527af0ea58ebdb6`)
-                   const respon = await response.json();
-                   const currentRat = respon[0].currentRatio
- 
-             return(currentRat)
-    }
-      ddta().then(currentRat=>{ setDatta(currentRat) })
-     console.log(datta)
-     function  fetchData(){
-       
-        axios.get(`https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=${marketCapMoreThan}&betaMoreThan=${betaMoreThan}&priceMoreThan=${priceMoreThan}&volumeMoreThan=${volumeMoreThan}&sector=${sector}&industry=${industry}&country=${country}&exchange=${exchange}&dividendMoreThan=${dividendMoreThan}&isActivelyTrading=${isActivelyTrading}&limit=${limit}&apikey=9f8bf374d13311bf6527af0ea58ebdb6`
-           )
-            .then((response) => {
-             setCount(response.data.length);
-             
-             const gainData =  response.data.map((d, key) => {
+   
+   async  function  fetchData(){
+    var gainData = []
+        const options = {
+            // Maximum number of pages to fetch. Set to `0` to disable. Default is 1
+            pageLimit: 1,
+            // Number of milliseconds to wait between requests. Default is 1000
+            requestTimeout: 1000,
+        }
+        
+        const tickers = await finviz(options)
+                .averageVolume('Over 2M')
+                .sector('Technology')
+                .price('Over $50')
+                .scan()
+         setCount(tickers.length)
+        console.log(tickers) //=> ['AAPL', 'MSFT', 'IBM', ... ]
+        // for(var key in tickers){
+        //     //combine both values into object inside of kvArray[object]);
+        //    };
+           for(var key in tickers){
+              console.log(key)
+              const data = await finvizData.quote(key);
+                  fetch(`https://financialmodelingprep.com/api/v3/profile/${key}?apikey=9f8bf374d13311bf6527af0ea58ebdb6`)
+                  .then(res=>res.json())
+                  .then((result)=> {
                
-                return  {   
-                    sl: key + 1,
-                    symbol:d.symbol,
-                    ticker: <Link to = {`/chart/${d.symbol}`}>{d.symbol}</Link>,
-                    company:d.companyName,
-                    sector:d.sector,
-                    industry:d.industry,
-                    country:d.country,
-                    marketCap: nFormatter(d.marketCap),
-                    price:  d.price,
-                    beta: d.beta.toFixed(3),
-                    volume:numberWithCommas(d.volume),
-                    currentRatio : datta
-                  }
-                });
-               setRowData(gainData)
-               console.log(gainData)
-            })
+                   const scrData = {
+                                sl: 1,
+                                symbol:key,
+                                ticker: <Link to = {`/chart/${key}`}>{key}</Link>,
+                                sector:result[0].sector,
+                                earningDate:data.earnings,
+                                exchange:result[0].exchange,
+                                companyName:result[0].companyName,
+                                targetPrice:data.targetPrice,
+                                index:data.index,
+                                industry:result[0].industry, 
+                                country: result[0].country,
+                                marketCap:data.marketCap,
+                                avarageVolume:data.avgVolume, 
+                                dividendYield:data.dividend,
+                                currentVolume: data.volume,
+                                float: data.shsFloat,
+                                optionShort:data.optionable, 
+                                floatShort:data.shortFloat,
+                                relativeVolume:data.elVolume,
+                                sharesOutstanding:data.shsOutstand,
+                                price:data.price,
+                                analystRecom:data.recom,  
+                                                
+                   }
+                   gainData.push(scrData)
+                })
+               
+           }          
+       setRowData(gainData)
+                  
+
+           
+
+    //     axios.get(`https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=${marketCapMoreThan}&betaMoreThan=${betaMoreThan}&priceMoreThan=${priceMoreThan}&volumeMoreThan=${volumeMoreThan}&sector=${sector}&industry=${industry}&country=${country}&exchange=${exchange}&dividendMoreThan=${dividendMoreThan}&isActivelyTrading=${isActivelyTrading}&limit=${limit}&apikey=9f8bf374d13311bf6527af0ea58ebdb6`
+    //        )
+    //         .then((response) => {
+    //          setCount(response.data.length);
+             
+    //          const gainData =  response.data.map((d, key) => {
+               
+    //             return  {   
+    //                 sl: key + 1,
+    //                 symbol:d.symbol,
+    //                 ticker: <Link to = {`/chart/${d.symbol}`}>{d.symbol}</Link>,
+    //                 company:d.companyName,
+    //                 sector:d.sector,
+    //                 industry:d.industry,
+    //                 country:d.country,
+    //                 marketCap: nFormatter(d.marketCap),
+    //                 price:  d.price,
+    //                 beta: d.beta.toFixed(3),
+    //                 volume:numberWithCommas(d.volume),
+    //                 priceEarnRatio :  <FetchTableData symbol = {d.symbol} field = 'priceEarningsRatio' />,
+    //                 priceEarnGrothRatio:   <FetchTableData symbol = {d.symbol} field = 'priceEarningsToGrowthRatio' />
+    //               }
+    //             });
+    //            setRowData(gainData)
+    //            console.log(gainData)
+    //         })
             
-            .catch(error => {
-               console.log(error);
-            });
+    //         .catch(error => {
+    //            console.log(error);
+    //         });
       }
       
     useEffect(() => {
-        // financialRatio()
           fetchData()
       }, [
-        marketCapMoreThan,
-        betaMoreThan,
-        priceMoreThan,
-        volumeMoreThan,
-        sector,
-        industry,
-        country,
-        exchange,
-        dividendMoreThan,
-        limit,
-        isActivelyTrading,
+        // marketCapMoreThan,
+        // betaMoreThan,
+        // priceMoreThan,
+        // volumeMoreThan,
+        // sector,
+        // industry,
+        // country,
+        // exchange,
+        // dividendMoreThan,
+        // limit,
+        // isActivelyTrading,
       ]);
       
     function nFormatter(num) {
@@ -118,9 +156,10 @@ function Descriptive(props) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
     return (<div>
+        
             <Container fluid className='screener'>
            
-                    <Row>
+                    {/* <Row>
                         <Col xs={12} md={3} className='positn'>
                             <Form >
                                 <Form.Label>
@@ -501,7 +540,7 @@ function Descriptive(props) {
                                                 </Form.Label>
                                             </Form>
                                         </Col>
-                                    </Row>
+                                    </Row> */}
   
                                 </Container>
                                 <div className = 'sectioncls'>

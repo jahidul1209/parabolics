@@ -29,7 +29,7 @@ function Valuation(props) {
             },
             {
               label: 'P/E',
-              field: 'pe',
+              field: 'priceEarnRatio',
               width: 200,
             },
            
@@ -40,7 +40,7 @@ function Valuation(props) {
             },
             {
                 label: 'PEG',
-                field: 'peg',
+                field: 'priceEarnGrothRatio',
                 width: 200,
               },
               {

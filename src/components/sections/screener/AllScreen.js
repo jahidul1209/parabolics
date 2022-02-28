@@ -1316,7 +1316,7 @@ function AllScreen(props) {
                                     id="noanim-tab"
                                     >
                                     <Tab eventKey="overview" title="Overview">
-                                        <Overview  rowData = {rowData} count = {count} />                        
+                                        {/* <Overview  rowData = {rowData} count = {count} />                         */}
                                     </Tab>
                                         
                                     <Tab eventKey="valuation" title="Valuation">

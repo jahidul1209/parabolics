@@ -410,7 +410,7 @@ function Technicals(props) {
                                     id="noanim-tab"
                                     >
                                     <Tab eventKey="overview" title="Overview">
-                                    { count > 0  &&   <Overview  rowData = {rowData} count = {count} />     }                   
+                                     {/* { count > 0  &&   <Overview  rowData = {rowData} count = {count} />     }                    */}
                                     </Tab>
                                         
                                     <Tab eventKey="valuation" title="Valuation">
