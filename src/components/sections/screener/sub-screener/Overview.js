@@ -4,8 +4,7 @@ import { MDBDataTableV5 } from 'mdbreact';
 
 
 function Overview(props) {
-
-
+     console.log(props.rowData)
     const datatable = {
         columns: [
             {
@@ -64,7 +63,7 @@ function Overview(props) {
               },
               
           ],
-          rows: props.rowData,
+            rows: props.rowData,
         }
       
 
@@ -77,7 +76,10 @@ function Overview(props) {
                             <h3 style = {{marginBottom:'3px'}}>Overview</h3>
                             <h6>Total: <span style = {{color:'#666666 '}}>{props.count}</span></h6>
                         </div>
-                    <MDBDataTableV5 hover entriesOptions={[20, 20, 25]} entries={20} pagesAmount={4} data={datatable} />
+                      
+                           <MDBDataTableV5 hover entriesOptions={[20, 20, 25]} entries={20} pagesAmount={4} data={datatable} />
+                        
+                   
                 </div>
         </div>
 
