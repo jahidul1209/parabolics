@@ -255,6 +255,29 @@ table.mdb-dataTable thead .sorting:before, table.mdb-dataTable thead .sorting:af
 
 
 
+.paypal-button-tagline {
+  display: none!important;
+}
+// For Modal
+.modal-content{
+  h3 {
+    color: #18d26e;
+    font-weight: 600;
+  }
+  h6{
+    color: #000000 !important;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+} 
+
+.paypalbtn.text-center {
+  padding: 5% 40% 0;
+}
+rect {
+  stroke-width: 0!important;
+}
 
 
 

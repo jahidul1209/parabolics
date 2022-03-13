@@ -138,7 +138,7 @@ function ForexTable() {
     return (
        <Container fluid>
         <div className="card py-3 px-3">
-            <div className = 'pt-3 pb-2 py-2 px-2  '>
+            <div className = 'pt-3 pb-2 py-2 px-2'>
                     <h3 style = {{marginBottom:'3px', textTransform:'uppercase'}}>Digital and Forex</h3>
                     {/* <p style = {{color:'#666666 '}}>Data includes pre-market & post-market movers as well. Stars are gappers.</p> */}
                 </div>

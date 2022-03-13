@@ -1,63 +1,156 @@
 import React, { useEffect, useState } from "react";
 import { Container, Table} from 'react-bootstrap'
+const finvizData = require('@stonksjs/finviz');
 
 const ScreenerInfo = (props) => {
-    const [netIncomePerEBTTTM , setnetIncomePerEBTTTM] = useState()
-    const [daysOfSalesOutstandingTTM , setdaysOfSalesOutstandingTTM] = useState()
-    const [priceBookValueRatioTTM , setpriceBookValueRatioTTM] = useState()
-    const [operatingCashFlowPerShareTTM , setoperatingCashFlowPerShareTTM] = useState()
-    const [dividendYielTTM , setdividendYielTTM] = useState()   
-    const [dividendYielPercentageTTM , setdividendYielPercentageTTM] = useState()
-    const [peRatioTTM , setpeRatioTTM] = useState()
-    const [pegRatioTTM , setpegRatioTTM] = useState()
-    const [priceSalesRatioTTM , setpriceSalesRatioTTM] = useState()  
-    const [priceCashFlowRatioTTM , setpriceCashFlowRatioTTM] = useState()
-    const [priceToBookRatioTTM , setpriceToBookRatioTTM] = useState()
-    const [priceToFreeCashFlowsRatioTTM , setpriceToFreeCashFlowsRatioTTM] = useState()
-    const [grossProfitMarginTTM , setgrossProfitMarginTTM] = useState()
-    const [operatingProfitMarginTTM , setoperatingProfitMarginTTM] = useState()
-    const [debtEquityRatioTTM , setdebtEquityRatioTTM] = useState()
-    const [longTermDebtToCapitalizationTTM , setlongTermDebtToCapitalizationTTM] = useState()
-    const [netProfitMarginTTM , setnetProfitMarginTTM] = useState()
-    const [fixedAssetTurnoverTTM , setfixedAssetTurnoverTTM] = useState()
-    const [payoutRatioTTM , setpayoutRatioTTM] = useState()
-    const [currentRatioTTM , setcurrentRatioTTM] = useState()
-    const [quickRatioTTM , setquickRatioTTM] = useState()
-    const [dividendPerShareTTM , setdividendPerShareTTM] = useState()
+    const [index , setIndex] = useState()
+    const [marketCap , setMarketCap] = useState()
+    const [income , setIncome] = useState()
+    const [sales , setSales] = useState()
+    const [bookSh , setBookSh] = useState()   
+    const [cashSh , setCashSh] = useState()
+    const [dividend , setDividend] = useState()
+    const [employees , setEmployees] = useState()
+    const [optionable , setOptionable] = useState()  
+    const [shortable , setShortable] = useState()
+    const [recom , setRecom] = useState()
+    const [pERatio , setpERatio] = useState()
+    const [forwardPE , setforwardPE] = useState()
+    const [pegRatio , setpegRatio] = useState()
+    const [pSRatio , setpSRatio] = useState()
+    const [pBRatio , setpBRatio] = useState()
+    const [pCRatio , setpCRatio] = useState()
+    const [pFcfRatio , setpFcfRatio] = useState()
+    const [payout , setpayout] = useState()
+    const [currentRatio , setCurrentRatio] = useState()
+    const [quickRatio , setQuickRatio] = useState()
+    const [ltDebtEqRatio , setltDebtEqRatio] = useState()
+
+    const [debtEqRatio , setdebtEqRatio] = useState()
+    const [sma20 , setsma20] = useState()
+    const [epsTtm , setepsTtm] = useState()
+    const [epsNextY , setepsNextY] = useState()
+    const [epsNextQ , setepsNextQ] = useState()
+    const [epsThisY , setepsThisY] = useState()
+    const [epsNext5Y , setepsNext5Y] = useState()
+    const [salesPast5Y , setsalesPast5Y] = useState()
+    const [epsPast5Y , setepsPast5Y] = useState()
+
+    const [salesQQRatio , setsalesQQRatio] = useState()
+    const [epsQQRatio , setepsQQRatio] = useState()
+    const [earnings , setEarnings] = useState()
+    const [sma50 , setsma50] = useState()
+    const [insiderOwn , setinsiderOwn] = useState()
+    const [insiderTrans , setinsiderTrans] = useState()
+    const [instOwn , setinstOwn] = useState()
+
+    const [instTrans , setinstTrans] = useState()
+    const [ROA , setROA] = useState()
+    const [ROE , setROE] = useState()
+    const [ROI , setROI] = useState()
+    const [grossMargin , setgrossMargin] = useState()
+    const [operMargin , setoperMargin] = useState()
+    const [profitMargin , setprofitMargin] = useState()
+
+    const [sma200 , setsma200] = useState()
+    const [shsOutstand , setshsOutstand] = useState()
+    const [shsFloat , setshsFloat] = useState()
+    const [shortFloat , setshortFloat] = useState()
+    const [shortRatio , setshortRatio] = useState()
+    const [targetPrice , settargetPrice] = useState()
+    const [rsi14 , setrsi14] = useState()
+    const [relVolume , setrelVolume] = useState()
+    const [avgVolume , setavgVolume] = useState()
+    const [volume , setvolume] = useState()
     
+    const [perfHalfY , setperfHalfY] = useState()
+    const [perfMonth , setperfMonth] = useState()
+    const [perfQuarter , setperfQuarter] = useState()
+    const [perfWeek , setperfWeek] = useState()
+    const [perfYear , setperfYear] = useState()
+    const [perfYtd , setperfYtd] = useState()
+    const [ATR , setATR] = useState()
+    const [beta , setBeta] = useState()
+    const [volatility , setvolatility] = useState()
+    const [prevClose , setprevClose] = useState()
+    const [price , setPrice] = useState()
+    const [change , setChange] = useState()
+
     useEffect(() => {
-  
-        fetch(`https://financialmodelingprep.com/api/v3/ratios-ttm/${props.symbol}?apikey=9f8bf374d13311bf6527af0ea58ebdb6`)
-         .then(res => res.json())
-          .then(
-            (result) => {
-                console.log(result[0])
-                setnetIncomePerEBTTTM(result[0].netIncomePerEBTTTM.toFixed(4))
-                setdaysOfSalesOutstandingTTM(result[0].daysOfSalesOutstandingTTM.toFixed(4)) 
-                setpriceBookValueRatioTTM(result[0].priceBookValueRatioTTM.toFixed(4)) 
-                setoperatingCashFlowPerShareTTM(result[0].operatingCashFlowPerShareTTM.toFixed(4)) 
-                setdividendYielTTM(result[0].dividendYielTTM.toFixed(4))
-                setdividendYielPercentageTTM(result[0].dividendYielPercentageTTM.toFixed(4)) 
-                setpeRatioTTM(result[0].peRatioTTM.toFixed(4)) 
-                setpegRatioTTM(result[0].pegRatioTTM.toFixed(4)) 
-                setpriceSalesRatioTTM(result[0].priceSalesRatioTTM.toFixed(4))  
-                setpriceCashFlowRatioTTM(result[0].priceCashFlowRatioTTM.toFixed(4)) 
-                setpriceToBookRatioTTM(result[0].priceToBookRatioTTM.toFixed(4)) 
-                setpriceToFreeCashFlowsRatioTTM(result[0].priceToFreeCashFlowsRatioTTM.toFixed(4)) 
-                setgrossProfitMarginTTM(result[0].grossProfitMarginTTM.toFixed(4))
-                setdebtEquityRatioTTM(result[0].debtEquityRatioTTM.toFixed(4))
-                setlongTermDebtToCapitalizationTTM(result[0].longTermDebtToCapitalizationTTM.toFixed(4))
-                setoperatingProfitMarginTTM(result[0].operatingProfitMarginTTM.toFixed(4))   
-                setnetProfitMarginTTM(result[0].netProfitMarginTTM.toFixed(4))
-                setpayoutRatioTTM(result[0].payoutRatioTTM.toFixed(4)) 
-                setcurrentRatioTTM(result[0].currentRatioTTM.toFixed(4)) 
-                setquickRatioTTM(result[0].quickRatioTTM.toFixed(4))    
-                
-                setdividendPerShareTTM(result[0].dividendPerShareTTM.toFixed(4))    
-                setfixedAssetTurnoverTTM(result[0].fixedAssetTurnoverTTM.toFixed(4)) },
-                
-            (error) => { console.log(error) }
-            )
+        async function screenData(){
+            const data = await finvizData.quote(props.symbol);
+            setIndex(data.index)
+            setMarketCap(data.marketCap)
+            setIncome(data.income)
+            setSales(data.sales)
+            setBookSh(data.bookSh)
+            setCashSh(data.cashSh)
+            setDividend(data.dividend)
+            setEmployees(data.employees)
+            setOptionable(data.optionable)
+            setShortable(data.shortable)
+            setRecom(data.recom)
+            setpERatio(data.pE)
+            setforwardPE(data.forwardPE)
+            setpegRatio(data.peg)
+            setpSRatio(data.pS)
+            setpBRatio(data.pB)
+            setpCRatio(data.pC)
+            setpFcfRatio(data.pFcf)
+            setQuickRatio(data.quickRatio)
+            setCurrentRatio(data.currentRatio)
+            setltDebtEqRatio(data.ltDebtEq)
+            setdebtEqRatio(data.debtEq)
+            setsma20(data.sma20)
+            setepsTtm(data.epsTtm)
+            setepsNextY(data.epsNextY)
+            setepsNextQ(data.epsNextQ)
+            setepsThisY(data.epsThisY)
+            setepsNext5Y(data.epsNext5Y)
+            setepsPast5Y(data.epsPast5Y)
+            setsalesPast5Y(data.salesPast5Y)
+            setsalesQQRatio(data.salesQQ)
+            setepsQQRatio(data.epsQQ)
+            setEarnings(data.earnings)
+            setsma50(data.sma50)
+            setinsiderOwn(data.insiderOwn)
+            setinsiderTrans(data.insiderTrans)
+            setinstOwn(data.instOwn)
+            setinstTrans(data.instTrans)
+            setROA(data.roa)
+            setROE(data.roe)
+            setROI(data.roi)
+            setgrossMargin(data.grossMargin)
+            setoperMargin(data.operMargin)
+            setprofitMargin(data.profitMargin)
+            setpayout(data.payout)
+            setsma200(data.sma200)
+            setshsOutstand(data.shsOutstand)
+            setshsFloat(data.shsFloat)
+            setshortFloat(data.shortFloat)
+            setshortRatio(data.shortRatio)
+            settargetPrice(data.targetPrice)
+            setrsi14(data.rsi14)
+            setrelVolume(data.relVolume)
+            setavgVolume(data.avgVolume)
+            setvolume(data.volume)
+            setperfWeek(data.perfWeek)
+            setperfMonth(data.perfMonth)
+            setperfQuarter(data.perfQuarter)
+            setperfHalfY(data.perfHalfY)
+            setperfYear(data.perfYear)
+            setperfYtd(data.perfYtd)
+            setBeta(data.beta)
+            setATR(data.atr)
+            setvolatility(data.volatility)
+            setprevClose(data.prevClose)
+            setPrice(data.price)
+            setChange(data.change)
+
+           
+
+            }     
+                screenData()
  
       }, [props.symbol])
   return (<>
@@ -69,232 +162,232 @@ const ScreenerInfo = (props) => {
                     <tbody>
                         <tr>
                             <th>Index</th>
-                            <td>{props.symbol}  </td>
+                            <td>{ index}  </td>
                         </tr>
                         <tr>
                             <th>Market Cap</th>
-                            <td>{props.mktCap}</td>
+                            <td>{marketCap}</td>
                         </tr>
                         <tr>
                             <th>Income</th>
-                            <td>{netIncomePerEBTTTM}</td>
+                            <td>{income}</td>
                         </tr>
                         <tr>
                             <th>Sales</th>
-                            <td>{daysOfSalesOutstandingTTM}</td>
+                            <td>{sales}</td>
                         </tr>
                         <tr>  
                             <th>Book/sh</th>
-                            <td>{priceBookValueRatioTTM}</td>
+                            <td>{bookSh}</td>
                         </tr>
                         <tr>
                             <th>Cash/sh</th>
-                            <td>{operatingCashFlowPerShareTTM}</td>
+                            <td>{cashSh}</td>
                         </tr>
                         <tr>  
                             <th>Dividend</th>
-                            <td>{dividendYielTTM}</td>
+                            <td>{dividend}</td>
                         </tr>
 
                         <tr>
                             <th>Dividend %</th>
-                            <td>{dividendYielPercentageTTM}</td>
+                            <td>-</td>
                         </tr>
                         <tr>
                             <th>Employees</th>
-                            <td>-</td>
+                            <td>{employees}</td>
                         </tr>
                         <tr>
                             <th>Optionable</th>
-                            <td>-</td>
+                            <td>{optionable}</td>
                         </tr>
                         <tr> 
                             <th>Shortable</th>
-                            <td>-</td>
+                            <td>{shortable}</td>
                         </tr>
                         <tr>
                             <th>Recom</th>
-                            <td>-</td>
+                            <td>{recom}</td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
                             <th>P/E</th>
-                            <td>{peRatioTTM}</td>
+                            <td>{pERatio}</td>
                         </tr>
                         <tr>
                             <th>Forward P/E</th>
-                            <td>-</td>
+                            <td>{forwardPE}</td>
                         </tr>
                         <tr>
                             <th>PEG</th>
-                            <td>{pegRatioTTM}</td>
+                            <td>{pegRatio}</td>
                         </tr>
                         <tr>
                             <th>P/S</th>
-                            <td>{priceSalesRatioTTM}</td>
+                            <td>{pSRatio}</td>
                         </tr>
                         <tr>  
                             <th>P/B</th>
-                            <td>{priceToBookRatioTTM}</td>
+                            <td>{pBRatio}</td>
                         </tr>
                         <tr>
                             <th>P/C</th>
-                            <td>{priceCashFlowRatioTTM}</td>
+                            <td>{pCRatio}</td>
                         </tr>
                         <tr>  
                             <th>P/FCF</th>
-                            <td>{priceToFreeCashFlowsRatioTTM}</td>
+                            <td>{pFcfRatio}</td>
                         </tr>
 
                         <tr>
                             <th>Quick Ratio</th>
-                            <td>{quickRatioTTM}</td>
+                            <td>{quickRatio}</td>
                         </tr>
                         <tr>
                             <th>Current Ratio</th>
-                            <td>{currentRatioTTM}</td>
+                            <td>{currentRatio}</td>
                         </tr>
                         <tr>
                             <th>Debt/Eq</th>
-                            <td>{debtEquityRatioTTM}</td>
+                            <td>{debtEqRatio}</td>
                         </tr>
                         <tr> 
                             <th>LT Debt/Eq</th>
-                            <td>{longTermDebtToCapitalizationTTM}</td>
+                            <td>{ltDebtEqRatio}</td>
                         </tr>
                         <tr>
                             <th>SMA20</th>
-                            <td>-</td>
+                            <td>{sma20}</td>
                         </tr>
                      </tbody>
                      <tbody>
                         <tr>
                             <th>EPS (ttm)</th>
-                            <td>-</td>
+                            <td>{epsTtm}</td>
                         </tr>
                         <tr>
                             <th>EPS next Y</th>
-                            <td>-</td>
+                            <td>{epsNextY}</td>
                         </tr>
                         <tr>
                             <th>EPS next Q</th>
-                            <td>-</td>
+                            <td>{epsNextQ}</td>
                         </tr>
                         <tr>
                             <th>EPS this Y</th>
-                            <td>-</td>
+                            <td>{epsThisY}</td>
                         </tr>
                         <tr>  
                             <th>EPS next Y</th>
-                            <td>-</td>
+                            <td>{epsNextY}</td>
                         </tr>
                         <tr>
                             <th>EPS next 5Y</th>
-                            <td>-</td>
+                            <td>{epsNext5Y}</td>
                         </tr>
                         <tr>  
                             <th>EPS past 5Y</th>
-                            <td>-</td>
+                            <td>{epsPast5Y}</td>
                         </tr>
 
                         <tr>
                             <th>Sales past 5Y</th>
-                            <td>-</td>
+                            <td>{salesPast5Y}</td>
                         </tr>
                         <tr>
                             <th>Sales Q/Q</th>
-                            <td>-</td>
+                            <td>{salesQQRatio}</td>
                         </tr>
                         <tr>
                             <th>EPS Q/Q</th>
-                            <td>-</td>
+                            <td>{epsQQRatio}</td>
                         </tr>
                         <tr> 
                             <th>Earnings</th>
-                            <td>{((netIncomePerEBTTTM / dividendPerShareTTM) / props.price).toFixed(4)}</td>
+                            <td>{earnings}</td>
                         </tr>
                         <tr>
                             <th>SMA50</th>
-                            <td>-</td>
+                            <td>{sma50}</td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
                             <th>Insider Own</th>
-                            <td>-</td>
+                            <td>{insiderOwn}</td>
                         </tr>
                         <tr>
                             <th>Insider Trans</th>
-                            <td>-</td>
+                            <td>{insiderTrans}</td>
                         </tr>
                         <tr>
                             <th>Inst Own</th>
-                            <td>-</td>
+                            <td>{instOwn}</td>
                         </tr>
                         <tr>
                             <th>Inst Trans</th>
-                            <td>-</td>
+                            <td>{instTrans}</td>
                         </tr>
                         <tr>  
                             <th>ROA</th>
-                            <td>-</td>
+                            <td>{ROA}</td>
                         </tr>
                         <tr>
                             <th>ROE</th>
-                            <td>-</td>
+                            <td>{ROE}</td>
                         </tr>
                         <tr>
                             <th>ROI</th>
-                            <td>-</td>
+                            <td>{ROI}</td>
                         </tr>
                         <tr>  
                             <th>Gross Margin</th>
-                            <td>{grossProfitMarginTTM}</td>
+                            <td>{grossMargin}</td>
                         </tr>
 
                         <tr>
                             <th>Oper. Margin</th>
-                            <td>{operatingProfitMarginTTM}</td>
+                            <td>{operMargin}</td>
                         </tr>
                         <tr>
                             <th>Profit Margin</th>
-                            <td>{netProfitMarginTTM}</td>
+                            <td>{profitMargin}</td>
                         </tr>
                         <tr>
                             <th>Payout</th>
-                            <td>{payoutRatioTTM}</td>
+                            <td>{payout}</td>
                         </tr>
                     
                         <tr>
                             <th>SMA200</th>
-                            <td>-</td>
+                            <td>{sma200}</td>
                         </tr>
                      </tbody>
                      <tbody>
                         <tr>
                             <th>Shs Outstand</th>
-                            <td>-</td>
+                            <td>{shsOutstand}</td>
                         </tr>
                         <tr>
                             <th>Insider Trans</th>
-                            <td>-</td>
+                            <td>{insiderTrans}</td>
                         </tr>
                         <tr>
                             <th>Shs Float</th>
-                            <td>-</td>
+                            <td>{shsFloat}</td>
                         </tr>
                         <tr>
                             <th>Short Float</th>
-                            <td>-</td>
+                            <td>{shortFloat}</td>
                         </tr>
                         <tr>  
                             <th>Short Ratio</th>
-                            <td>-</td>
+                            <td>{shortRatio}</td>
                         </tr>
                         <tr>
                             <th>Target Price</th>
-                            <td>-</td>
+                            <td>{targetPrice}</td>
                         </tr>
                         <tr>
                             <th>52W Range</th>
@@ -311,68 +404,68 @@ const ScreenerInfo = (props) => {
                         </tr>
                         <tr>
                             <th>RSI (14)</th>
-                            <td>-</td>
+                            <td>{rsi14}</td>
                         </tr>
                         <tr>
                             <th>Rel Volume</th>
-                            <td>-</td>
+                            <td>{relVolume}</td>
                         </tr>
                     
                         <tr>
                             <th>Volume</th>
-                            <td>-</td>
+                            <td>{volume}</td>
                         </tr>
                      </tbody>
                      <tbody>
                         <tr>
                             <th>Perf Week</th>
-                            <td>-</td>
+                            <td>{perfWeek}</td>
                         </tr>
                         <tr>
                             <th>Perf Month</th>
-                            <td>-</td>
+                            <td>{perfMonth}</td>
                         </tr>
                         <tr>
                             <th>Perf Quarter</th>
-                            <td>-</td>
+                            <td>{perfQuarter}</td>
                         </tr>
                         <tr>
                             <th>Perf Half Y</th>
-                            <td>-</td>
+                            <td>{perfHalfY}</td>
                         </tr>
                         <tr>  
                             <th>Perf Year</th>
-                            <td>-</td>
+                            <td>{perfYear}</td>
                         </tr>
                         <tr>
                             <th>Perf YTD</th>
-                            <td>-</td>
+                            <td>{perfYtd}</td>
                         </tr>
                         <tr>
                             <th>Beta</th>
-                            <td>{props.beta}</td>
+                            <td>{beta}</td>
                         </tr>
                         <tr>  
                             <th>ATR</th>
-                            <td>{fixedAssetTurnoverTTM}</td>
+                            <td>{ATR}</td>
                         </tr>
 
                         <tr>
                             <th>Volatility</th>
-                            <td>-</td>
+                            <td>{volatility}</td>
                         </tr>
                         <tr>
                             <th>Prev Close</th>
-                            <td>-</td>
+                            <td>{prevClose}</td>
                         </tr>
                         <tr>
                             <th>Price</th>
-                            <td>{props.price}</td>
+                            <td>{price}</td>
                         </tr>
                     
                         <tr>
                             <th>Change</th>
-                            <td>{props.change}</td>
+                            <td>{change}</td>
                         </tr>
                      </tbody>
               </Table>

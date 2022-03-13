@@ -10,6 +10,7 @@ import UpcommingEarn from '../sections/UpcommingEarn';
 import InsiderTransactions from '../sections/InsiderTransactions';
 import MarketSummary from '../sections/MarketSummary';
 import StockTracking from '../sections/StockTracking';
+import Heatmap from '../sections/Heatmap';
 
 
 var localfdate = JSON.parse( localStorage.getItem('propsDate'))
@@ -58,8 +59,17 @@ class Home extends Component {
          </div>
        </div>
       <MarketSummary/>
+
      {/* ---------------Intraday Price Chart-------------- */}
      <IntradayPriceChart calender = {this.state.calend}/>
+     {/* MARKET Overview */}
+     <section class="pt-0">
+        <div class="container-fluid">
+          <div class="row gy-4">
+              <Heatmap/>
+          </div>
+        </div>  
+      </section>
       {/* BIGGEST GAINERS  & BIGGEST LOSERS */}
       <section class="pt-0">
         <div class="container-fluid">
