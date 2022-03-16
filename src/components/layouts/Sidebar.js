@@ -42,6 +42,14 @@ function Sidebar() {
                                 <span>Screener </span> 
                    </NavLink>
                </li>
+               <li className="sidebar-item ">
+                  <NavLink  to = '/heatmap'className="sidebar-link"> 
+                                <span className="svg-icon svg-icon-sm svg-icon-heavy">
+                                        <i className="fas fa-map"></i>
+                                </span>
+                                <span>HeatMap </span> 
+                   </NavLink>
+               </li>
               <li className="sidebar-item">
                   <NavLink  to = '/crypto'className="sidebar-link"> 
                         <span className="svg-icon svg-icon-sm svg-icon-heavy">

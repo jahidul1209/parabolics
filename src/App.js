@@ -23,6 +23,7 @@ import Login from "./fontend/Pages/Login";
 import Signup from "./fontend/Pages/Signup";
 import PublicRoute from "./fontend/Layouts/PublicRoute"
 import PublicRouteDash from "./components/layouts/PublicRouteDash";
+import Heatmap from './components/pages/Heatmap';
 
 
 function App(){
@@ -45,6 +46,7 @@ function App(){
                                 <Route path="/news" element={<News />} />
                                 <Route path="*" element={<NoMatch/>} /> 
                                 <Route path="/screener" element={<Screener/>} /> 
+                                <Route path="/heatmap" element={<Heatmap/>} />
                                 <Route path="/crypto" element={<Crypto/>} /> 
                                 <Route path="/forex" element={<Forex/>} />
                                 <Route path="/chart/:id" element={<TradingChart/>} />  
