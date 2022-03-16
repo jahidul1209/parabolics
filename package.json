@@ -4,10 +4,11 @@
   "private": true,
   "dependencies": {
     "-": "^0.0.1",
-    "@stonksjs/finviz": "^1.0.1",
+    "@stonksjs/finviz": "^1.0.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "ag-charts-react": "^5.0.0",
     "apexcharts": "^3.33.0",
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
@@ -17,7 +18,7 @@
     "gh-pages": "^2.0.1",
     "js-cookie": "^3.0.1",
     "lightweight-charts": "^3.3.0",
-    "mdbreact": "^5.2.0",
+    "mdbreact": "^4.6.1",
     "nanoid": "^3.1.32",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
@@ -31,8 +32,8 @@
     "react-icons": "^4.3.1",
     "react-paypal-button-v2": "^2.6.3",
     "react-router": "^6.2.1",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
+    "react-router-dom": "^6.2.2",
+    "react-scripts": "^5.0.0",
     "react-sparklines": "^1.7.0",
     "react-stripe-checkout": "^2.6.3",
     "react-timeago": "^4.1.9",
@@ -50,7 +51,7 @@
     "typescript": "4.1.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start":"GENERATE_SOURCEMAP=false react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

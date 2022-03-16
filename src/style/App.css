@@ -1413,4 +1413,10 @@ table.mdb-dataTable thead .sorting:before, table.mdb-dataTable thead .sorting:af
 rect {
   stroke-width: 0 !important;
 }
+
+.ag-chart-wrapper {
+  display: block;
+  width: 100% !important;
+  height: 600px !important;
+}
 /*# sourceMappingURL=App.css.map */
