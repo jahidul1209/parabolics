@@ -14,7 +14,6 @@ function Reddit(props) {
       })
         .then(response => response.json())
         .then(results => { 
-          console.log(results)
             const gainData =  results.results.map(( d, key) => {
                    return  {
                      sl: key + 1,
