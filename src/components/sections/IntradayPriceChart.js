@@ -14,26 +14,11 @@ function IntradayPriceChart(props) {
     }
   const [updateDate, setUpdateDate] = useState(localfdate); 
 
- 
-
-
   let today = new Date().toISOString().slice(0, 10)
- 
 
-
-console.log(updateDate)
-  // if(localfdate == props.calender){
-  //     fdate = lastYear
-  //     // window.location.reload() 
-  // }
-  // else{
-  //   localStorage.setItem('propsDate', JSON.stringify(props.calender)); 
-  //   fdate  = JSON.parse( localStorage.getItem('propsDate'))
-  // }
-  
   const chartRefSPY = useRef();
     const chartRefQQQ = useRef();
-    const chartRefDOW = useRef();
+    const chartRefIWM = useRef();
 
     const chartDesign = {
       width: 450,
@@ -62,23 +47,23 @@ console.log(updateDate)
     }
     const candleDesign = {
       upColor: '#4bffb5',
-      downColor: '#ff4976',
-      borderDownColor: '#ff4976',
+      IWMnColor: '#ff4976',
+      borderIWMnColor: '#ff4976',
       borderUpColor: '#4bffb5',
-      wickDownColor: '#838ca1',
+      wickIWMnColor: '#838ca1',
       wickUpColor: '#838ca1',
   }
 
 
-     //   https://financialmodelingprep.com/api/v3/quote/SPY,QQQ,DOW?apikey=9f8bf374d13311bf6527af0ea58ebdb6
+     //   https://financialmodelingprep.com/api/v3/quote/SPY,QQQ,IWM?apikey=9f8bf374d13311bf6527af0ea58ebdb6
       function init() {
 
            const chartSPY = createChart(chartRefSPY.current, chartDesign);
            const chartQQQ = createChart(chartRefQQQ.current, chartDesign);
-           const chartDOW = createChart(chartRefDOW.current, chartDesign);
+           const chartIWM = createChart(chartRefIWM.current, chartDesign);
            const candleSeriesSPY = chartSPY.addCandlestickSeries(candleDesign);
            const candleSeriesQQQ = chartQQQ.addCandlestickSeries(candleDesign);
-           const candleSeriesDOW = chartDOW.addCandlestickSeries(candleDesign);
+           const candleSeriesIWM = chartIWM.addCandlestickSeries(candleDesign);
           
           // SPY INDEX
              fetch(`https://api.polygon.io/v2/aggs/ticker/SPY/range/1/day/${updateDate}/${today}?adjusted=false&sort=asc&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
@@ -119,12 +104,12 @@ console.log(updateDate)
                 })
                 .catch(err => console.error(err))
 
-     //DOW INDEX
+     //IWM INDEX
 
-           fetch(`https://api.polygon.io/v2/aggs/ticker/DOW/range/1/day/${updateDate}/${today}?adjusted=true&sort=asc&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
+           fetch(`https://api.polygon.io/v2/aggs/ticker/IWM/range/1/day/${updateDate}/${today}?adjusted=true&sort=asc&apiKey=Wppvqc9U9theH78gqNfSvyEb5exNhmZQ`)
             .then(res => res.json())
                 .then(data => {
-                    const DOWdata = data.results.map(d => {
+                    const IWMdata = data.results.map(d => {
                       var date = new Date(d.t).getTime() / (1000)
                         return {
                             time: date,
@@ -134,7 +119,7 @@ console.log(updateDate)
                             close: d.c,
                         }
                     });
-                        candleSeriesDOW.setData(DOWdata);
+                        candleSeriesIWM.setData(IWMdata);
                         
                 })
                 .catch(err => console.error(err))
@@ -153,7 +138,7 @@ console.log(updateDate)
           }   
             init()       
        
-    }, [chartRefSPY.current, chartRefQQQ.current, chartRefDOW.current])
+    }, [chartRefSPY.current, chartRefQQQ.current, chartRefIWM.current])
 
     return (
         <div>
@@ -186,10 +171,10 @@ console.log(updateDate)
                 <div class="card">
                   <div class="card-body">
                     <div className = 'pb-2'>
-                        <h3 style = {{marginBottom:'0px'}}>DOW INDEX</h3>
+                        <h3 style = {{marginBottom:'0px'}}>IWM INDEX</h3>
                         <p style = {{color:'#666666 '}}>Intraday price chart</p>
                     </div>
-                    <div ref={chartRefDOW}></div>
+                    <div ref={chartRefIWM}></div>
                   </div>
                 </div>
               </div>
