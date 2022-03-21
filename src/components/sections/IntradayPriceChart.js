@@ -180,7 +180,7 @@ function IntradayPriceChart(props) {
               </div>
             </div>
           </div>
-        </section>
+         </section>
         </div>
     );
 }

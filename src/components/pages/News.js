@@ -12,8 +12,14 @@ const url = `http://51.89.176.109:5000/get-news?num_news=10&type=stocks`;
 
     function  fetchData (){
        axios.get(url, {
+         mode:'cors',
+         credentials: 'include',
         headers: {
+          "Access-Control-Allow-Origin": "*", 
+          "Access-Control-Allow-Methods": "GET",
+          "Access-Control-Allow-Credentials": "false",
            'Content-Type': 'application/x-www-form-urlencoded',
+           'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Token',
         },
       })
       .then((response) => {
