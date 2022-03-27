@@ -10,23 +10,33 @@ function StockTracking(props) {
 
     function fetchData(){
 
-        fetch("https://financialmodelingprep.com/api/v3/stock_market/actives?apikey=9f8bf374d13311bf6527af0ea58ebdb6")
-          .then(res => res.json())
+        fetch("http://51.89.176.109/download/stock_signals.csv")
+          .then(res => res.text())
           .then(
             (result) => {
-              const gainData =  result.map(d => {
-              
+
+                     
+              const tableData = result.split('\n').slice(1)
+              const gainData =   tableData.map(d => {
+               const tData = d.split(',')
+
                 return  {   
-                
-                    ticker: <Link to = {`/chart/${d.symbol}`}>{d.symbol}</Link>,
-                    price:  d.price,
-                    name:  d.name,
-                    change:<div>{ (d.change  > 0 ) ? <span style={{color:'#51ef98'}}>{d.change.toFixed(3)}</span> : <span style={{color:'#EE4758'}}>{d.change.toFixed(3)}</span>}</div>,
-                    changesPercentage:d.changesPercentage.toFixed(3),
-                    chart: <SvgChart svg = {d.symbol}/>
+                    time:  tData[0],
+                    signal: tData[1],
+                    ticker: <Link to = {`/chart/${tData[2]}`}>{tData[2]}</Link>,
+                    generalTime:tData[3],
+                    close: tData[4],
+                    indicator:tData[5],
+                    type: tData[6],
+                    max_gain: tData[7],
+                    changesPercentage: <div>{ (tData[8]  > 0 ) ? <span style={{color:'#51ef98'}}>{tData[8]}</span> : <span style={{color:'#EE4758'}}>{tData[8]}</span>}</div>,
+                   
+                  
+                    chart: <SvgChart svg = {tData[2]}/>
                   }
               });
                setRowData(gainData)
+              
              
             },
             (error) => {
@@ -39,41 +49,59 @@ function StockTracking(props) {
           fetchData()
       }, []);
 
-      rowData.sort(function (a, b) {
-        return b.price - a.price;
-      });
+      // rowData.sort(function (a, b) {
+      //   return b.price - a.price;
+      // });
       
     const datatable = {
         columns: [
+          {
+            label: 'Date Time',
+            field: 'time',
+            width: 150,
+            attributes: {
+              'aria-controls': 'DataTable',
+              'aria-label': 'time',
+            },
+          },
             {
               label: 'Ticker',
               field: 'ticker',
               width: 150,
-              attributes: {
-                'aria-controls': 'DataTable',
-                'aria-label': 'ticker',
-              },
             },
             {
-                label: 'Name',
-                field: 'name',
-                width: 270,
+                label: 'Signal',
+                field: 'signal',
+                width: 150,
               },
             {
-              label: 'Price',
-              field: 'price',
-              width: 270,
+              label: 'General Time',
+              field: 'generalTime',
+              width: 150,
               class:'red'
             },
             {
-              label: 'Change',
-              field: 'change',
+              label: 'Close',
+              field: 'close',
               width: 200,
             },
-           
+            {
+              label: 'Indicator',
+              field: 'indicator',
+            },
+            {
+              label: 'Type',
+              field: 'type',
+            },
             {
               label: 'Percentage',
               field: 'changesPercentage',
+              sort: 'disabled',
+              width: 150,
+            },
+            {
+              label: 'Max Gain',
+              field: 'max_gain',
               sort: 'disabled',
               width: 150,
             },
