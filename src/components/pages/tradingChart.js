@@ -209,7 +209,7 @@ const TradingChart = () => {
           </Row>
        </div>    
     </Container>  
-    <ScreenerInfo symbol = {symbol} price = {price } change = {change}  mktCap = {mktCap} beta = {beta}/>
+    <ScreenerInfo symbol = {symbol}/>
         <Container fluid className='mt-3'>
             <div className ="col-md-12">
                    <div className ="card py-3 px-3">

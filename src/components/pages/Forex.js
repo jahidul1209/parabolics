@@ -4,7 +4,7 @@ import {  Tabs , Tab} from 'react-bootstrap'
 import ForexTable from '../sections/ForexTable';
 import ForexCards from '../sections/ForexCards';
 import ForexChart from '../sections/ForexCharts';
-import CryptoTracking from '../sections/CryptoTracking';
+import ForexTracking from '../sections/ForexTracking';
 
 
 
@@ -14,7 +14,7 @@ function Forex(props) {
         <div>
           <div className="bg-dash-dark-2 py-4">
                 <div className="container-fluid">
-                <h2 className="h5 mb-0">Crypto</h2>
+                <h2 className="h5 mb-0">Forex</h2>
             </div>
          </div>
          <Tabs
@@ -28,7 +28,7 @@ function Forex(props) {
                            
                             </Tab>
                             <Tab eventKey="recent" title="Recent Top">
-                                <CryptoTracking/>
+                                <ForexTracking/>
                             </Tab>
                             <Tab eventKey="chart" title="Chart">
                                 <ForexChart/>

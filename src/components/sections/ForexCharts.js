@@ -14,7 +14,7 @@ function ForexChart(props) {
                    setRowData(result)
                 }
             )
-            .then( error => {
+            .catch( error => {
               console.log(error);
             }
           )

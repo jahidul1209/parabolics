@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MDBDataTableV5 } from 'mdbreact';
 import { Link } from 'react-router-dom';
-import SvgChart from './SvgChart';
 
 function StockTracking(props) {
 
@@ -25,14 +24,12 @@ function StockTracking(props) {
                     signal: tData[1],
                     ticker: <Link to = {`/chart/${tData[2]}`}>{tData[2]}</Link>,
                     generalTime:tData[3],
-                    close: tData[4],
+                    close: parseFloat(tData[4]).toFixed(3),
                     indicator:tData[5],
                     type: tData[6],
-                    max_gain: tData[7],
-                    changesPercentage: <div>{ (tData[8]  > 0 ) ? <span style={{color:'#51ef98'}}>{tData[8]}</span> : <span style={{color:'#EE4758'}}>{tData[8]}</span>}</div>,
-                   
-                  
-                    chart: <SvgChart svg = {tData[2]}/>
+                    max_gain: parseFloat(tData[7]).toFixed(3),
+                    changesPercentage: <div>{ (tData[8]  > 0 ) ? <span style={{color:'#51ef98'}}>{parseFloat(tData[8]).toFixed(3)}</span> : <span style={{color:'#EE4758'}}>{parseFloat(tData[8]).toFixed(3)}</span>}</div>,
+
                   }
               });
                setRowData(gainData)
@@ -49,9 +46,9 @@ function StockTracking(props) {
           fetchData()
       }, []);
 
-      // rowData.sort(function (a, b) {
-      //   return b.price - a.price;
-      // });
+      rowData.sort(function (a, b) {
+        return b.max_gain - a.max_gain;
+      });
       
     const datatable = {
         columns: [
@@ -88,13 +85,17 @@ function StockTracking(props) {
             {
               label: 'Indicator',
               field: 'indicator',
+              sort: 'disabled',
+              width: 150,
             },
             {
               label: 'Type',
               field: 'type',
+              sort: 'disabled',
+              width: 150,
             },
             {
-              label: 'Percentage',
+              label: 'Change %',
               field: 'changesPercentage',
               sort: 'disabled',
               width: 150,
@@ -102,15 +103,8 @@ function StockTracking(props) {
             {
               label: 'Max Gain',
               field: 'max_gain',
-              sort: 'disabled',
               width: 150,
             },
-            {
-                label: 'Chart',
-                field: 'chart',
-                sort: 'disabled',
-                width: 150,
-              },
           ],
           rows: rowData,
         }
