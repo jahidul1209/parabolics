@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import react, { useState } from 'react';
 import Portfolio from '../../components/Portfolio/Portfolio';
 import PortfolioMonitor from '../../components/PortfolioMonitor/PortfolioMonitor';
 

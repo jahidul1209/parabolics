@@ -1,61 +1,12 @@
 import React,{Fragment ,useState } from 'react';
 import PropTypes from 'prop-types';
 import {Container,Row,Col,Button} from 'react-bootstrap'
-import StripeCheckout from "react-stripe-checkout";
 import {nanoid} from 'nanoid'
 import {TiTick} from "react-icons/ti"
 import styles from "../Styles/plans.module.css"
 import PayPalBtn from './PayPalBtn'
-/** Utils */
+import StripeBtn from './StripeBtn';
 
-import { apiRequest } from "../Utils/API";
-/** Stripe publishable key */
-const STRIPE_PUBLISHABLE_KEY = ""
-
-
-
-const paypalSubscribePlanA = (data, actions) => {
-    return actions.subscription.create({
-      'plan_id': "P-59M1017976970682PLZYGALA",
-    });
-  };
-  const paypalSubscribePlanB= (data, actions) => {
-    return actions.subscription.create({
-      'plan_id': "P-1JN05705K53953236LZYGBYA",
-    });
-  };
-  const paypalOnError = (err) => {
-    alert(err)
-  }
-  
-  const paypalOnApprove = (data, detail) => {
-    alert("Payapl approved")
-  };
-/**
-   * Make request to AWS lambda function that handles creating
-   * a customer and a subscription plan on stripe
-   * @param token - token with stripe key and details entered in stripe form
-   * @param productPlan - id of the product plan the user is subscribing to
-   */
- const subscribeToProductPlan = async (
-    token,
-    productPlan 
-  ) => {
-    const bodyParams = {
-      stripeToken: token.id,
-      email: token.email,
-      productPlan
-    };
-
-    const response = await apiRequest(
-      "http://localhost:3000/create-customer",
-      "POST",
-      bodyParams
-    ).catch(err => {
-      console.log(err);
-    });
-
-  };
 
 const Plans = (props) => {
       const [state, setstate] = useState()
@@ -117,41 +68,20 @@ const Plans = (props) => {
             <div className='paypalbtn text-center'>
               
                         {
-                         
-
                             state == '75' ? <>
                               <h3 className='pb-3'>Payment Method: ${state}</h3>
                                 <PayPalBtn
-                                    amount = {state}
-                                    currency = "USD"
-                                    createSubscription={paypalSubscribePlanA}
-                                    onApprove={paypalOnApprove}
-                                    catchError={paypalOnError}
-                                    onError={paypalOnError}
-                                    onCancel={paypalOnError} 
+                                    uhex ='10000000'
+                                    prc = 'p'
+                                    pln = 'm'
+                                     
                                 />
-                                     <StripeCheckout  
-                                            name="Parabolics Premium"
-                                            description={`Monthly Package`}
-                                            amount={state*100} 
-                                            currency="USD"
-                                            token={token => subscribeToProductPlan(token)}
-                                            billingAddress={true}
-                                            zipCode={false}
-                                            panelLabel="Subscribe"
-                                             stripeKey={STRIPE_PUBLISHABLE_KEY}
+                                     <StripeBtn  
+                                             uhex ='10000000'
+                                             prc = 's'
+                                             pln = 'm'
                                         >
-                                        
-                                        <Button block={true} className = 'btn btn-info' >
-                                            <span
-                                             style = {{ fontStyle: 'italic',
-                                                      fontWeight: '600',
-                                                       fontSize: '20px',
-                                                       padding: '0px 61px'}}>
-                                                        Stripe</span>
-                                            </Button>
-                                        
-                                        </StripeCheckout>
+                                        </StripeBtn>
                                 </> : null  
                              }  
                              {  
@@ -159,36 +89,19 @@ const Plans = (props) => {
                                  <>
                                   <h3 className='pb-3'>Payment Method: ${state}</h3>
                                    <PayPalBtn
-                                        amount = {state}
-                                        currency = "USD"
-                                        createSubscription={paypalSubscribePlanB}
-                                        onApprove={paypalOnApprove}
-                                        catchError={paypalOnError}
-                                        onError={paypalOnError}
-                                        onCancel={paypalOnError} 
+                                        uhex ='10000000'
+                                        prc = 'p'
+                                        pln = 'y'
+                                    
                                    />
-                                   <StripeCheckout  
-                                            name="Parabolics Premium"
-                                            description={`Yearly Package`}
-                                            amount={state*100} 
-                                            currency="USD"
-                                            token={token => subscribeToProductPlan(token)}
-                                            billingAddress={true}
-                                            zipCode={false}
-                                            panelLabel="Subscribe"
-                                             stripeKey={STRIPE_PUBLISHABLE_KEY}
+                                   <StripeBtn 
+                                           uhex ='10000000'
+                                           prc = 's'
+                                           pln = 'y'
+                                          
                                         >
-                                        
-                                        <Button block={true} className = 'btn btn-info' >
-                                            <span
-                                             style = {{ fontStyle: 'italic',
-                                                      fontWeight: '600',
-                                                       fontSize: '20px',
-                                                       padding: '0px 61px'}}>
-                                                        Stripe</span>
-                                            </Button>
-                                        
-                                        </StripeCheckout>
+                                       
+                                      </StripeBtn>
                                  </> : null
        
                            
