@@ -1,17 +1,11 @@
-
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import  ApiRequest  from "../Utils/ApiRequest";
 
-export function StripeBtn(props) {
-    const { uhex, prc, pln} = props;
-    console.log(prc)
-    console.log(pln)
+ function StripeBtn(props) {
+
   return (
          <div className = 'mt-3'> 
-
-         <ApiRequest uhex = {props.uhex}  prc =  {props.prc}  pln =  {props.pln}/>
-
+             <ApiRequest uhex = {props.uhex}  prc =  {props.prc}  pln =  {props.pln}  image = {process.env.PUBLIC_URL + '/image/Stripe_logo,_revised_2016.png'} />
          </div>
   );
 }

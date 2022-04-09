@@ -14,6 +14,7 @@ const Plans = (props) => {
         e.preventDefault();
         setstate(e.target.value); 
        }; 
+
     return(
         <div className={styles.plan__wrapper}>
             <h2>{props.planTitle}</h2>
@@ -70,42 +71,18 @@ const Plans = (props) => {
                         {
                             state == '75' ? <>
                               <h3 className='pb-3'>Payment Method: ${state}</h3>
-                                <PayPalBtn
-                                    uhex ='10000000'
-                                    prc = 'p'
-                                    pln = 'm'
-                                     
-                                />
-                                     <StripeBtn  
-                                             uhex ='10000000'
-                                             prc = 's'
-                                             pln = 'm'
-                                        >
-                                        </StripeBtn>
+                                <PayPalBtn uhex = '10000000'  prc = 'p'  pln = 'm' />
+                                <StripeBtn  uhex = '10000000' prc = 's'  pln = 'm' />
                                 </> : null  
                              }  
                              {  
                                state == '599' ?
                                  <>
-                                  <h3 className='pb-3'>Payment Method: ${state}</h3>
-                                   <PayPalBtn
-                                        uhex ='10000000'
-                                        prc = 'p'
-                                        pln = 'y'
-                                    
-                                   />
-                                   <StripeBtn 
-                                           uhex ='10000000'
-                                           prc = 's'
-                                           pln = 'y'
-                                          
-                                        >
-                                       
-                                      </StripeBtn>
-                                 </> : null
-       
-                           
-                        }
+                                 <h3 className='pb-3'>Payment Method: ${state}</h3>
+                                    <PayPalBtn uhex = '10000000' prc = 'p' pln = 'y' />
+                                    <StripeBtn  uhex = '10000000' prc = 's' pln = 'y' />
+                                 </> : null                       
+                             }
             </div>                      
         </div>
 

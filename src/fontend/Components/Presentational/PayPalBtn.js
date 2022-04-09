@@ -1,16 +1,12 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import ApiRequest from '../Utils/ApiRequest';
 
-export function PayPalBtn(props) {
-  const { uhex, prc, pln} = props;
-  console.log(prc)
-  console.log(pln)
+ function PayPalBtn(props) {
+
   return (
-     <Button block={true} className = 'btn btn-success' >
-          <span    style = {{ padding: '0px'}} > 
-                    <img className="me-2" src={process.env.PUBLIC_URL + '/image/paypal.png'} alt="img" width={100}/>
-          </span>
-      </Button>
+    <div className = 'mt-3'> 
+             <ApiRequest uhex = {props.uhex}  prc =  {props.prc}  pln =  {props.pln}  image = {process.env.PUBLIC_URL + '/image/paypal.png'}/>
+         </div>
   );
 }
 
