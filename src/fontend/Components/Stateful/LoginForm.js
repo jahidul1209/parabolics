@@ -59,7 +59,7 @@ const LoginForm = () => {
                 <Spinner animation="border" variant="success" />
             </div>
         </>}
-        <p>Don’t have an account? <Link to="/signup">Create for free</Link></p>
+        <p>Don’t have an account? <Link to="/register">Create for free</Link></p>
       </Form>
     </>
   );

@@ -39,7 +39,7 @@ function App(){
                           </Route>
                           <Route path="/">
                               <Route path="/login" element={<Login/>}/>
-                              <Route path="/signup" element={<Signup/>}/>
+                              <Route path="/register" element={<Signup/>}/>
                          </Route>
                          <Route path="/" element={<PublicRouteDash/>}>
                                 <Route path="/stock" element={<Home />} />

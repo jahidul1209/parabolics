@@ -16,7 +16,7 @@ const SignupForm = () => {
         setIsLoading(true)
         e.preventDefault()
         axios
-        .post(`/signup`,details)
+        .post(`/register`,details)
         .then((response)=>{
             if(response.status===200){
                 toast.success(response.message)
