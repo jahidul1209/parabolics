@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../Styles/bannerContent.module.css"
 import {FaPlus} from "react-icons/fa"
 import { Link } from 'react-router-dom';
+import IsLoggedIn from "../../../components/layouts/IsLoggedIn";
 const BannerContent = () => {
     return(
         <>
@@ -12,9 +13,18 @@ const BannerContent = () => {
             <h6 className={`${styles.sub__heading}`}>Join Our Community Of Top Traders Improving Accuracy</h6>
             <h6 className={`${styles.sub__heading}`}>& Optimizing Performance With Artifical Intelligence</h6>
             <button className={`${styles.btn}`}>Learn More</button>
-            <Link to = '/stock'>
-                  <button className={`${styles.btn}`}>Explore Parabolics Tools</button>
-            </Link>
+            {
+                 !IsLoggedIn() ? 
+                 <Link to = '/login'>
+                       <button className={`${styles.btn}`}>Explore Parabolics Tools</button>
+                  </Link>
+                  :
+                  <Link to = '/stock'>
+                       <button className={`${styles.btn}`}>Explore Parabolics Tools</button>
+                   </Link>
+            }
+           
+          
           
             
             <form className={`${styles.form}`}>

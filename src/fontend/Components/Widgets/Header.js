@@ -3,11 +3,15 @@ import {Navbar,Nav,Container, Image} from "react-bootstrap"
 import {NavLink} from "react-router-dom"
 import styles from "../Styles/Widget.module.css"
 import Logo from "../../Assets/Images/logo.png"
-import {AiOutlineUser} from "react-icons/ai"
+import {AiOutlineUser} from "react-icons/ai" 
+import {AiOutlineLogout} from "react-icons/ai" 
 import {FaSignInAlt} from "react-icons/fa"
 import { useNavigate } from "react-router"
+import { Logout } from "../../../components/layouts/Logout"
+import IsLoggedIn from "../../../components/layouts/IsLoggedIn"
+
 const Header = () => {
-    const [isScrolling,setIsScrolling] = useState()
+    const [isScrolling, setIsScrolling] = useState()
     const navigate = useNavigate()
     useEffect(() => {
       if (typeof window !== "undefined") {
@@ -21,8 +25,11 @@ const Header = () => {
           }
         }
       }
+     
     })
-    
+
+  
+  
     return(
         <>
         <header className={`${styles.header} ${styles.lazy__load} ${isScrolling}`}>
@@ -36,9 +43,16 @@ const Header = () => {
                       <NavLink to="/" className={({ isActive }) => `${styles.nav__menu}` + (isActive ? ` ${styles.active__nav__menu}` : "")}>Home</NavLink>
                       <NavLink to="/pricing" className={({ isActive }) => `${styles.nav__menu}` + (isActive ? ` ${styles.active__nav__menu}` : "")}>Pricing</NavLink>
                         <div className={styles.button__wrapper}>
-                            <button className={styles.header__buttons} onClick={() => navigate("/login")}>Login <span className={styles.header__icons}><AiOutlineUser/></span></button>
-                            <button className={styles.header__buttons} onClick={() => navigate("/register")}>Sign up <span className={styles.header__icons}><FaSignInAlt/></span></button>
-                        </div>
+                       {
+                            !IsLoggedIn() ? <>
+                                  <button className={styles.header__buttons} onClick={() => navigate("/login")}>Login <span className={styles.header__icons}><AiOutlineUser/></span></button>
+                                  <button className={styles.header__buttons} onClick={() => navigate("/register")}>Sign up <span className={styles.header__icons}><FaSignInAlt/></span></button>
+                            </>
+                            :    
+                            <button className={styles.header__buttons} onClick={Logout} >Logout <span className={styles.header__icons}><AiOutlineLogout/></span></button>
+                       } 
+                           
+                       </div>
                     </Nav>
                   </Navbar.Collapse>
                 </Container>

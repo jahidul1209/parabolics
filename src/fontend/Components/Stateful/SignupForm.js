@@ -1,29 +1,35 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import axios from "../../Utils/axiosInstance"
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import styles from "../Styles/login.module.css"
 import {Spinner} from "react-bootstrap"
 import {toast} from "react-toastify"
+
+
 const SignupForm = () => {
+    const history = useNavigate();
     const [details,setDetails] = useState({
-        email:"",
+        mail:"",
         name:"",
-        password:""
+        pass:""
     })
     const [isLoading,setIsLoading] = useState(false)
     const signup = (e) => {
         setIsLoading(true)
         e.preventDefault()
         axios
-        .post(`/register`,details)
+        .post(`https://accounts.parabolics.io/register`,details)
         .then((response)=>{
-            if(response.status===200){
-                toast.success(response.message)
+          console.log(response)
+            if(response.status===201){
+                 toast.success(response.data.message)
+                 history("/login");
+               
             }
         })
         .catch((error) => {
-            toast.error(error.message)
+          toast.success(error.message)
             
         })
         .finally(()=>{
@@ -44,13 +50,13 @@ const SignupForm = () => {
     <>
       <Form onSubmit={signup}>
         <div className={styles.form__group}>
-          <input type="email" placeholder="email" value={details.email} name="email" onChange={inputEvent} className={styles.form__input}  required/>
+          <input type="email" placeholder="email" value={details.mail} name="mail" onChange={inputEvent} className={styles.form__input}  required/>
         </div >
         <div className={styles.form__group}>
             <input type="text" placeholder="name" value={details.name} name="name" onChange={inputEvent} className={styles.form__input} required/>    
         </div>
         <div className={styles.form__group}>
-            <input type="password" placeholder="password" value={details.password} name="password" onChange={inputEvent} className={styles.form__input} required/>    
+            <input type="password" placeholder="password" value={details.pass} name="pass" onChange={inputEvent} className={styles.form__input} required/>    
         </div>
         <div className={styles.form__group}>
             <Form.Group className={styles.form__checkbox} controlId="formBasicCheckbox">

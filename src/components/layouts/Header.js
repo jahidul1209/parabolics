@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Scroll from '../sections/Scroll';
 import SearchList from '../sections/SearchList';
 import Marquee from "react-fast-marquee";
+import { Logout } from './Logout';
 const axios = require('axios');
 
 
@@ -157,7 +158,7 @@ function Header() {
                       </Link>
                   </li>
                   <li>
-                      <Link to = '#' className="dropdown-item" id="logout"> 
+                      <Link to = '#' className="dropdown-item" id="logout" onClick={Logout}> 
                       <i className="fas fa-sign-out-alt" style = {{fontSize:'20px' , marginRight:'10px'}}></i>
                           <span>Logout </span>
                       </Link>

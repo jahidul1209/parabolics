@@ -2,7 +2,9 @@ import React, { useEffect} from 'react';
 import {HashRouter, Routes, Route } from "react-router-dom";
 import './style/App.css';
 import "./fontend/Assets/Styles/styles.css"
+import { ToastContainer } from "react-toastify";
  import "react-toastify/dist/ReactToastify.css";
+
 import Footer from './components/layouts/Footer';
 import Home from './components/pages/Home';
 import News from './components/pages/News';
@@ -24,12 +26,15 @@ import Signup from "./fontend/Pages/Signup";
 import PublicRoute from "./fontend/Layouts/PublicRoute"
 import PublicRouteDash from "./components/layouts/PublicRouteDash";
 import Heatmap from './components/pages/Heatmap';
+import IsLoggedIn from './components/layouts/IsLoggedIn';
+import {  Navigate } from 'react-router-dom'; 
 
 
 function App(){
 
   return (
     <div className="App">
+      <ToastContainer/>
            <HashRouter basename="/" forceRefresh>   
             
                        <Routes >
@@ -37,11 +42,17 @@ function App(){
                             <Route index element={<Fontpage/>}/>
                             <Route path="/pricing" element={<Pricing/>}/>
                           </Route>
-                          <Route path="/">
-                              <Route path="/login" element={<Login/>}/>
-                              <Route path="/register" element={<Signup/>}/>
-                         </Route>
-                         <Route path="/" element={<PublicRouteDash/>}>
+                          {
+                              !IsLoggedIn() && 
+                                <Route path="/">
+                                      <Route path="/login" element={<Login/>}/>
+                                       <Route path="/register" element={<Signup/>}/>
+                                 </Route>
+                          }
+                         
+                         {
+                           IsLoggedIn() ? 
+                            <Route path="/" element={<PublicRouteDash/>}>
                                 <Route path="/stock" element={<Home />} />
                                 <Route path="/news" element={<News />} />
                                 <Route path="*" element={<NoMatch/>} /> 
@@ -56,6 +67,12 @@ function App(){
                                 <Route path="/livetrade" element={<LiveTrade/>} />
                                 <Route path="/reddit" element={<Reddit/>} />
                             </Route>
+                            :
+                            <Route
+                                  path="*"
+                                  element={<Navigate to="/login" replace />}
+                              />
+                          }
                          </Routes>
                    <Footer/>
 

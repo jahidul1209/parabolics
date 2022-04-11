@@ -19,10 +19,11 @@ const AuthForm = (props) => {
                 </div>
                 {props.isLogin ? 
                 <>
-                <LoginForm/>
+                    <LoginForm/>
+                    
                 </>:
                 <>
-                <SignupForm/>
+                      <SignupForm/>
                 </>}
             </div>
         </section>
