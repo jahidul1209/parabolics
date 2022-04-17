@@ -158,6 +158,12 @@ function Header() {
                       </Link>
                   </li>
                   <li>
+                      <Link to = 'settings' className="dropdown-item" > 
+                         <i className="fas fa-tools" style = {{fontSize:'20px' , marginRight:'10px'}}></i>
+                          <span> Settings </span>
+                      </Link>
+                  </li>
+                  <li>
                       <Link to = '#' className="dropdown-item" id="logout" onClick={Logout}> 
                       <i className="fas fa-sign-out-alt" style = {{fontSize:'20px' , marginRight:'10px'}}></i>
                           <span>Logout </span>

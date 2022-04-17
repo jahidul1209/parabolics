@@ -44,26 +44,26 @@ function Watchlists(props) {
                         }
                     }
 
-                 if(inExits || localStorage.getItem('pevSearchValue') == null){
-                    let cart = JSON.parse(localStorage.getItem('pevSearchValue'));
+                 if(inExits || localStorage.getItem("defaultWatch") == null){
+                    let cart = JSON.parse(localStorage.getItem('defaultWatch'));
                     if(cart){
                         const arr =  Object.assign({}, ...filteredData)
                         cart.push(arr);
-                        localStorage.setItem('pevSearchValue', JSON.stringify(cart));    
+                        localStorage.setItem("defaultWatch", JSON.stringify(cart));    
                     }else{
-                        localStorage.setItem('pevSearchValue', JSON.stringify(filteredData));    
+                        localStorage.setItem("defaultWatch", JSON.stringify(filteredData));    
                     }
                  }
             }   
             }
 
      function  removeSelectedWatchlist() {
-        localStorage.removeItem("pevSearchValue");
+        localStorage.removeItem("defaultWatch");
         window.location.reload()
       }
       function  removeSingleItem(name) {  
             const products = storeData.filter(product => product.symbol !== name);
-            localStorage.setItem('pevSearchValue', JSON.stringify(products));
+            localStorage.setItem("defaultWatch", JSON.stringify(products));
         }
 
         function fetchData(){
@@ -72,13 +72,13 @@ function Watchlists(props) {
                   setAPIData(response.data);
               })
 
-              if ( (localStorage.getItem('pevSearchValue'))) {
-                 const storageValue = localStorage.getItem('pevSearchValue')
+              if ( (localStorage.getItem("defaultWatch"))) {
+                 const storageValue = localStorage.getItem("defaultWatch")
                  var jsonV = JSON.parse(storageValue)
                   setCount(jsonV.length);
                   setStoreData(JSON.parse(storageValue)) 
               }
-              setWatchlist(localStorage.length)
+              setWatchlist(localStorage.length - 2)
        }
        
        useEffect(() => {
@@ -98,10 +98,10 @@ function Watchlists(props) {
             <Container fluid className='mt-3'>
                 <Row >
                     <Col sm={6} md={6} className='rre'>
-                        <select   className='screen-btn2' >
+                        {/* <select   className='screen-btn2' >
                             <option>Select Watchlists</option>
                             <option value="1">Default</option>
-                        </select>
+                        </select> */}
                     <span > Current Watchlist: Default</span>
                     </Col>
                     <Col sm={6} md={6}>
@@ -110,9 +110,9 @@ function Watchlists(props) {
                             Remove Selected Watchlist
                         </button>
 
-                        <button className="btn btn-success p-2 mx-2"   data-bs-toggle="modal" data-bs-target="#watchlists" >
+                        {/* <button className="btn btn-success p-2 mx-2"   data-bs-toggle="modal" data-bs-target="#watchlists" >
                           Create a new watchlist
-                        </button>
+                        </button> */}
                      </div>
                     </Col>
                 </Row>
@@ -216,23 +216,25 @@ function Watchlists(props) {
                 </div>
             </Container>
 
-            <div className="modal fade" id="watchlists" tabindex="-1" aria-labelledby="watchlistsModalLabel" aria-hidden="true">
+            {/* <div className="modal fade" id="watchlists" tabindex="-1" aria-labelledby="watchlistsModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title" id="watchlistsModalLabel">Add Watchlists</h5>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div className="modal-body">
-                        <input type = 'text' className='form-control'/>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Save</button>
-                    </div>
+                    <form onSubmit={onSubmit}>
+                        <div className="modal-body">
+                            <input type = 'text' className='form-control' onChange={(e)=>setValWatch(e.target.value)}/>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" className="btn btn-primary">Save</button>
+                        </div>
+                    </form>
                     </div>
                 </div>
-          </div>
+          </div> */}
        </>
     );
  }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Logout } from './Logout';
 
 
 function Sidebar() {
-               // Add active class to the current button (highlight it)
- 
+
     return (
         <div>
         {/* <!-- Sidebar Navigation--> */}
@@ -109,10 +109,12 @@ function Sidebar() {
         </ul>
 
         <ul className="list-unstyled"> 
-              <li className="sidebar-item logoutlay"><a className="sidebar-link" href="login.html"> 
+              <li className="sidebar-item logoutlay">
+                  <a className="sidebar-link"  onClick={ Logout }> 
                       <span className="svg-icon svg-icon-sm svg-icon-heavy">
                           <i className="fas fa-sign-out-alt"></i>
-                      </span><span>Logout </span></a>
+                      </span>
+                      <span >Logout </span></a>
               </li>
         </ul>
 

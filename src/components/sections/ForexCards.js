@@ -43,7 +43,6 @@ function ForexCards(props) {
                   <div className='cryto-card'>
                   {         
                          rowData.map( ( d , key)=> { 
-
                             return(
                               key < 12 &&
                                  <Link to = {`/chart/${d.symbol}`}>

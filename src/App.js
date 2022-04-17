@@ -28,6 +28,7 @@ import PublicRouteDash from "./components/layouts/PublicRouteDash";
 import Heatmap from './components/pages/Heatmap';
 import IsLoggedIn from './components/layouts/IsLoggedIn';
 import {  Navigate } from 'react-router-dom'; 
+import Settings from './components/layouts/Settings';
 
 
 function App(){
@@ -63,6 +64,7 @@ function App(){
                                 <Route path="/chart/:id" element={<TradingChart/>} />  
                                 <Route path="/insider" element={<Insider/>} />  
                                 <Route path="/watchlists" element={<Watchlists/>} />  
+                                <Route path="/settings" element={<Settings/>} />
                                 <Route path="/portfolio" element={<Portfolios/>} />
                                 <Route path="/livetrade" element={<LiveTrade/>} />
                                 <Route path="/reddit" element={<Reddit/>} />

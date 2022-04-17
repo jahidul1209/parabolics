@@ -36,10 +36,7 @@ function ForexTable() {
       }
 
       useEffect(() => {
-        const interval = setInterval(() => {
           fetchData()
-        }, 1000);
-        return () => clearInterval(interval);
       }, []);
 
       function nFormatter(num) {
