@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import {  Navigate } from 'react-router-dom'; 
+import { toast } from 'react-toastify';
 
 function ApiRequest (props) {
   const[url , setUrl] = useState()
 
   function fetchApi(){
-    fetch (`https://b8jma79vh0.execute-api.us-east-2.amazonaws.com?uhex=${props.uhex}&prc=${props.prc}&pln=${props.pln}`)
-    .then( response => response.json())
-    .then( response => {
-         setUrl(response.url)
-      })
+    if((props.uhex && props.prc && props.pln) != null){
+
+      fetch (`https://b8jma79vh0.execute-api.us-east-2.amazonaws.com?uhex=${props.uhex}&prc=${props.prc}&pln=${props.pln}`)
+      .then( response => response.json())
+      .then( response => {
+           setUrl(response.url)
+        })
+        .catch(error => {  toast.error(error)})
+    }
+
   }
 
   useEffect(()=>{
@@ -16,7 +23,6 @@ function ApiRequest (props) {
   },[props.uhex, props.prc, props.pln])
   
 
-  
   return (
           <div>
            

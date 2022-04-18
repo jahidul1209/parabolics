@@ -15,6 +15,7 @@ const Plans = (props) => {
         setstate(e.target.value); 
        }; 
 
+       const uhex = localStorage.getItem('uhex')
     return(
         <div className={styles.plan__wrapper}>
             <h2>{props.planTitle}</h2>
@@ -71,16 +72,16 @@ const Plans = (props) => {
                         {
                             state == '75' ? <>
                               <h3 className='pb-3'>Payment Method: ${state}</h3>
-                                <PayPalBtn uhex = '10000000'  prc = 'p'  pln = 'm' />
-                                <StripeBtn  uhex = '10000000' prc = 's'  pln = 'm' />
+                                <PayPalBtn uhex = {uhex}  prc = 'p'  pln = 'm' />
+                                <StripeBtn  uhex = {uhex} prc = 's'  pln = 'm' />
                                 </> : null  
                              }  
                              {  
                                state == '599' ?
                                  <>
                                  <h3 className='pb-3'>Payment Method: ${state}</h3>
-                                    <PayPalBtn uhex = '10000000' prc = 'p' pln = 'y' />
-                                    <StripeBtn  uhex = '10000000' prc = 's' pln = 'y' />
+                                    <PayPalBtn uhex = {uhex} prc = 'p' pln = 'y' />
+                                    <StripeBtn  uhex = {uhex} prc = 's' pln = 'y' />
                                  </> : null                       
                              }
             </div>                      

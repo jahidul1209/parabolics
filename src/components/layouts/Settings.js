@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import {Container } from 'react-bootstrap';
 import {toast} from "react-toastify"
-import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 
 function Settings(props) {
     const[platform , setPlatform] = useState('discord')
-    const[username , setUsername] = useState()
+    const[username , setUsername] = useState('')
     const [checkbox, setCheckbox] = useState(true);
 
 
@@ -40,6 +39,7 @@ function Settings(props) {
         "shex": localStorage.getItem('shex'),
         "plat": platform,
         "social": username 
+
     }
     
     var jsonClaim =  {
@@ -48,11 +48,12 @@ function Settings(props) {
         "shex": localStorage.getItem('shex'),
         "channel": platform,
     }
-  
+
     const formSubmit = (e) => {
         e.preventDefault()
+        setUsername('')
+        if (username.indexOf(' ') != 0){
          let request 
-         console.log(checkbox)
         if(!checkbox){
              request = {
                 method: 'POST',
@@ -67,11 +68,12 @@ function Settings(props) {
             };
         }
 
-
         fetch('https://accounts.parabolics.io/usercfg', request)
             .then(response => response.json())
             .then((response)=>{
+               
                 if(response){
+                   
                     console.log(response)
                     console.log(request)
                   toast.success(response.message)
@@ -82,7 +84,9 @@ function Settings(props) {
                 console.log(error)
                 toast.success(error.message)
               })
-
+          }else{
+            toast.error('Please inpur Username')
+          }
     }
     return (
         <div>
@@ -106,9 +110,9 @@ function Settings(props) {
                                </label>
                                <form onSubmit={formSubmit}>
                                    
-                                    <div className ="form-group mt-3 mb-3">
+                                    <div className ="form-group mt-3 mb-3 dfls">
                                         <label for="username" className="form-label" style = {{textTransform: 'capitalize',fontSize:'16px'}}>{platform} Username</label>
-                                        <input type="username" className="form-control"  placeholder="Username" onChange = {handleUsername}  required/>
+                                        <input type="username" className="form-control" value = {username} placeholder="Username" onChange = {handleUsername}  required/>
                                     </div>
                                     <Switch 
                                              isOn={checkbox}
