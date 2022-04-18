@@ -69,13 +69,12 @@ function App(){
                                 <Route path="/livetrade" element={<LiveTrade/>} />
                                 <Route path="/reddit" element={<Reddit/>} />
                             </Route>
-                            :<>
+                            :
                             <Route
                                   path="*"
                                   element={<Navigate to="/login" replace />}
                               />
-                              <Route path="/undefined" element={<Navigate to="/login" replace />} />
-                              </>
+                             
                           }
                          </Routes>
                    <Footer/>
