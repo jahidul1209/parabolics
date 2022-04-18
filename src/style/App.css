@@ -1136,6 +1136,17 @@ td.updated_at {
   margin: 0 auto;
 }
 
+.select-user .w-50 {
+  width: 20% !important;
+}
+
+.form-switch .form-check-input {
+  width: 5em;
+  height: 1.5rem;
+  margin-left: -2.5em;
+  margin-right: 15px;
+}
+
 body {
   margin: 0;
   font-size: 1rem;

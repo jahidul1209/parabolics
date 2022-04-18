@@ -12,4 +12,14 @@
 .select-user {
     width: 55%;
     margin: 0 auto;
+
+    .w-50{
+        width: 20%!important;
+    }
+}
+.form-switch .form-check-input {
+    width: 5em;
+    height: 1.5rem;
+    margin-left: -2.5em;
+    margin-right: 15px;
 }

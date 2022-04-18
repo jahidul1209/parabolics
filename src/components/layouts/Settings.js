@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import {Container } from 'react-bootstrap';
 import {toast} from "react-toastify"
+import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 
 function Settings(props) {
     const[platform , setPlatform] = useState('discord')
     const[username , setUsername] = useState()
-    const [checkbox, setCheckbox] = useState(false);
+    const [checkbox, setCheckbox] = useState(true);
 
 
     const Switch = ({ isOn, handleToggle }) => {
         return (
           <div class="form-check form-switch mb-5">
-                    <label className="form-check-label" for="switchCheck" style={{color:'#c5c5c5'}}>  Premium Access  ({platform})</label>
+                    <label className="form-check-label" for="switchCheck" style={{color:'#c5c5c5', textTransform:'capitalize'}}>  Premium Access  ({ platform })</label>
                     <input 
                         checked={isOn}
                         className="form-check-input" 
@@ -24,7 +25,6 @@ function Settings(props) {
         );
       };
       
-
     const handleChange = (e ) =>{
         setPlatform(e.target.value)
     } 
@@ -52,6 +52,7 @@ function Settings(props) {
     const formSubmit = (e) => {
         e.preventDefault()
          let request 
+         console.log(checkbox)
         if(!checkbox){
              request = {
                 method: 'POST',
@@ -71,11 +72,14 @@ function Settings(props) {
             .then(response => response.json())
             .then((response)=>{
                 if(response){
+                    console.log(response)
+                    console.log(request)
                   toast.success(response.message)
                 }
                
             })
             .catch((error) => {
+                console.log(error)
                 toast.success(error.message)
               })
 
@@ -88,6 +92,8 @@ function Settings(props) {
                 </div>
            </div>
          <div>
+
+             {checkbox}
               <Container fluid className='mt-3'>
                 <div className ="col-md-12">
                         <div className ="card py-5 px-5 ">
@@ -108,6 +114,15 @@ function Settings(props) {
                                              isOn={checkbox}
                                              handleToggle={() => setCheckbox(!checkbox)}
                                     />
+                                    {/* <BootstrapSwitchButton
+                                                checked={true}
+                                                onlabel='Discord'
+                                                onstyle='info'
+                                                offlabel='Telegram'
+                                                offstyle='success'
+                                                style='w-50 mb-5'
+                                                onChange={ handleToggle }
+                                            /><br></br> */}
                                     <button type="submit" className="btn btn-primary">Submit</button>
                                 </form>
                             </div>

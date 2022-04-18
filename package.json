@@ -12,6 +12,7 @@
     "apexcharts": "^3.33.0",
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
+    "bootstrap-switch-button-react": "^1.2.0",
     "chart.js": "^2.7.3",
     "chartjs-plugin-zoom": "^0.6.6",
     "finviz-screener": "^1.1.3",
