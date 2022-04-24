@@ -89,7 +89,7 @@ function Reddit(props) {
            <div className="bg-dash-dark-2 py-4">
                     <div className="container-fluid reddit-head">
                     <h2 className="h5 mb-0">Reddit </h2>
-                      <select class="screen-btn reddit-select" onChange={(e)=>  setReddit(e.target.value)}>
+                      <select className="screen-btn reddit-select" onChange={(e)=>  setReddit(e.target.value)}>
                           <option selected value="all-stocks">All Stocks</option>
                           <option value="stocks">Stocks</option>
                           <option value="all-crypto">Cryptos</option>

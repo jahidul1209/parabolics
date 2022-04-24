@@ -58,9 +58,9 @@ function MarketSummary() {
                         <h3 style={{    marginBottom: '0rem'}}>Energy</h3>
                         <div className='market-sum'>
                             { Energy < 0 ? 
-                            <div style={{color:'#fc6780'}}>{Energy}%<i class="fas fa-arrow-down" style={{color:'#fc6780' , fontSize: '14px'}}></i></div>
+                            <div style={{color:'#fc6780'}}>{Energy}%<i className="fas fa-arrow-down" style={{color:'#fc6780' , fontSize: '14px'}}></i></div>
                                 :
-                                <div style={{color:'#51ef98'}}>{Energy}% <i class="fas fa-arrow-up" style={{color:'#51ef98', fontSize: '14px'}}></i></div> 
+                                <div style={{color:'#51ef98'}}>{Energy}% <i className="fas fa-arrow-up" style={{color:'#51ef98', fontSize: '14px'}}></i></div> 
                                 }
                         </div>
 
@@ -78,9 +78,9 @@ function MarketSummary() {
                         <h3 style={{    marginBottom: '0rem'}}>Technology</h3>
                         <div className='market-sum'>
                             { Technology < 0 ? 
-                            <div style={{color:'#fc6780'}}>{Technology}% <i class="fas fa-arrow-down" style={{color:'#fc6780' , fontSize: '14px'}}></i></div>
+                            <div style={{color:'#fc6780'}}>{Technology}% <i className="fas fa-arrow-down" style={{color:'#fc6780' , fontSize: '14px'}}></i></div>
                                 :
-                                <div style={{color:'#51ef98'}}>{Technology}% <i class="fas fa-arrow-up" style={{color:'#51ef98', fontSize: '14px'}}></i></div> 
+                                <div style={{color:'#51ef98'}}>{Technology}% <i className="fas fa-arrow-up" style={{color:'#51ef98', fontSize: '14px'}}></i></div> 
                                 }
                         </div>
                         </div>
@@ -97,9 +97,9 @@ function MarketSummary() {
                         <h3 style={{ marginBottom: '0rem'}}> Basic Materials </h3>
                         <div className='market-sum'>
                             { BasicMaterials < 0 ? 
-                            <div style={{color:'#fc6780'}}>{BasicMaterials}% <i class="fas fa-arrow-down" style={{color:'#fc6780' , fontSize: '14px'}}></i></div>
+                            <div style={{color:'#fc6780'}}>{BasicMaterials}% <i className="fas fa-arrow-down" style={{color:'#fc6780' , fontSize: '14px'}}></i></div>
                                 :
-                                <div style={{color:'#51ef98'}}>{BasicMaterials}% <i class="fas fa-arrow-up" style={{color:'#51ef98', fontSize: '14px'}}></i></div> 
+                                <div style={{color:'#51ef98'}}>{BasicMaterials}% <i className="fas fa-arrow-up" style={{color:'#51ef98', fontSize: '14px'}}></i></div> 
                                 }
                         </div>
                         </div>
@@ -116,9 +116,9 @@ function MarketSummary() {
                         <h3 style={{    marginBottom: '0rem'}}>Healthcare</h3>
                         <div className='market-sum'>
                             { Healthcare < 0 ? 
-                            <div style={{color:'#fc6780'}}>{Healthcare}% <i class="fas fa-arrow-down" style={{color:'#fc6780' , fontSize: '14px'}}></i></div>
+                            <div style={{color:'#fc6780'}}>{Healthcare}% <i className="fas fa-arrow-down" style={{color:'#fc6780' , fontSize: '14px'}}></i></div>
                                 :
-                                <div style={{color:'#51ef98'}}>{Healthcare}% <i class="fas fa-arrow-up" style={{color:'#51ef98', fontSize: '14px'}}></i></div> 
+                                <div style={{color:'#51ef98'}}>{Healthcare}% <i className="fas fa-arrow-up" style={{color:'#51ef98', fontSize: '14px'}}></i></div> 
                                 }
                         </div>
                         </div>

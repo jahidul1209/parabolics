@@ -67,8 +67,8 @@ function BiggestGainer(props) {
         }
 
     return (
-              <div class="col-md-6">
-                  <div class="card py-3 px-3">
+              <div className="col-md-6">
+                  <div className="card py-3 px-3">
                         <div className = 'pt-3 pb-2 py-2 px-2  '>
                             <h3 style = {{marginBottom:'3px'}}>BIGGEST LOSERS</h3>
                             {/* <p style = {{color:'#666666 '}}>Data includes pre-market & post-market movers as well. Stars are gappers.</p> */}

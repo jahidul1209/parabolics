@@ -29,6 +29,7 @@ import Heatmap from './components/pages/Heatmap';
 import IsLoggedIn from './components/layouts/IsLoggedIn';
 import {  Navigate } from 'react-router-dom'; 
 import Settings from './components/layouts/Settings';
+import Profile from './components/layouts/Profile';
 
 
 function App(){
@@ -68,6 +69,7 @@ function App(){
                                 <Route path="/portfolio" element={<Portfolios/>} />
                                 <Route path="/livetrade" element={<LiveTrade/>} />
                                 <Route path="/reddit" element={<Reddit/>} />
+                                <Route path="/profile" element={<Profile/>} />
                             </Route>
                             :
                             <Route

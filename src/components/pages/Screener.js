@@ -9,9 +9,9 @@ import Technicals from '../sections/screener/Technicals';
 function Screener(props) {
   
     return (<div>
-        <div class="bg-dash-dark-2 py-4">
+        <div className="bg-dash-dark-2 py-4">
                 <Container fluid >
-                    <h2 class="h5 mb-0">Screener</h2>
+                    <h2 className="h5 mb-0">Screener</h2>
                 </Container>
          </div>
      

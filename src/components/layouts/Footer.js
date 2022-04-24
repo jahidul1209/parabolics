@@ -6,7 +6,7 @@ function Footer() {
     return (
         <div>
                 {/* <!-- Page Footer--> */}
-              <footer class="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-1 w-100 text-xs" id="footer">
+              <footer className="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-1 w-100 text-xs" id="footer">
                     <section className={styles.footer__bottom__wrapper}>
                       <Container>
                         <div className={styles.footer__legal}>

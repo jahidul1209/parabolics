@@ -63,9 +63,9 @@ class Home extends Component {
      <IntradayPriceChart calender = {this.state.calend}/>
 
       {/* BIGGEST GAINERS  & BIGGEST LOSERS */}
-      <section class="pt-0">
-        <div class="container-fluid">
-          <div class="row gy-4">
+      <section className="pt-0">
+        <div className="container-fluid">
+          <div className="row gy-4">
               <BiggestGainer/>
                <BiggestLosser/>
              
@@ -74,40 +74,40 @@ class Home extends Component {
       </section>
       
    {/*  STOCKS Market  */}
-       <section class="pt-0">
-        <div class="container-fluid">
-          <div class="row gy-4">
-            <div class="col-md-7">
+       <section className="pt-0">
+        <div className="container-fluid">
+          <div className="row gy-4">
+            <div className="col-md-7">
                  <MarketIndex calender = {this.state.calend}/>
             </div>
-            <div class="col-md-5">
+            <div className="col-md-5">
                   <SectorPreform/>   
             </div>
           </div>
         </div>  
       </section>
            {/*Tracking Signal*/}
-     <section class="pt-0">
-        <div class="container-fluid">
-          <div class="row gy-4">
+     <section className="pt-0">
+        <div className="container-fluid">
+          <div className="row gy-4">
               <StockTracking/>
           </div>
         </div>  
       </section>
 
            {/* MARKET NEWS */}
-      <section class="pt-0">
-        <div class="container-fluid">
-          <div class="row gy-4">
+      <section className="pt-0">
+        <div className="container-fluid">
+          <div className="row gy-4">
               <StockNews/>
           </div>
         </div>  
       </section>
 
  {/*  UPCOMING EARNINGS  & LARGE INSIDER TRANSACTIONS */}
-    <section class="pt-0">
-        <div class="container-fluid">
-          <div class="row gy-4">
+    <section className="pt-0">
+        <div className="container-fluid">
+          <div className="row gy-4">
               <UpcommingEarn calender = {this.state.calend}/>
                <InsiderTransactions calender = {this.state.calend}/>
              

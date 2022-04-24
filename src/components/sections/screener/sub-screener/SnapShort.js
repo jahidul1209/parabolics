@@ -51,13 +51,13 @@ class Basic extends Component {
                   this.state.rowData.map( d => {
                  
                        return(
-                          <div class="card mt-5">
+                          <div className="card mt-5">
                             <Row>
                                 <Col xs={12} md={8}>       
                                 <Link to = {`/chart/${d.symbol}`}>  <img src = {`https://api.chart-img.com/v1/tradingview/advanced-chart?height=400&studies=EMA:12&studies=EMA:26&symbol=${d.symbol}&key=2bbd4ca4-96f7-4779-86e5-3633b4a2bcd0`} alt=''  width='100%'/></Link>
                                 </Col>
                                 <Col xs={12} md={4}>
-                                    <Table class="table">
+                                    <Table className="table">
                                         <tbody>
                                         <tr>
                                             <th>Symbol</th>

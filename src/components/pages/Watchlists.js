@@ -105,7 +105,7 @@ function Watchlists(props) {
                     <span > Current Watchlist: Default</span>
                     </Col>
                     <Col sm={6} md={6}>
-                    <div class="mb-1 mr-5 trtr">
+                    <div className="mb-1 mr-5 trtr">
                         <button className="btn btn-danger p-2" type="button"  onClick={removeSelectedWatchlist}>
                             Remove Selected Watchlist
                         </button>
@@ -205,8 +205,8 @@ function Watchlists(props) {
                                                         <p>{item.beta}%</p>
                                                 </div>
                                                 <div className='stockws'>
-                                                <Link to = {`/chart/${item.symbol}`} class="btn btn-sm btn-outline-light"> Stocks </Link>
-                                                    <button type="button" class="btn btn-sm btn-outline-light">Options</button>      
+                                                <Link to = {`/chart/${item.symbol}`} className="btn btn-sm btn-outline-light"> Stocks </Link>
+                                                    <button type="button" className="btn btn-sm btn-outline-light">Options</button>      
                                                 </div>
                                         </div> 
                             )  

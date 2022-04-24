@@ -14,17 +14,14 @@ export default function Portfolio({ stocks, setStocks }) {
     //     stockFetcher(stocks, setStocks);
     // }, []);
 
-    console.log(stocks)
     useEffect(() => {
         //GET request to the database to fetch the stock which are already in our portfolio
         const fetchData = async () => {
             try {
                 const response = await fetch(`https://${DATABASE}.json`);
                 const data = await response.json();
-
                 //Validates that the database is not empty
                 if (data) {
-                    console.log(data)
                     //If not empty modifies the data with fetched results and updates state
                     const dataModified = Object.keys(data).map((key) => ({
                         id: key,
@@ -36,8 +33,6 @@ export default function Portfolio({ stocks, setStocks }) {
                     setStocks(dataModified);
                 }
             } catch (error) {
-                /*The option how to handle the error is totally up to you. 
-                Ideally, you can send notification to the user */
                 console.log(error);
             }
         };
@@ -74,8 +69,6 @@ export default function Portfolio({ stocks, setStocks }) {
             setStocks((stocks) => stocks.filter((s) => s.id == stockId));
         //    window.location.reload()
         } catch (error) {
-            /*The option how to handle the error is totally up to you. 
-            Ideally, you can send notification to the user */
             console.log(error);
         }
     };

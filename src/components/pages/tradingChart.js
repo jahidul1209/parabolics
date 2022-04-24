@@ -111,7 +111,7 @@ const TradingChart = () => {
 
   return (<>
     <Container fluid className="mt-4">
-       <div class="card">
+       <div className="card">
           <div className="company-info pt-3 pb-3" >
             {
               image ? <>
@@ -140,7 +140,7 @@ const TradingChart = () => {
                 <TradingViewWidget  symbol={`${id}`}  theme={Themes.DARK}  locale="en"  ref={tradingRef} />
             </Col>
             <Col xs={12} md={4}>
-            <Table class="table">
+            <Table className="table">
                 <tbody>
                   <tr>
                     <th>Symbol</th>

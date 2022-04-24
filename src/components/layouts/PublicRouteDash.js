@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
     <Header/>
      <div className="d-flex align-items-stretch">
       <Sidebar/>
-      <div class="page-content">     
+      <div className="page-content">     
            <main>{children}</main>
     </div>
     </div>

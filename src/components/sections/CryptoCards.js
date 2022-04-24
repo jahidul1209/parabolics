@@ -10,8 +10,8 @@ const myStyle={
 };
 
 function CryptoCards(props) {
+    
      const [rowData, setRowData] = useState([])
-
 
         function fetchData(){
             fetch("https://financialmodelingprep.com/api/v3/quotes/crypto?apikey=9f8bf374d13311bf6527af0ea58ebdb6")
@@ -34,18 +34,17 @@ function CryptoCards(props) {
             return b.price - a.price;
           });
 
+
     return (
-        
         <div>
           <Container fluid className='mt-3'>
             <div className='crypto-market'>
                   <div className='cryto-card'>
                      {         
                           rowData.map( ( d ,key)=> { 
-
-                                return(
-                                    key < 12 &&
-                                 <Link to = {`/chart/${d.symbol}`}>
+                            return(
+                                key < 12 &&
+                                  <Link to = {`/chart/${d.symbol}`}>
                                      <Row className='cry-card' style={myStyle}>                             
                                          <Col xs={6} md={6} >
                                                  <h4 style={{fontSize: '20px'}}>{d.symbol}</h4>

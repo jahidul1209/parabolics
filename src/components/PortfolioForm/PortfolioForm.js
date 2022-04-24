@@ -15,12 +15,10 @@ export default function PortfolioForm({stocks, setStocks, setInputVisibility }) 
     const [formValues, setFormValues] = useState(INITIAL_STATE);
 
     // useEffect(() => {
-        //Fetches prices and updates the state with current prices and profit or loss for the position
+    //     // Fetches prices and updates the state with current prices and profit or loss for the position
     //     stockFetcher(stocks, setStocks);
     // }, []);
 
-
-    console.log(stocks)
     //Function that handles the inputs and their new values
     const handleChange = (event) => {
         setFormValues((formValues) => ({

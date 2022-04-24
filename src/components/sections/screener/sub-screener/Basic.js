@@ -51,13 +51,13 @@ class Basic extends Component {
                   this.state.rowData.map( d => {
                  
                        return(
-                          <div class="card mt-5">
+                          <div className="card mt-5">
                             <Row>
                                 <Col xs={12} md={8}>       
                                         <TradingViewWidget  symbol={`${d.symbol}`} height = '480px' theme={Themes.DARK}  locale="en"  /> 
                                 </Col>
                                 <Col xs={12} md={4}>
-                                    <Table class="table">
+                                    <Table className="table">
                                         <tbody>
                                         <tr>
                                             <th>Symbol</th>

@@ -10,7 +10,7 @@ function Settings(props) {
 
     const Switch = ({ isOn, handleToggle }) => {
         return (
-          <div class="form-check form-switch mb-5">
+          <div className="form-check form-switch mb-5">
                     <label className="form-check-label" for="switchCheck" style={{color:'#c5c5c5', textTransform:'capitalize'}}>  Premium Access  ({ platform })</label>
                     <input 
                         checked={isOn}
@@ -95,14 +95,14 @@ function Settings(props) {
                         <h2 className="h5 mb-0">Settings</h2>
                 </div>
            </div>
-         <div>
+         <div>  
 
              {checkbox}
               <Container fluid className='mt-3'>
                 <div className ="col-md-12">
                         <div className ="card py-5 px-5 ">
                             <div className='select-user'>
-                            <label class="form-label" style={{fontSize:'18px'}}>Select User:
+                            <label className="form-label" style={{fontSize:'18px'}}>Select User:
                                        <select className="setting-btn" onChange={handleChange}>
                                           <option value="discord">Discord User</option>
                                           <option value="telegram">Telegram User</option>

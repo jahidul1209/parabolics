@@ -146,9 +146,9 @@ function Header() {
                        <img className="me-2" src={process.env.PUBLIC_URL + '/image/logo.png'} alt="img"/>
                    </div>
                   <li>
-                      <Link to='#' className="dropdown-item" > 
-                        <i className="fa fa-gem" style = {{fontSize:'16px' , marginRight:'10px'}}></i>
-                        <span>Discord</span>
+                      <Link to='profile' className="dropdown-item" > 
+                        <i className="fa fa-user" style = {{fontSize:'16px' , marginRight:'10px'}}></i>
+                        <span>Profile</span>
                       </Link>
                   </li>
                   <li>

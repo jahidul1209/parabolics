@@ -20,7 +20,7 @@ function SvgChart(props) {
 
     return (
         <div>
-            <svg viewBox="0 0 500 100" class="chart">                
+            <svg viewBox="0 0 500 100" className="chart">                
                     <polyline
                        fill="none"
                        stroke="#18d26e"

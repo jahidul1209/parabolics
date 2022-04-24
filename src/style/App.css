@@ -1156,6 +1156,29 @@ td.updated_at {
           align-items: center;
 }
 
+.user-info .table th {
+  color: #363636;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.user-info .table td, .user-info .table th {
+  padding: 0.8em 0.75em;
+}
+
+.user-info .table td {
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+  .select-user {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
 body {
   margin: 0;
   font-size: 1rem;
@@ -1423,6 +1446,9 @@ table.mdb-dataTable thead .sorting:before, table.mdb-dataTable thead .sorting:af
 @media only screen and (max-width: 768px) {
   .mdb-datatable.dt-bootstrap4 {
     overflow: auto;
+  }
+  .paypalbtn.text-center {
+    padding: 5% 10% 0 !important;
   }
 }
 

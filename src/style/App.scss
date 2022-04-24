@@ -252,6 +252,9 @@ table.mdb-dataTable thead .sorting:before, table.mdb-dataTable thead .sorting:af
   .mdb-datatable.dt-bootstrap4 {
     overflow: auto;
   }
+  .paypalbtn.text-center {
+    padding: 5% 10% 0!important;
+  }
 }
 
 
@@ -276,6 +279,7 @@ table.mdb-dataTable thead .sorting:before, table.mdb-dataTable thead .sorting:af
 .paypalbtn.text-center {
   padding: 5% 40% 0;
 }
+
 rect {
   stroke-width: 0!important;
 }
