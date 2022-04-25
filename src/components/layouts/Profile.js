@@ -8,8 +8,8 @@ function Profile(props) {
     const[name , setName] = useState()
     const[userName , setUserName] = useState()
     const[userMail , setUserMail] = useState() 
-    const[userGroup , setUserGroup] = useState()
-    const[userParams , setUserParams] = useState() 
+    // const[userGroup , setUserGroup] = useState()
+    // const[userParams , setUserParams] = useState() 
   
     var jsonUser =  {
         "type": "fetch",
@@ -34,7 +34,7 @@ function Profile(props) {
               setUserName(response.data.BASICS.NAME)
               setUserMail(response.data.MAIL.ADDR) 
             //   setUserGroup(response.data.PERMS.USERGROUPS) 
-              setUserParams(response.data.PERMS.USERPERMS.PREMIUM_ACCESS) 
+            //   setUserParams(response.data.PERMS.USERPERMS.PREMIUM_ACCESS) 
                
                
             })
@@ -86,14 +86,14 @@ function Profile(props) {
                                             <th>Telegram Username</th>
                                             <td>{telegramUser}</td>
                                        </tr> 
-                                         <tr>
+                                         {/* <tr>
                                             <th> User Groups</th>
                                             <td>{userGroup}</td>
                                        </tr>   
                                        <tr>
                                             <th> User Params</th>
                                             <td>{userParams}</td>
-                                       </tr>           
+                                       </tr>            */}
                                    </tbody></table>
                               </div>
                         </div>
